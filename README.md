@@ -1,2 +1,1 @@
-# congenial-lamp
-Temporary repo
+#This is a Temporary repo
