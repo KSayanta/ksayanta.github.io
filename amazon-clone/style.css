@@ -225,6 +225,7 @@ body {
 .main-bg-area {
   height: 600px;
   width: 96%;
+  max-width: 2000px;
   background-image: url(img/main_bg_0.jpg);
   background-size: cover;
   background-repeat: no-repeat;
@@ -248,12 +249,14 @@ body {
 
 /* Cards Section */
 .card-area {
+  max-width: 2000px;
+  width: 96%;
   position: relative;
   top: -320px;
   margin-bottom: -320px !important;
   margin: 0 auto;
   display: flex;
-  gap: 12px;
+  gap: 20px;
   justify-content: center;
   flex-wrap: wrap;
 }
