@@ -161,12 +161,32 @@ body {
 
 /* Footer */
 footer {
-    color: #C36746;
     position: absolute;
     width: 20%;
     bottom: 0;
     left: 0;
     padding-bottom: 10px;
+}
+
+footer p {
+    color: #C36746;
     text-align: center;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
+}
+
+.footer-socials {
+    display: flex;
+    justify-content: center;
+    column-gap: 15px;
+    padding-bottom: 10px;
+}
+
+.footer-socials a {
+    color: #C36746;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.footer-socials a:hover {
+    color: #A7593C;
 }
