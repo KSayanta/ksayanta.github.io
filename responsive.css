@@ -1,0 +1,60 @@
+/*
+ * Purpose: CSS for making Repository landing page responsive
+ * Author : Sayanta K
+ * Date   : 29-09-2024
+ */
+
+
+ @media (width < 900px) {
+
+    .nav-burger-menu {
+        display: inline-block;
+    }
+    
+    nav {
+        display: none;
+    }
+
+    .main-bg-img {
+        background-position: 40% 70%;
+        zoom: 120%;
+    }
+
+    .main-content {
+        top: 35%;
+        left: 10%;
+    }
+
+    .main-title h2 {
+        line-height: 3rem;
+        font-size: 2rem;
+        font-weight: 600;
+    }
+    
+    .main-title p {
+        font-size: 0.7rem;
+    }
+
+    .main-button-bio {
+        width: 180px;
+        margin-block-start: 110px;
+        letter-spacing: 0.1rem;
+    }
+
+    .main-button-bio span {
+        font-size: 2rem;
+    }
+
+    footer {
+        background-color: transparent;
+        width: 70%;
+    }
+
+    footer p {
+        font-size: 0.5rem;
+    }
+
+    .footer-socials a {
+        font-size: 1rem;
+    }
+ }
