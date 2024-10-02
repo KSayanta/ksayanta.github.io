@@ -1,155 +1,269 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sample Layout-3</title>
+    <link rel="stylesheet" href="sprite.css" />
   </head>
 
   <body>
-
     <header>
       <div class="search-area">
-        <input type="search" name="search-bar" id="search-bar" placeholder="Search...">
-        <img src="img/sprite.png" alt="search-icon">
+        <input
+          type="search"
+          name="search-bar"
+          id="search-bar"
+          placeholder="Search..."
+        />
+        <span class="icon-small icon-search"></span>
       </div>
       <div class="user-icon-area">
-        <img src="img/user.png" alt="user-pic">
-        <img src="img/sprite.png" alt="chevron">
+        <img src="img/user.png" alt="user-pic" />
+        <span class="icon-small icon-chevron-down"></span>
       </div>
     </header>
 
     <main>
-
       <aside>
         <nav>
+          <!-- nav title -->
           <div class="nav-title">
-            <img src="img/sprite.png" alt="icon">
+            <span class="icon-large icon-thunder"></span>
             <p>Ux Pro</p>
           </div>
 
+          <!-- user card section -->
           <div class="nav-user-section">
-            <img src="img/user.png" alt="user-pic">
+            <img src="img/user.png" alt="user-pic" />
             <p>Jane D</p>
           </div>
 
+          <!-- nav menu section -->
           <div class="nav-menu-area">
             <ul class="nav-main-menu">
+              
+              <!-- Document section -->
               <li>
                 <div>
                   <h5>DOCUMENTS</h5>
-                  <img src="img/sprite.png" alt="doc-icon">
+                  <span class="icon-small icon-document"></span>
                 </div>
                 <ul class="nav-sub-menu">
-                  <li>Insurance</li>
-                  <li>Travel</li>
-                  <li>Taxes</li>
+                  <li>
+                    <span class="icon-small icon-insurance"></span>
+                    <p>Insurance</p>
+                    <span class="icon-small icon-chevron-right"></span>
+                  </li>
+                  <li>
+                    <span class="icon-small icon-travel"></span>
+                    <p>Travel</p>
+                    <span class="icon-small icon-chevron-right"></span>
+                  </li>
+                  <li>
+                    <span class="icon-small icon-tax"></span>
+                    <p>Taxes</p>
+                    <span class="icon-small icon-chevron-right"></span>
+                  </li>
                 </ul>
               </li>
 
+              <!-- Messages section -->
               <li>
                 <div>
                   <h5>MESSAGES</h5>
-                  <img src="img/sprite.png" alt="msg-icon">
+                  <span class="icon-small icon-message"></span>
                 </div>
                 <ul class="nav-sub-menu">
-                  <li>Inbox</li>
-                  <li>Unread</li>
-                  <li>Archives</li>
+                  <li>
+                    <span class="icon-small icon-inbox"></span>
+                    <p>Inbox</p>
+                    <span class="icon-small icon-chevron-right"></span>
+                  </li>
+                  <li>
+                    <span class="icon-small icon-unread"></span>
+                    <p>Unread</p>
+                    <span class="icon-small icon-chevron-right"></span>
+                  </li>
+                  <li>
+                    <span class="icon-small icon-archive"></span>
+                    <p>Archive</p>
+                    <span class="icon-small icon-chevron-right"></span>
+                  </li>
                 </ul>
               </li>
 
+              <!-- Photo Album section -->
               <li>
                 <div>
                   <h5>PHOTO ALBUM</h5>
-                  <img src="img/sprite.png" alt="album-icon">
+                  <span class="icon-small icon-album"></span>
                 </div>
                 <ul class="nav-sub-menu">
-                  <li>Vacation</li>
-                  <li>Anniversary</li>
-                  <li>University</li>
+                  <li>
+                    <span class="icon-small icon-vacation"></span>
+                    <p>Vacation</p>
+                    <span class="icon-small icon-chevron-right"></span>
+                  </li>
+                  <li>
+                    <span class="icon-small icon-anniversary"></span>
+                    <p>Anniversary</p>
+                    <span class="icon-small icon-chevron-right"></span>
+                  </li>
+                  <li>
+                    <span class="icon-small icon-university"></span>
+                    <p>University</p>
+                    <span class="icon-small icon-chevron-right"></span>
+                  </li>
                 </ul>
               </li>
 
+              <!-- Statistics section -->
               <li>
                 <div>
                   <h5>STATISTICS</h5>
-                  <img src="img/sprite.png" alt="stat-icon">
+                  <span class="icon-small icon-statistics"></span>
                 </div>
                 <ul class="nav-sub-menu">
-                  <li>Finances</li>
-                  <li>Call Stats</li>
-                  <li>Trip Logs</li>
+                  <li>
+                    <span class="icon-small icon-finances"></span>
+                    <p>Finances</p>
+                    <span class="icon-small icon-chevron-right"></span>
+                  </li>
+                  <li>
+                    <span class="icon-small icon-call"></span>
+                    <p>Call Stats</p>
+                    <span class="icon-small icon-chevron-right"></span>
+                  </li>
+                  <li>
+                    <span class="icon-small icon-trip"></span>
+                    <p>Trip Logs</p>
+                    <span class="icon-small icon-chevron-right"></span>
+                  </li>
                 </ul>
               </li>
 
+              <!-- Events section -->
               <li>
                 <div>
                   <h5>EVENTS</h5>
-                  <img src="img/sprite.png" alt="event-icon">
+                  <span class="icon-small icon-event"></span>
                 </div>
                 <ul class="nav-sub-menu">
-                  <li>Weddings</li>
-                  <li>Play-Dates</li>
-                  <li>Networking</li>
+                  <li>
+                    <span class="icon-small icon-gift"></span>
+                    <p>Weddings</p>
+                    <span class="icon-small icon-chevron-right"></span>
+                  </li>
+                  <li>
+                    <span class="icon-small icon-play-date"></span>
+                    <p>Play-Dates</p>
+                    <span class="icon-small icon-chevron-right"></span>
+                  </li>
+                  <li>
+                    <span class="icon-small icon-network"></span>
+                    <p>Networking</p>
+                    <span class="icon-small icon-chevron-right"></span>
+                  </li>
                 </ul>
               </li>
+
             </ul>
           </div>
         </nav>
       </aside>
 
+      <!-- hero area -->
       <div class="hero-area">
         <p>Welcome, Jane</p>
         <p>How are you today?</p>
         <div class="hero-widget-area">
           <span class="hero-widget">
-            <p>41</p>
+            <h5>41</h5>
+            <span class="icon-small icon-event"></span>
             <p>Events</p>
           </span>
           <span class="hero-widget">
-            <p>64</p>
+            <h5>64</h5>
+            <span class="icon-small icon-chat"></span>
             <p>Messages</p>
           </span>
           <span class="hero-widget">
-            <p>27<sup>o</sup></p>
+            <h5>27&deg;</h5>
+            <span class="icon-small icon-location"></span>
             <p>Austin</p>
           </span>
         </div>
       </div>
 
+      <!-- small card area -->
       <div class="small-card-area">
+
         <div class="small-card">
-          <p class="small-card-title">New Document</p>
-          <p class="small-card-sub">Europe Trip</p>
+          <div class="small-card-icon">
+            <span class="icon-large icon-document"></span>
+          </div>
+          <div class="small-card-info">
+            <p class="small-card-title">New <strong>Document</strong></p>
+            <p class="small-card-sub">Europe Trip</p>
+          </div>
         </div>
+
         <div class="small-card">
-          <p class="small-card-title">Upcoming Event</p>
-          <p class="small-card-sub">Chill Cookoff</p>
+          <div class="small-card-icon">
+            <span class="icon-large icon-event"></span>
+          </div>
+          <div class="small-card-info">
+            <p class="small-card-title">Upcoming <strong>Event</strong></p>
+            <p class="small-card-sub">Chill Cookoff</p>
+          </div>
         </div>
+
         <div class="small-card">
-          <p class="small-card-title">Recent Mails</p>
-          <p class="small-card-sub">+10</p>
+          <div class="small-card-icon">
+            <span class="icon-large icon-unread"></span>
+          </div>
+          <div class="small-card-info">
+            <p class="small-card-title">Recent <strong>Mails</strong></p>
+            <p class="small-card-sub">+10</p>
+          </div>
         </div>
+
         <div class="small-card">
-          <p class="small-card-title">New Album</p>
-          <p class="small-card-sub">House Concert</p>
+          <div class="small-card-icon">
+            <span class="icon-large icon-album"></span>
+          </div>
+          <div class="small-card-info">
+            <p class="small-card-title">New <strong>Album</strong></p>
+            <p class="small-card-sub">House Concert</p>
+          </div>
         </div>
+
       </div>
 
+      <!-- content area -->
       <div class="content-area">
 
-        <div class="content-header">
+        <!-- your events section -->
+        <div class="content-card">
+          <div class="content-header">
 
-          <p class="content-title">Your <strong>Events</strong></p>
-          <p class="content-view">View All</p>
+            <div class="content-header-lable">
+              <p class="content-title">Your <strong>Events</strong></p>
+              <p class="content-view">View All</p>
+            </div>
+
+            <div class="content-header-icon">
+              <span class="icon-small icon-edit"></span>
+              <span class="icon-small icon-cog"></span>
+            </div>
+
+          </div>
 
           <div class="content-event-area">
-
             <div class="content-event-card">
               <h3>Today</h3>
-              
+              <span class="icon-small icon-gift"></span>
               <div class="content-event-card-description">
                 <h5>Jonathan G</h5>
                 <p>Going away party at 8:30pm. Bring a friend!</p>
@@ -159,7 +273,7 @@
 
             <div class="content-event-card">
               <h3>Tuesday</h3>
-              
+              <span class="icon-small icon-trip"></span>
               <div class="content-event-card-description">
                 <h5>Matthew H</h5>
                 <p>Flying to Bora Bora at 4:30pm</p>
@@ -169,7 +283,7 @@
 
             <div class="content-event-card">
               <h3>Thursday</h3>
-              
+              <span class="icon-small icon-book"></span>
               <div class="content-event-card-description">
                 <h5>National Institute of Science</h5>
                 <p>Join the institute for an in-depth look at Stephen Hawking</p>
@@ -179,7 +293,7 @@
 
             <div class="content-event-card">
               <h3>Friday</h3>
-              
+              <span class="icon-small icon-heart"></span>
               <div class="content-event-card-description">
                 <h5>24th Annual Heart Ball</h5>
                 <p>Join us and contribute to your favorite local charity</p>
@@ -189,7 +303,7 @@
 
             <div class="content-event-card">
               <h3>Saturday</h3>
-              
+              <span class="icon-small icon-heart"></span>
               <div class="content-event-card-description">
                 <h5>Little Rock Air Show</h5>
                 <p>See the Blue Angels fly with roaring thunder</p>
@@ -198,31 +312,65 @@
             </div>
 
           </div>
+
         </div>
 
-        <div class="content-header">
-          <p class="content-title">Recent <strong>Documents</strong></p>
-          <p class="content-view">View All</p>
+        <!-- recent documents section -->
+        <div class="content-card">
+
+          <div class="content-header">
+
+            <div class="content-header-lable">
+              <p class="content-title">Recent <strong>Documents</strong></p>
+              <p class="content-view">View All</p>
+            </div>
+  
+            <div class="content-header-icon">
+              <span class="icon-small icon-edit"></span>
+              <span class="icon-small icon-cog"></span>
+            </div>
+  
+          </div>
+
           <div class="document-preview-area">
             <span class="document-preview">
+              <span class="icon-extra-large icon-document"></span>
               <p>tesla-patents</p>
               <p class="document-date">07/18/2018</p>
             </span>
             <span class="document-preview">
+              <span class="icon-extra-large icon-document"></span>
               <p>yearly-budget</p>
               <p class="document-date">09/08/2018</p>
             </span>
             <span class="document-preview">
+              <span class="icon-extra-large icon-document"></span>
               <p>top-movies</p>
               <p class="document-date">10/10/2018</p>
             </span>
           </div>
+
         </div>
 
-        <div class="content-header">
-          <p class="content-title">Monthly <strong>Spending</strong></p>
-          <p class="content-view">View All</p>
+        <!-- monthly spending section -->
+        <div class="content-card">
+
+          <div class="content-header">
+
+            <div class="content-header-lable">
+              <p class="content-title">Monthly <strong>Spending</strong></p>
+              <p class="content-view">View All</p>
+            </div>
+
+            <div class="content-header-icon">
+              <span class="icon-small icon-edit"></span>
+              <span class="icon-small icon-cog"></span>
+            </div>
+
+          </div>
+
           <img src="img/chart.png" alt="chart image" />
+
         </div>
 
       </div>
@@ -233,5 +381,6 @@
       <p>&copy; 2024 ABYZ LLC</p>
       <p>Crafted with &hearts; by ABYZ LLC</p>
     </footer>
+    
   </body>
 </html>
