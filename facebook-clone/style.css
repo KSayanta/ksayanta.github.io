@@ -10,3 +10,144 @@
   list-style: none;
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.global-width {
+    width: 980px;
+    min-width: 500px;
+    margin: 0 auto;
+}
+
+
+/* Body Styles */
+main {
+  background-color: #f0f2f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#main-container {
+    display: flex;
+    justify-content: center;
+    column-gap: 60px;
+    padding: 72px 0 112px;
+}
+
+#hero-area {
+    flex-basis: 540px;
+    padding: 20px 0;
+    margin-top: 50px;
+}
+
+#hero-area img {
+    width: 300px;
+}
+
+#hero-area h2 {
+    color: #1c1e21;
+    font-size: 1.5rem;
+    font-weight: 400;
+    padding-left: 20px;
+}
+
+#form-area {
+    flex-basis: 396px;
+    text-align: center;
+}
+
+#form-area form {
+    background-color: #fff;
+    box-shadow: 0 0 10px #ddd;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+#form-area input {
+    width: 100%;
+    display: block;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    padding: 14px 16px;
+}
+
+#form-area input[type = "submit"] {
+    background-color: #1877f2;
+    border: 1px solid #1877f2;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+#form-area form a {
+    color: #1877f2;
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 800;
+    text-decoration: none;
+    margin-bottom: 15px;
+}
+
+#form-area a:hover {
+    text-decoration: underline;
+}
+
+#form-area form button {
+    background-color: #36a420;
+    border: 1px solid #36a420;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin: 25px 0 10px;
+    padding: 16px;
+    cursor: pointer;
+}
+
+#form-area p {
+    color: #1c1e21;
+    font-size: 0.9rem;
+    margin-top: 20px;
+}
+
+#form-area p a {
+    color: #1c1e21;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+
+/* Footer Area */
+footer {
+    background-color: #fff;
+    padding: 25px 0;
+}
+
+footer ul {
+    margin: 10px 0;
+}
+
+footer ul li {
+    display: inline-block;
+    line-height: 1.4rem;
+    padding: 0 5px;
+}
+
+footer ul li a {
+    text-decoration: none;
+    color: #737373;
+    font-size: 0.8rem;
+}
+
+footer ul li a:hover {
+    text-decoration: underline;
+}
+
+footer p {
+    color: #737373;
+    font-size: 0.7rem;
+    font-weight: 800;
+    margin: 20px 5px 0;
+}
