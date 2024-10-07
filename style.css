@@ -12,52 +12,24 @@
 }
 
 
-/* Global text style */
-.uppercase-text {
-    text-transform: uppercase;
-}
-
-
-/* Burger Menu */
-.nav-burger-menu {
-    display: none;
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    cursor: pointer;
-}
-
-.nav-burger-menu span {
-    font-size: 2.5rem;
-    font-weight: 700;
-}
-
-
-/* Navigation pane */
+/* Navigation panel */
 nav {
     background-color: #000;
-    position: absolute;
-    top: 0;
-    bottom: 5%;
-    width: 20%;
-    min-width: 200px;
-    border-right: 1px solid #554C44;
+    border-right: 1px solid #FFE5CF;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 3% 0;
+
+    position: fixed;
+    top: 0;
+    bottom: 5%;
+    width: 20%;
+    min-width: 200px;
+    padding: 20px 0;
 }
 
-nav::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 30px;
-    top: 0;
-    left: 0;
-    border-right: 1px solid black;
-}
 
 .nav-logo {
     height: 180px;
@@ -128,7 +100,7 @@ body {
     background-repeat: no-repeat;
     background-position: 30% 70%;
     zoom: 150%;
-    z-index: -1;
+    z-index: -2;
 }
 
 .main-content {
@@ -136,6 +108,7 @@ body {
     top: 40%;
     left: 25%;
     max-width: fit-content;
+    z-index: -1;
 }
 
 .main-title h2 {
