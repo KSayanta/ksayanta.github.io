@@ -49,17 +49,14 @@ main h1 {
     flex-direction: column;
     line-height: 4rem;
     width: 300px;
+    text-align: center;
 }
 
 .projects a {
     color: #FFDC7F;
+    font-size: 1.5rem;
 }
 
 .projects a:hover {
     font-weight: 800;
-}
-
-.projects h2 {
-    color: #227B94;
-    display: inline-block;
 }
