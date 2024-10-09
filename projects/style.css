@@ -1,3 +1,9 @@
+:root {
+    --primary-color: #16325B;
+    --secondary-color: #78B7D0;
+    --highlight-color: #FFDC7F;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -18,16 +24,16 @@ nav ul {
     justify-content: space-evenly;
     align-items: center;
     min-height: 8vh;
-    background-color: #16325B;
+    background-color: var(--primary-color);
 }
 
 nav a {
-    color: #78B7D0;
+    color: var(--secondary-color);
     font-size: 1.5rem;
 }
 
 nav li:hover a {
-    color: #FFDC7F;
+    color: var(--highlight-color);
     text-decoration: underline;
 }
 
@@ -53,7 +59,7 @@ main h1 {
 }
 
 .projects a {
-    color: #FFDC7F;
+    color: var(--highlight-color);
     font-size: 1.5rem;
 }
 
