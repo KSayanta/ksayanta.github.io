@@ -1,19 +1,13 @@
-function removeBMICategoryAttr() {
-  const bmiCategoriesDT = document.querySelectorAll("#bmi-category dl dt");
-  bmiCategoriesDT.forEach((dt) => {
-    dt.removeAttribute("class", "bmi-highlight-style");
-    dt.nextElementSibling.removeAttribute("class", "bmi-highlight-style");
-  });
-}
-
 const form = document.querySelector("#bmi-form");
+const submit = document.querySelector("#submit");
+const reset = document.querySelector("#reset");
+const result = document.querySelector("#bmi-output");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
 
   const height = parseInt(document.querySelector("#height").value);
   const weight = parseInt(document.querySelector("#weight").value);
-  const result = document.querySelector("#bmi-output");
 
   const bmi = (weight / ((height * height) / 10000)).toFixed(2);
 
@@ -53,10 +47,31 @@ form.addEventListener("submit", (event) => {
       break;
 
     default:
-      removeBMICategoryAttr();
       break;
   }
 
   result.setAttribute("class", "bmi-output-style");
   result.innerHTML = `Your BMI is ${bmi}`;
+  resetVisible();
 });
+
+form.addEventListener("reset", () => {
+  reset.style.display = "none";
+  submit.style.display = "block";
+  result.removeAttribute("class", "bmi-output-style");
+  result.innerHTML = "";
+  removeBMICategoryAttr();
+});
+
+function removeBMICategoryAttr() {
+  const bmiCategoriesDT = document.querySelectorAll("#bmi-category dl dt");
+  bmiCategoriesDT.forEach((dt) => {
+    dt.removeAttribute("class", "bmi-highlight-style");
+    dt.nextElementSibling.removeAttribute("class", "bmi-highlight-style");
+  });
+}
+
+function resetVisible() {
+  reset.style.display = "block";
+  submit.style.display = "none";
+}
