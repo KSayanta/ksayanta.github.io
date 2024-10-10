@@ -81,16 +81,15 @@ nav li:hover a {
 }
 
 main {
-  height: 92vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 4rem;
 }
 
 main h1 {
-  font-size: 4rem;
+  font-size: 3rem;
+  padding-block: 60px;
 }
 
 .projects {
