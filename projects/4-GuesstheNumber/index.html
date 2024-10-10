@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects | Guess the Number</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="../style.css" />
+</head>
+
+<body style="background-color: #222; color: #fff">
+    <nav>
+        <ul>
+            <li><a href="/projects/" aria-current="page">Home</a></li>
+            <li><a href="#">Works</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero-area">
+        <h1>Guess the Number</h1>
+        <hr />
+        <p>Try to guess a number between 1 and 100</p>
+        <p>You have <span id="chances">10</span> chances</p>
+
+        <form id="guess-form" onsubmit="return false;">
+            <label for="guess-input" id="guess-lable">Guess a Number</label>
+            <input type="number" placeholder="Enter your guess..." id="guess-input" class="arrow-hide" min="1" max="100"
+                required />
+            <input type="button" id="guess-btn" class="cta-btn" value="Submit Guess" />
+            <input type="button" value="Reset" id="reset-btn" class="cta-btn" style="display: none;">
+        </form>
+
+        <div id="guesses-list"></div>
+        <p id="message"></p>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
