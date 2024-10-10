@@ -35,28 +35,19 @@
   padding: 20px;
 }
 
-#bmi-form button {
-  color: var(--highlight-color);
-  background-color: var(--primary-color);
+#bmi-form input:focus {
+  outline: none;
+  box-shadow: 0 0 10px var(--highlight-color);
+}
 
+#bmi-form button {
   width: 200px;
   height: 50px;
-
-  cursor: pointer;
 
   font-size: 1.2rem;
   font-weight: 800;
 
-  border: 2px solid #111;
-  border-radius: 10px;
-
   margin: 10px;
-}
-
-#bmi-form button:hover,
-#bmi-form button:active {
-  color: var(--primary-color);
-  background-color: var(--highlight-color);
 }
 
 .bmi-output-style {
@@ -112,6 +103,6 @@
 }
 
 .bmi-highlight-style {
-    font-weight: 800;
-    color: var(--highlight-color);
+  font-weight: 800;
+  color: var(--highlight-color);
 }
