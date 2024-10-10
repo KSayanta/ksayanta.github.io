@@ -1,0 +1,108 @@
+.hero-area {
+  text-align: center;
+}
+
+.hero-area h1 {
+  font-size: 3rem;
+  padding-block: 60px;
+}
+
+#bmi-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+#bmi-form label {
+  font-size: 1.5rem;
+  margin-top: 30px;
+}
+
+#bmi-form input {
+  color: #333;
+
+  width: 250px;
+  height: 30px;
+
+  font-size: 1rem;
+  font-weight: 800;
+  text-align: center;
+
+  border: none;
+  border-radius: 10px;
+
+  padding: 20px;
+}
+
+#bmi-form input:focus {
+  outline: none;
+  box-shadow: 0 0 10px var(--highlight-color);
+}
+
+#bmi-form button {
+  width: 200px;
+  height: 50px;
+
+  font-size: 1.2rem;
+  font-weight: 800;
+
+  margin: 10px;
+}
+
+.bmi-output-style {
+  display: inline-block;
+
+  font-size: 2rem;
+  font-weight: 800;
+
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+
+  border: 2px solid var(--highlight-color);
+  border-radius: 10px;
+
+  margin: 30px;
+  padding: 10px;
+}
+
+#bmi-category {
+  position: absolute;
+  top: 48%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#bmi-category strong {
+  font-size: 1.2rem;
+  line-height: 5rem;
+}
+
+#bmi-category dl {
+  color: #ddd;
+}
+
+#bmi-category dt {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+#bmi-category dt::after {
+  content: ":";
+}
+
+#bmi-category dd {
+  font-size: 0.85rem;
+  font-style: oblique;
+  margin-left: 50px;
+  margin-bottom: 10px;
+}
+
+.bmi-highlight-style {
+  font-weight: 800;
+  color: var(--highlight-color);
+}
