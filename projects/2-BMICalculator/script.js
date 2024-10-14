@@ -2,6 +2,7 @@ const form = document.querySelector("#bmi-form");
 const submit = document.querySelector("#submit");
 const reset = document.querySelector("#reset");
 const result = document.querySelector("#bmi-output");
+const inputHeight = document.querySelector("#height");
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -18,7 +19,7 @@ form.addEventListener("submit", (event) => {
       underweight.setAttribute("class", "bmi-highlight-style");
       underweight.nextElementSibling.setAttribute(
         "class",
-        "bmi-highlight-style"
+        "bmi-highlight-style",
       );
       break;
 
@@ -35,7 +36,7 @@ form.addEventListener("submit", (event) => {
       overweight.setAttribute("class", "bmi-highlight-style");
       overweight.nextElementSibling.setAttribute(
         "class",
-        "bmi-highlight-style"
+        "bmi-highlight-style",
       );
       break;
 
@@ -61,6 +62,7 @@ form.addEventListener("reset", () => {
   result.removeAttribute("class", "bmi-output-style");
   result.innerHTML = "";
   removeBMICategoryAttr();
+  inputHeight.focus();
 });
 
 function removeBMICategoryAttr() {
