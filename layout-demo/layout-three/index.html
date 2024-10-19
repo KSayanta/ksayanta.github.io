@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Layout Three</title>
     <link rel="stylesheet" href="sprite.css" />
+    <link rel="stylesheet" href="css/style.css" />
   </head>
 
   <body>
@@ -64,7 +65,6 @@
               </li>
             </ul>
           </li>
-
           <!-- Messages -->
           <li>
             <header role="heading">
@@ -89,7 +89,6 @@
               </li>
             </ul>
           </li>
-
           <!-- Photo Album -->
           <li>
             <header role="heading">
@@ -114,7 +113,6 @@
               </li>
             </ul>
           </li>
-
           <!-- Statistics -->
           <li>
             <header role="heading">
@@ -139,7 +137,6 @@
               </li>
             </ul>
           </li>
-
           <!-- Events -->
           <li>
             <header role="heading">
@@ -170,7 +167,7 @@
 
     <!-- Main Content -->
     <main>
-      <section role="region">
+      <section role="region" class="hero-area">
         <header>
           <h2>Welcome, Jane</h2>
           <p>How are you today?</p>
@@ -193,7 +190,7 @@
       </section>
 
       <!-- Small cards area -->
-      <section role="region">
+      <section role="region" class="cards-area">
         <article aria-labelledby="document">
           <span class="icon-large icon-document"></span>
           <h2 id="document">New <strong>Document</strong></h2>
@@ -216,112 +213,114 @@
         </article>
       </section>
 
-      <!-- Events -->
-      <section role="region">
-        <header>
-          <h2>Your <strong>Events</strong></h2>
-          <nav>
-            <a href="#">View All</a>
-            <span class="icon-small icon-edit"></span>
-            <span class="icon-small icon-cog"></span>
-          </nav>
-        </header>
-        <!-- Cards -->
-        <section role="list">
-          <h3>Today</h3>
-          <span class="icon-small icon-gift"></span>
-          <article role="listitem">
-            <h4>Jonathan G</h4>
-            <p>Going away party at 8:30pm. Bring a friend!</p>
-            <address>1404 Gibson St</address>
-          </article>
+      <div class="container">
+        <!-- Events -->
+        <section role="region" class="events preview">
+          <header>
+            <h2>Your <strong>Events</strong></h2>
+            <nav>
+              <a href="#">View All</a>
+              <span class="icon-small icon-edit"></span>
+              <span class="icon-small icon-cog"></span>
+            </nav>
+          </header>
+          <!-- Cards -->
+          <section role="list">
+            <h3>Today</h3>
+            <span class="icon-small icon-gift"></span>
+            <article role="listitem">
+              <h4>Jonathan G</h4>
+              <p>Going away party at 8:30pm. Bring a friend!</p>
+              <address>1404 Gibson St</address>
+            </article>
+          </section>
+          <section role="list">
+            <h3>Tuesday</h3>
+            <span class="icon-small icon-trip"></span>
+            <article role="listitem">
+              <h4>Matthew H</h4>
+              <p>Flying to Bora Bora at 4:30pm</p>
+              <address>Delta Gate 27B</address>
+            </article>
+          </section>
+          <section role="list">
+            <h3>Thursday</h3>
+            <span class="icon-small icon-book"></span>
+            <article role="listitem">
+              <h4>National Institute of Science</h4>
+              <p>Join the institute for an in-depth look at Stephen Hawking</p>
+              <address>7:30pm Carnegie Center for Science</address>
+            </article>
+          </section>
+          <section role="list">
+            <h3>Friday</h3>
+            <span class="icon-small icon-heart"></span>
+            <article role="listitem">
+              <h4>24th Annual Heart Ball</h4>
+              <p>Join us and contribute to your favorite local charity</p>
+              <address>6:45pm Austin Convention Ctr</address>
+            </article>
+          </section>
+          <section role="list">
+            <h3>Saturday</h3>
+            <span class="icon-small icon-heart"></span>
+            <article role="listitem">
+              <h4>Little Rock Air Show</h4>
+              <p>See the Blue Angels fly with roaring thunder</p>
+              <address>11:00pm Jacksonville Airfield Base</address>
+            </article>
+          </section>
         </section>
-        <section role="list">
-          <h3>Tuesday</h3>
-          <span class="icon-small icon-trip"></span>
-          <article role="listitem">
-            <h4>Matthew H</h4>
-            <p>Flying to Bora Bora at 4:30pm</p>
-            <address>Delta Gate 27B</address>
-          </article>
-        </section>
-        <section role="list">
-          <h3>Thursday</h3>
-          <span class="icon-small icon-book"></span>
-          <article role="listitem">
-            <h4>National Institute of Science</h4>
-            <p>Join the institute for an in-depth look at Stephen Hawking</p>
-            <address>7:30pm Carnegie Center for Science</address>
-          </article>
-        </section>
-        <section role="list">
-          <h3>Friday</h3>
-          <span class="icon-small icon-heart"></span>
-          <article role="listitem">
-            <h4>24th Annual Heart Ball</h4>
-            <p>Join us and contribute to your favorite local charity</p>
-            <address>6:45pm Austin Convention Ctr</address>
-          </article>
-        </section>
-        <section role="list">
-          <h3>Saturday</h3>
-          <span class="icon-small icon-heart"></span>
-          <article role="listitem">
-            <h4>Little Rock Air Show</h4>
-            <p>See the Blue Angels fly with roaring thunder</p>
-            <address>11:00pm Jacksonville Airfield Base</address>
-          </article>
-        </section>
-      </section>
 
-      <!-- Recent Documents -->
-      <section role="region">
-        <header>
-          <h2>Recent <strong>Documents</strong></h2>
-          <nav>
-            <a href="#">View All</a>
-            <span class="icon-small icon-edit"></span>
-            <span class="icon-small icon-cog"></span>
-          </nav>
-        </header>
-        <div role="list">
-          <!-- cards -->
-          <article role="listitem">
-            <span class="icon-extra-large icon-document"></span>
-            <h3>tesla-patents</h3>
-            <time datetime="2018-07-18">07/18/2018</time>
-          </article>
-          <article role="listitem">
-            <span class="icon-extra-large icon-document"></span>
-            <h3>yearly-budget</h3>
-            <time datetime="2018-09-08">09/08/2018</time>
-          </article>
-          <article role="listitem">
-            <span class="icon-extra-large icon-document"></span>
-            <h3>top-movies</h3>
-            <time datetime="2018-10-10">10/10/2018</time>
-          </article>
-        </div>
-      </section>
+        <!-- Recent Documents -->
+        <section role="region" class="recent-documents preview">
+          <header>
+            <h2>Recent <strong>Documents</strong></h2>
+            <nav>
+              <a href="#">View All</a>
+              <span class="icon-small icon-edit"></span>
+              <span class="icon-small icon-cog"></span>
+            </nav>
+          </header>
+          <div role="list">
+            <!-- cards -->
+            <article role="listitem">
+              <span class="icon-extra-large icon-document"></span>
+              <h3>tesla-patents</h3>
+              <time datetime="2018-07-18">07/18/2018</time>
+            </article>
+            <article role="listitem">
+              <span class="icon-extra-large icon-document"></span>
+              <h3>yearly-budget</h3>
+              <time datetime="2018-09-08">09/08/2018</time>
+            </article>
+            <article role="listitem">
+              <span class="icon-extra-large icon-document"></span>
+              <h3>top-movies</h3>
+              <time datetime="2018-10-10">10/10/2018</time>
+            </article>
+          </div>
+        </section>
 
-      <!-- Monthly Spending -->
-      <section>
-        <header>
-          <h2>Monthly <strong>Income</strong></h2>
-          <nav>
-            <a href="#">View All</a>
-            <span class="icon-small icon-edit"></span>
-            <span class="icon-small icon-cog"></span>
-          </nav>
-        </header>
-        <figure>
-          <img
-            src="img/chart.png"
-            alt="Monthly income chart depicting [insert summary]"
-          />
-          <figcaption>Monthly Income Chart</figcaption>
-        </figure>
-      </section>
+        <!-- Monthly Spending -->
+        <section class="spending preview">
+          <header>
+            <h2>Monthly <strong>Income</strong></h2>
+            <nav>
+              <a href="#">View All</a>
+              <span class="icon-small icon-edit"></span>
+              <span class="icon-small icon-cog"></span>
+            </nav>
+          </header>
+          <figure>
+            <img
+              src="img/chart.png"
+              alt="Monthly income chart depicting [insert summary]"
+            />
+            <figcaption>Monthly Income Chart</figcaption>
+          </figure>
+        </section>
+      </div>
     </main>
 
     <!-- Footer -->

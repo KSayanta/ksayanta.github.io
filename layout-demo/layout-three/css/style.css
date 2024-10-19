@@ -1,0 +1,50 @@
+:root {
+  --color-primary: #004466;
+  --color-background: #efefef;
+}
+
+body {
+  display: grid;
+  /* grid-template-rows: 50px auto 30px;
+  grid-template-columns: 300px auto; */
+  grid-template-areas:
+    "header header"
+    "sidebar main"
+    "sidebar footer";
+}
+
+header {
+  grid-area: header;
+}
+
+aside {
+  grid-area: sidebar;
+  background-color: var(--color-primary);
+}
+
+main {
+  grid-area: main;
+}
+
+footer {
+  grid-area: footer;
+  background-color: var(--color-background);
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(12, 1fr);
+}
+
+.event {
+  grid-row: span 8;
+}
+
+.recent-documents {
+  grid-row: span 6;
+}
+
+.spending {
+  grid-row: span 6;
+}
