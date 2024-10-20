@@ -1,25 +1,30 @@
 /* Sprite CSS */
-.icon-small {
+.icon-dark {
   background: url("../img/sprite.png") no-repeat;
+  display: inline-block;
+}
+
+.icon-light {
+  background: url("../img/sprite.png") no-repeat;
+  display: inline-block;
+  filter: invert(100%);
+}
+
+.icon-small {
   width: 48px;
   height: 48px;
-  display: inline-block;
   zoom: 50%;
 }
 
 .icon-large {
-  background: url("../img/sprite.png") no-repeat;
   width: 48px;
   height: 48px;
-  display: inline-block;
   zoom: 80%;
 }
 
 .icon-extra-large {
-  background: url("../img/sprite.png") no-repeat;
   width: 48px;
   height: 48px;
-  display: inline-block;
   zoom: 150%;
 }
 
