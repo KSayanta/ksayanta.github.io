@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Layout Three</title>
-    <link rel="stylesheet" href="sprite.css" />
+    <link rel="stylesheet" href="css/sprite.css" />
     <link rel="stylesheet" href="css/style.css" />
   </head>
 
@@ -18,9 +18,14 @@
           id="search-bar"
           placeholder="Search..."
         />
+        <span id="search-icon" class="icon-small icon-search"></span>
       </form>
-      <div role="button">
-        <img src="img/user.png" alt="profile picture of the user" />
+      <div role="button" class="user-image-container">
+        <img
+          src="img/user.png"
+          alt="profile picture of the user"
+          class="user-image"
+        />
         <button aria-expanded="false" aria-label="Toggle user menu">
           <span class="icon-small icon-chevron-down"></span>
         </button>
@@ -166,7 +171,7 @@
     </aside>
 
     <!-- Main Content -->
-    <main>
+    <main class="hidden">
       <section role="region" class="hero-area">
         <header>
           <h2>Welcome, Jane</h2>
@@ -324,7 +329,7 @@
     </main>
 
     <!-- Footer -->
-    <footer>
+    <footer class="hidden">
       <p>&copy; 2024 ABYZ LLC</p>
       <p>Crafted with &hearts; by ABYZ LLC</p>
     </footer>
