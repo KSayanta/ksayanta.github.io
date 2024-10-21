@@ -175,31 +175,31 @@
     </aside>
 
     <!-- Main Content -->
-    <main class="hidden">
-      <section role="region" class="hero-area">
+    <main>
+      <section role="region" id="hero-area">
         <header>
-          <h2>Welcome, Jane</h2>
+          <h2>Welcome, <strong>Jane</strong></h2>
           <p>How are you today?</p>
         </header>
         <div aria-labelledby="events">
           <h2 id="events">41</h2>
-          <span class="icon-small icon-event"></span>
+          <span class="icon-light icon-small icon-event"></span>
           <p>Events</p>
         </div>
         <div aria-labelledby="messages">
           <h2 id="messages">64</h2>
-          <span class="icon-small icon-chat"></span>
+          <span class="icon-light icon-small icon-chat"></span>
           <p>Messages</p>
         </div>
         <div aria-labelledby="location">
           <h2 id="location">27&deg;</h2>
-          <span class="icon-small icon-location"></span>
+          <span class="icon-light icon-small icon-location"></span>
           <p>Austin</p>
         </div>
       </section>
 
       <!-- Small cards area -->
-      <section role="region" class="cards-area">
+      <section role="region" class="cards-area hidden">
         <article aria-labelledby="document">
           <span class="icon-large icon-document"></span>
           <h2 id="document">New <strong>Document</strong></h2>
@@ -224,7 +224,7 @@
 
       <div class="container">
         <!-- Events -->
-        <section role="region" class="events preview">
+        <section role="region" class="events preview hidden">
           <header>
             <h2>Your <strong>Events</strong></h2>
             <nav>
@@ -282,7 +282,7 @@
         </section>
 
         <!-- Recent Documents -->
-        <section role="region" class="recent-documents preview">
+        <section role="region" class="recent-documents preview hidden">
           <header>
             <h2>Recent <strong>Documents</strong></h2>
             <nav>
@@ -312,7 +312,7 @@
         </section>
 
         <!-- Monthly Spending -->
-        <section class="spending preview">
+        <section class="spending preview hidden">
           <header>
             <h2>Monthly <strong>Income</strong></h2>
             <nav>
