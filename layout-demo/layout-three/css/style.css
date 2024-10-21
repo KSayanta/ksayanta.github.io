@@ -2,6 +2,12 @@
   --color-primary: #046;
   --color-secondary: #0074ad;
   --color-background: #efefef;
+  --color-text-description: #a0a0a0;
+  --color-icon-bg: tomato;
+  --color-icon-document: #ffa500;
+  --color-icon-event: #2db160;
+  --color-icon-mail: #db513d;
+  --color-icon-album: #b066d1;
   --spacing: clamp(0.3125rem, -3.125rem + 3.125vw, 0.625rem);
 }
 
@@ -18,7 +24,7 @@
 }
 
 .select {
-  background-color: tomato;
+  background-color: darkkhaki;
 }
 
 /* global styles */
@@ -152,11 +158,13 @@ aside > nav ul {
   flex-grow: 1;
 }
 
-/* TODO: main content */
+/* main content */
 main {
   grid-area: main;
+  background-color: var(--color-background);
 }
 
+/* hero area */
 #hero-area {
   background-image: url("../img/cover.png");
   background-repeat: no-repeat;
@@ -199,6 +207,89 @@ main {
   display: inline-block;
 }
 
+/* cards area */
+#cards-area {
+  display: flex;
+  column-gap: 30px;
+  padding: 20px 15px;
+}
+
+#cards-area article {
+  background-color: #fff;
+  flex-grow: 1;
+  display: grid;
+  grid-template:
+    "icon title" 1fr
+    "icon description" 1fr / 1fr max-content;
+  padding: 20px 15px;
+  position: relative;
+  z-index: 1;
+}
+
+.icon-bg {
+  grid-area: icon;
+  position: relative;
+  margin: 15px;
+}
+
+.icon-bg::before {
+  content: "";
+  background-color: var(--color-icon-bg);
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+#icon-container-document {
+  background-color: var(--color-icon-document);
+}
+
+#icon-container-event {
+  background-color: var(--color-icon-event);
+}
+
+#icon-container-mail {
+  background-color: var(--color-icon-mail);
+}
+
+#icon-container-album {
+  background-color: var(--color-icon-album);
+}
+
+#cards-area article div {
+  grid-area: icon;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+}
+
+#cards-area article h2 {
+  grid-area: title;
+  color: var(--color-secondary);
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+  font-size: 1.25rem;
+  font-weight: normal;
+}
+
+#cards-area article p {
+  grid-area: description;
+  color: var(--color-text-description);
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* TODO: content cards */
 .container {
   display: grid;
   grid-template-columns: 1fr 1fr;

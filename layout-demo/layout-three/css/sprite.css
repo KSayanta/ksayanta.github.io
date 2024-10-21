@@ -5,9 +5,8 @@
 }
 
 .icon-light {
-  background: url("../img/sprite.png") no-repeat;
+  background: url("../img/sprite-light.png") no-repeat;
   display: inline-block;
-  filter: invert(100%);
 }
 
 .icon-small {
