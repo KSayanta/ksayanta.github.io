@@ -2,6 +2,7 @@
   --color-primary: #046;
   --color-secondary: #0074ad;
   --color-background: #efefef;
+  --spacing: clamp(0.3125rem, -3.125rem + 3.125vw, 0.625rem);
 }
 
 * {
@@ -22,12 +23,14 @@
 
 /* global styles */
 body > aside h2 {
-  font-size: 1rem;
   font-weight: bold;
+  font-size: 0.7rem;
+  font-size: clamp(0.7rem, 0.5826rem + 0.3478vw, 1rem);
 }
 
 body > aside h3 {
-  font-size: 1rem;
+  font-size: 0.7rem;
+  font-size: clamp(0.7rem, 0.5826rem + 0.3478vw, 1rem);
   font-weight: normal;
 }
 
@@ -57,7 +60,6 @@ body > header {
   height: 50px;
   display: flex;
   align-items: center;
-  column-gap: 20px;
   padding: 5px 20px;
 }
 
@@ -107,7 +109,7 @@ aside {
   color: #fff;
   display: flex;
   flex-direction: column;
-  row-gap: 10px;
+  row-gap: var(--spacing);
   padding: 10px 0;
 }
 
@@ -129,15 +131,15 @@ aside > article {
 aside > nav ul {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  row-gap: var(--spacing);
 }
 
 .section-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 10px;
-  padding: 10px 20px 0;
+  margin-bottom: var(--spacing);
+  padding: var(--spacing) 20px 0;
 }
 
 .section-elements li {
