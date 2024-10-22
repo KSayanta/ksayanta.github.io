@@ -1,0 +1,490 @@
+:root {
+  --color-primary: #046;
+  --color-secondary: #0074ad;
+  --color-background: #efefef;
+  --color-alternate: #c44a38;
+  --color-text-description: #a0a0a0;
+  --color-titlebar: #384362;
+  --color-icon-bg: #ffffffb3;
+  --color-icon-document: #ffa500;
+  --color-icon-event: #2db160;
+  --color-icon-mail: #db513d;
+  --color-icon-album: #b066d1;
+  --spacing: clamp(0.3125rem, -3.125rem + 3.125vw, 0.625rem);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter, sans-serif;
+}
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* utility classes */
+.icon-bg {
+  position: relative;
+  align-self: center;
+  margin: 10px 20px;
+}
+
+.icon-bg-alt {
+  position: relative;
+  align-self: center;
+  margin: 10px 20px;
+}
+
+.icon-bg::before {
+  content: "";
+  background-color: var(--color-alternate);
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.icon-bg-alt::before {
+  content: "";
+  background-color: var(--color-secondary);
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.icon-bg::after {
+  content: "";
+  background-color: var(--color-background);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 2px;
+  height: 165px;
+  z-index: -2;
+}
+
+.icon-bg-alt::after {
+  content: "";
+  background-color: var(--color-background);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 2px;
+  height: 165px;
+  z-index: -2;
+}
+
+/* global styles */
+body > aside h1 {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+body > aside h2 {
+  font-weight: bold;
+  font-size: 0.7rem;
+  font-size: clamp(0.7rem, 0.52rem + 0.40vw, 1rem);
+}
+
+body > aside h3 {
+  font-size: 0.7rem;
+  font-size: clamp(0.7rem, 0.52rem + 0.40vw, 1rem);
+  font-weight: normal;
+}
+
+.user-image {
+  border-radius: 50%;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* layout styles */
+body {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template:
+    "sidebar header" 50px
+    "sidebar main" 1fr
+    "sidebar footer" 30px / 250px 1fr;
+}
+
+/* search bar */
+body > header {
+  grid-area: header;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+  padding: 5px 20px;
+}
+
+body > header form {
+  height: 40px;
+  background-color: #fff;
+  border: 1px solid #d9d9d9;
+  border-radius: 20px;
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+  flex-basis: 1200px;
+  flex-grow: 1;
+  padding: 12px 16px;
+}
+
+.user-image-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+body > header button {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+}
+
+#search-bar {
+  width: 100%;
+  border: none;
+  background-color: #fff;
+}
+
+#search-bar:focus {
+  outline: none;
+}
+
+#search-icon {
+  cursor: pointer;
+}
+
+/* navigation pane */
+aside {
+  grid-area: sidebar;
+  background-color: var(--color-primary);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--spacing);
+  padding: 5px 0;
+}
+
+aside > header {
+  display: flex;
+  column-gap: 14px;
+  padding: 5px 20px;
+}
+
+aside > article {
+  background-color: var(--color-secondary);
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+  padding: 5px 30px;
+  font-size: 1rem;
+}
+
+aside > nav ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing);
+  padding: var(--spacing) 20px 0;
+}
+
+.section-elements li {
+  display: flex;
+  gap: 20px;
+  padding: 3px 25px 3px 30px;
+}
+
+.section-elements li h3 {
+  flex-grow: 1;
+}
+
+/* main content */
+main {
+  grid-area: main;
+  background-color: var(--color-background);
+}
+
+/* hero area */
+.hero-area {
+  background-image: url("../img/cover.png");
+  background-repeat: no-repeat;
+  color: #fff;
+  height: 180px;
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+  padding: 20px;
+}
+
+.hero-area header {
+  flex-grow: 1;
+}
+
+.hero-area header h2 {
+  font-size: 1.5rem;
+  font-weight: normal;
+  word-spacing: 0.5rem;
+}
+
+.hero-area header p {
+  font-size: 1rem;
+  line-height: 2;
+}
+
+.hero-area div {
+  text-align: center;
+  padding: 20px 15px;
+}
+
+.hero-area div h2 {
+  font-size: 2.25rem;
+  font-weight: normal;
+}
+
+.hero-area div p {
+  font-size: 1.25rem;
+  vertical-align: top;
+  display: inline-block;
+}
+
+/* cards area */
+.cards-area {
+  display: flex;
+  column-gap: 10px;
+  padding: 10px 15px;
+}
+
+.cards-area article {
+  background-color: #fff;
+  flex-basis: 300px;
+  flex-grow: 1;
+  display: grid;
+  grid-template:
+    "icon title" 1fr
+    "icon description" 1fr / 1fr max-content;
+  padding: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.cards-area article h2 {
+  grid-area: title;
+  color: var(--color-secondary);
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+.cards-area article p {
+  grid-area: description;
+  color: var(--color-text-description);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.icon-container {
+  grid-area: icon;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+#bg-document {
+  background-color: var(--color-icon-document);
+}
+
+#bg-event {
+  background-color: var(--color-icon-event);
+}
+
+#bg-mail {
+  background-color: var(--color-icon-mail);
+}
+
+#bg-album {
+  background-color: var(--color-icon-album);
+}
+
+/* content cards */
+.container {
+  display: grid;
+  max-height: 370px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(12, 1fr);
+  padding: 0 15px;
+  gap: 10px;
+}
+
+.preview > header {
+  background-color: var(--color-titlebar);
+  display: flex;
+  position: relative;
+  z-index: 2;
+  padding: 5px;
+}
+
+.preview > header h2 {
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: normal;
+  align-self: center;
+  padding: 0 10px;
+}
+
+.preview > header nav {
+  flex-grow: 1;
+  display: flex;
+  column-gap: 2px;
+  padding-right: 5px;
+}
+
+.preview > header nav a {
+  color: var(--color-secondary);
+  font-size: 0.75rem;
+  align-self: center;
+  flex-grow: 1;
+}
+
+.preview > header nav span {
+  background-color: var(--color-icon-bg);
+  padding-top: 2.5px;
+}
+
+.events {
+  grid-row: span 8;
+}
+
+.events section {
+  background-color: #fff;
+  display: flex;
+  position: relative;
+  z-index: 1;
+  padding: 5px 10px 0;
+}
+
+.events section h3 {
+  flex-basis: 100px;
+  font-size: 0.75rem;
+  font-weight: normal;
+  text-align: right;
+  align-self: center;
+  padding: 0 10px;
+}
+
+.events section article {
+  flex-grow: 1;
+  padding: 0 30px;
+}
+
+.events section article h4 {
+  color: var(--color-secondary);
+  font-size: 0.875rem;
+  font-weight: normal;
+}
+
+.events section article p {
+  font-size: 0.625rem;
+}
+
+.events section article address {
+  color: var(--color-text-description);
+  font-size: 0.625rem;
+  line-height: 3;
+}
+
+.recent-documents {
+  grid-row: span 6;
+}
+
+.recent-documents div {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.recent-documents div article {
+  padding: 10px;
+}
+
+.recent-documents div article span {
+  zoom: 200%;
+}
+
+.recent-documents div article h3 {
+  font-weight: normal;
+  font-size: 0.75rem;
+}
+
+.recent-documents div article time {
+  font-size: 0.625rem;
+}
+
+.spending {
+  grid-row: span 6;
+}
+
+.spending figure {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.spending figcaption {
+  display: none;
+}
+
+.spending img {
+  background-size: contain;
+  width: 450px;
+}
+
+/* footer */
+footer {
+  grid-area: footer;
+  background-color: var(--color-titlebar);
+  color: #fff;
+  height: 30px;
+  font-size: 0.625rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}

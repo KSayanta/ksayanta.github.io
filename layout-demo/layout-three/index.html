@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Layout Three</title>
+    <link rel="stylesheet" href="css/sprite.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <!-- Header Area -->
+    <header role="banner">
+      <form role="search" aria-label="Site Search">
+        <input
+          type="search"
+          name="search-bar"
+          id="search-bar"
+          placeholder="Search..."
+        />
+        <span id="search-icon" class="icon-dark icon-small icon-search"></span>
+      </form>
+      <div role="button" class="user-image-container">
+        <img
+          src="img/user.png"
+          alt="profile picture of the user"
+          class="user-image"
+        />
+        <button aria-expanded="false" aria-label="Toggle user menu">
+          <span class="icon-dark icon-small icon-chevron-down"></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Sidebar Area -->
+    <aside role="complementary">
+      <header role="banner">
+        <span class="icon-light icon-small icon-thunder">&nbsp;</span>
+        <h1>Ux Pro</h1>
+      </header>
+      <!-- User Profile -->
+      <article role="contentinfo">
+        <img
+          src="img/user.png"
+          alt="profile picture of the user"
+          class="user-image"
+        />
+        <h2>Jane D</h2>
+      </article>
+      <!-- List of Navigation Links -->
+      <nav role="navigation">
+        <ul>
+          <!-- Document -->
+          <li>
+            <header role="heading" class="section-header">
+              <h2>DOCUMENTS</h2>
+              <span class="icon-light icon-small icon-document"></span>
+            </header>
+            <ul class="section-elements">
+              <li>
+                <span class="icon-light icon-small icon-insurance"></span>
+                <h3>Insurance</h3>
+                <span class="icon-light icon-small icon-chevron-right"></span>
+              </li>
+              <li>
+                <span class="icon-light icon-small icon-travel"></span>
+                <h3>Travel</h3>
+                <span class="icon-light icon-small icon-chevron-right"></span>
+              </li>
+              <li>
+                <span class="icon-light icon-small icon-tax"></span>
+                <h3>Taxes</h3>
+                <span class="icon-light icon-small icon-chevron-right"></span>
+              </li>
+            </ul>
+          </li>
+          <!-- Messages -->
+          <li>
+            <header role="heading" class="section-header">
+              <h2>MESSAGES</h2>
+              <span class="icon-light icon-small icon-message"></span>
+            </header>
+            <ul class="section-elements">
+              <li>
+                <span class="icon-light icon-small icon-inbox"></span>
+                <h3>Inbox</h3>
+                <span class="icon-light icon-small icon-chevron-right"></span>
+              </li>
+              <li>
+                <span class="icon-light icon-small icon-unread"></span>
+                <h3>Unread</h3>
+                <span class="icon-light icon-small icon-chevron-right"></span>
+              </li>
+              <li>
+                <span class="icon-light icon-small icon-archive"></span>
+                <h3>Archive</h3>
+                <span class="icon-light icon-small icon-chevron-right"></span>
+              </li>
+            </ul>
+          </li>
+          <!-- Photo Album -->
+          <li>
+            <header role="heading" class="section-header">
+              <h2>PHOTO ALBUM</h2>
+              <span class="icon-light icon-small icon-album"></span>
+            </header>
+            <ul class="section-elements">
+              <li>
+                <span class="icon-light icon-small icon-vacation"></span>
+                <h3>Vacation</h3>
+                <span class="icon-light icon-small icon-chevron-right"></span>
+              </li>
+              <li>
+                <span class="icon-light icon-small icon-anniversary"></span>
+                <h3>Anniversary</h3>
+                <span class="icon-light icon-small icon-chevron-right"></span>
+              </li>
+              <li>
+                <span class="icon-light icon-small icon-university"></span>
+                <h3>University</h3>
+                <span class="icon-light icon-small icon-chevron-right"></span>
+              </li>
+            </ul>
+          </li>
+          <!-- Statistics -->
+          <li>
+            <header role="heading" class="section-header">
+              <h2>STATISTICS</h2>
+              <span class="icon-light icon-small icon-statistics"></span>
+            </header>
+            <ul class="section-elements">
+              <li>
+                <span class="icon-light icon-small icon-finances"></span>
+                <h3>Finances</h3>
+                <span class="icon-light icon-small icon-chevron-right"></span>
+              </li>
+              <li>
+                <span class="icon-light icon-small icon-call"></span>
+                <h3>Call Stats</h3>
+                <span class="icon-light icon-small icon-chevron-right"></span>
+              </li>
+              <li>
+                <span class="icon-light icon-small icon-trip"></span>
+                <h3>Trip Logs</h3>
+                <span class="icon-light icon-small icon-chevron-right"></span>
+              </li>
+            </ul>
+          </li>
+          <!-- Events -->
+          <li>
+            <header role="heading" class="section-header">
+              <h2>EVENTS</h2>
+              <span class="icon-light icon-small icon-event"></span>
+            </header>
+            <ul class="section-elements">
+              <li>
+                <span class="icon-light icon-small icon-gift"></span>
+                <h3>Weddings</h3>
+                <span class="icon-light icon-small icon-chevron-right"></span>
+              </li>
+              <li>
+                <span class="icon-light icon-small icon-play-date"></span>
+                <h3>Play-Dates</h3>
+                <span class="icon-light icon-small icon-chevron-right"></span>
+              </li>
+              <li>
+                <span class="icon-light icon-small icon-network"></span>
+                <h3>Networking</h3>
+                <span class="icon-light icon-small icon-chevron-right"></span>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main>
+      <section role="region" class="hero-area">
+        <header>
+          <h2>Welcome, <strong>Jane</strong></h2>
+          <p>How are you today?</p>
+        </header>
+        <div aria-labelledby="events">
+          <h2 id="events">41</h2>
+          <span class="icon-light icon-small icon-event"></span>
+          <p>Events</p>
+        </div>
+        <div aria-labelledby="messages">
+          <h2 id="messages">64</h2>
+          <span class="icon-light icon-small icon-chat"></span>
+          <p>Messages</p>
+        </div>
+        <div aria-labelledby="location">
+          <h2 id="location">27&deg;</h2>
+          <span class="icon-light icon-small icon-location"></span>
+          <p>Austin</p>
+        </div>
+      </section>
+
+      <!-- Small cards area -->
+      <section role="region" class="cards-area">
+        <article aria-labelledby="document">
+          <div role="icon-background" id="bg-document" class="icon-container">
+            <span class="icon-light icon-large icon-document"></span>
+          </div>
+          <h2 id="document">New <strong>Document</strong></h2>
+          <p>Europe Trip</p>
+        </article>
+        <article aria-labelledby="event">
+          <div role="icon-background" id="bg-event" class="icon-container">
+            <span class="icon-light icon-large icon-event"></span>
+          </div>
+          <h2 id="event">Upcoming <strong>Event</strong></h2>
+          <p>Chill Cookoff</p>
+        </article>
+        <article aria-labelledby="mails">
+          <div role="icon-background" id="bg-mail" class="icon-container">
+            <span class="icon-light icon-large icon-unread"></span>
+          </div>
+          <h2 id="mails">Recent <strong>Mails</strong></h2>
+          <p>+10</p>
+        </article>
+        <article aria-labelledby="album">
+          <div role="icon-background" id="bg-album" class="icon-container">
+            <span class="icon-light icon-large icon-album"></span>
+          </div>
+          <h2 id="album">New <strong>Album</strong></h2>
+          <p>House Concert</p>
+        </article>
+      </section>
+
+      <div class="container">
+        <!-- Events -->
+        <section role="region" class="events preview">
+          <header>
+            <h2>Your <strong>Events</strong></h2>
+            <nav>
+              <a href="#">View All</a>
+              <span class="icon-dark icon-small icon-edit"></span>
+              <span class="icon-dark icon-small icon-cog"></span>
+            </nav>
+          </header>
+          <!-- Cards -->
+          <section role="list">
+            <h3>Today</h3>
+            <span class="icon-light icon-small icon-gift icon-bg"></span>
+            <article role="listitem">
+              <h4>Jonathan G</h4>
+              <p>Going away party at 8:30pm. Bring a friend!</p>
+              <address>1404 Gibson St</address>
+            </article>
+          </section>
+          <section role="list">
+            <h3>Tuesday</h3>
+            <span class="icon-light icon-small icon-trip icon-bg-alt"></span>
+            <article role="listitem">
+              <h4>Matthew H</h4>
+              <p>Flying to Bora Bora at 4:30pm</p>
+              <address>Delta Gate 27B</address>
+            </article>
+          </section>
+          <section role="list">
+            <h3>Thursday</h3>
+            <span class="icon-light icon-small icon-book icon-bg"></span>
+            <article role="listitem">
+              <h4>National Institute of Science</h4>
+              <p>Join the institute for an in-depth look at Stephen Hawking</p>
+              <address>7:30pm Carnegie Center for Science</address>
+            </article>
+          </section>
+          <section role="list">
+            <h3>Friday</h3>
+            <span class="icon-light icon-small icon-heart icon-bg-alt"></span>
+            <article role="listitem">
+              <h4>24th Annual Heart Ball</h4>
+              <p>Join us and contribute to your favorite local charity</p>
+              <address>6:45pm Austin Convention Ctr</address>
+            </article>
+          </section>
+          <section role="list">
+            <h3>Saturday</h3>
+            <span class="icon-light icon-small icon-heart icon-bg"></span>
+            <article role="listitem">
+              <h4>Little Rock Air Show</h4>
+              <p>See the Blue Angels fly with roaring thunder</p>
+              <address>11:00pm Jacksonville Airfield Base</address>
+            </article>
+          </section>
+        </section>
+
+        <!-- Recent Documents -->
+        <section role="region" class="recent-documents preview">
+          <header>
+            <h2>Recent <strong>Documents</strong></h2>
+            <nav>
+              <a href="#">View All</a>
+              <span class="icon-dark icon-small icon-edit"></span>
+              <span class="icon-dark icon-small icon-cog"></span>
+            </nav>
+          </header>
+          <div role="list">
+            <!-- cards -->
+            <article role="listitem">
+              <span class="icon-dark icon-extra-large icon-document"></span>
+              <h3>tesla-patents</h3>
+              <time datetime="2018-07-18">07/18/2018</time>
+            </article>
+            <article role="listitem">
+              <span class="icon-dark icon-extra-large icon-document"></span>
+              <h3>yearly-budget</h3>
+              <time datetime="2018-09-08">09/08/2018</time>
+            </article>
+            <article role="listitem">
+              <span class="icon-dark icon-extra-large icon-document"></span>
+              <h3>top-movies</h3>
+              <time datetime="2018-10-10">10/10/2018</time>
+            </article>
+          </div>
+        </section>
+
+        <!-- Monthly Spending -->
+        <section class="spending preview">
+          <header>
+            <h2>Monthly <strong>Income</strong></h2>
+            <nav>
+              <a href="#">View All</a>
+              <span class="icon-dark icon-small icon-edit"></span>
+              <span class="icon-dark icon-small icon-cog"></span>
+            </nav>
+          </header>
+          <figure>
+            <img
+              src="img/chart.png"
+              alt="Monthly income chart depicting [insert summary]"
+            />
+            <figcaption>Monthly Income Chart</figcaption>
+          </figure>
+        </section>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2024 ABYZ LLC</p>
+      <p>Crafted with &hearts; by ABYZ LLC</p>
+    </footer>
+  </body>
+</html>
