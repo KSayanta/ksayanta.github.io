@@ -66,7 +66,7 @@
 
 .icon-bg::after {
   content: "";
-  background-color: #ddd;
+  background-color: var(--color-background);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -78,7 +78,7 @@
 
 .icon-bg-alt::after {
   content: "";
-  background-color: #ddd;
+  background-color: var(--color-background);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -89,15 +89,20 @@
 }
 
 /* global styles */
+body > aside h1 {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
 body > aside h2 {
   font-weight: bold;
   font-size: 0.7rem;
-  font-size: clamp(0.7rem, 0.5826rem + 0.3478vw, 1rem);
+  font-size: clamp(0.7rem, 0.52rem + 0.40vw, 1rem);
 }
 
 body > aside h3 {
   font-size: 0.7rem;
-  font-size: clamp(0.7rem, 0.5826rem + 0.3478vw, 1rem);
+  font-size: clamp(0.7rem, 0.52rem + 0.40vw, 1rem);
   font-weight: normal;
 }
 
@@ -121,7 +126,7 @@ body {
   grid-template:
     "sidebar header" 50px
     "sidebar main" 1fr
-    "sidebar footer" 30px / 300px 1fr;
+    "sidebar footer" 30px / 250px 1fr;
 }
 
 /* search bar */
@@ -181,7 +186,7 @@ aside {
   display: flex;
   flex-direction: column;
   row-gap: var(--spacing);
-  padding: 10px 0;
+  padding: 5px 0;
 }
 
 aside > header {
@@ -202,7 +207,6 @@ aside > article {
 aside > nav ul {
   display: flex;
   flex-direction: column;
-  row-gap: var(--spacing);
 }
 
 .section-header {
@@ -216,7 +220,7 @@ aside > nav ul {
 .section-elements li {
   display: flex;
   gap: 20px;
-  padding: 5px 25px 5px 30px;
+  padding: 3px 25px 3px 30px;
 }
 
 .section-elements li h3 {
@@ -234,11 +238,11 @@ main {
   background-image: url("../img/cover.png");
   background-repeat: no-repeat;
   color: #fff;
-  height: 200px; /* TODO: make this dynamic */
+  height: 180px;
   display: flex;
   flex-direction: row;
   column-gap: 20px;
-  padding: 30px;
+  padding: 20px;
 }
 
 .hero-area header {
@@ -275,21 +279,49 @@ main {
 /* cards area */
 .cards-area {
   display: flex;
-  column-gap: 30px;
-  padding: 20px 15px;
+  column-gap: 10px;
+  padding: 10px 15px;
 }
 
 .cards-area article {
   background-color: #fff;
-  flex-basis: 375px;
+  flex-basis: 300px;
   flex-grow: 1;
   display: grid;
   grid-template:
     "icon title" 1fr
     "icon description" 1fr / 1fr max-content;
-  padding: 20px 15px;
+  padding: 10px;
   position: relative;
   z-index: 1;
+}
+
+.cards-area article h2 {
+  grid-area: title;
+  color: var(--color-secondary);
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+.cards-area article p {
+  grid-area: description;
+  color: var(--color-text-description);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.icon-container {
+  grid-area: icon;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
 }
 
 #bg-document {
@@ -308,48 +340,21 @@ main {
   background-color: var(--color-icon-album);
 }
 
-.icon-container {
-  grid-area: icon;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  width: 70px;
-  height: 70px;
-}
-
-.cards-area article h2 {
-  grid-area: title;
-  color: var(--color-secondary);
-  display: inline-block;
-  text-align: center;
-  vertical-align: top;
-  font-size: 1.25rem;
-  font-weight: normal;
-}
-
-.cards-area article p {
-  grid-area: description;
-  color: var(--color-text-description);
-  font-size: 1rem;
-  line-height: 1.5;
-  text-align: center;
-}
-
 /* content cards */
 .container {
   display: grid;
-  max-height: 520px;
+  max-height: 370px;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(12, 1fr);
   padding: 0 15px;
-  gap: 20px 30px;
+  gap: 10px;
 }
 
 .preview > header {
   background-color: var(--color-titlebar);
-  height: 50px;
   display: flex;
+  position: relative;
+  z-index: 2;
   padding: 5px;
 }
 
@@ -389,11 +394,11 @@ main {
   display: flex;
   position: relative;
   z-index: 1;
-  padding: 10px 20px;
+  padding: 5px 10px 0;
 }
 
 .events section h3 {
-  flex-basis: 130px;
+  flex-basis: 100px;
   font-size: 0.75rem;
   font-weight: normal;
   text-align: right;
@@ -438,7 +443,7 @@ main {
 }
 
 .recent-documents div article span {
-  zoom: 300%;
+  zoom: 200%;
 }
 
 .recent-documents div article h3 {
@@ -468,7 +473,7 @@ main {
 
 .spending img {
   background-size: contain;
-  width: 680px;
+  width: 450px;
 }
 
 /* footer */
