@@ -176,7 +176,7 @@
 
     <!-- Main Content -->
     <main>
-      <section role="region" id="hero-area">
+      <section role="region" class="hero-area">
         <header>
           <h2>Welcome, <strong>Jane</strong></h2>
           <p>How are you today?</p>
@@ -199,30 +199,30 @@
       </section>
 
       <!-- Small cards area -->
-      <section role="region" id="cards-area">
+      <section role="region" class="cards-area">
         <article aria-labelledby="document">
-          <div id="icon-container-document">
+          <div role="icon-background" id="bg-document" class="icon-container">
             <span class="icon-light icon-large icon-document"></span>
           </div>
           <h2 id="document">New <strong>Document</strong></h2>
           <p>Europe Trip</p>
         </article>
         <article aria-labelledby="event">
-          <div id="icon-container-event">
+          <div role="icon-background" id="bg-event" class="icon-container">
             <span class="icon-light icon-large icon-event"></span>
           </div>
           <h2 id="event">Upcoming <strong>Event</strong></h2>
           <p>Chill Cookoff</p>
         </article>
         <article aria-labelledby="mails">
-          <div id="icon-container-mail">
+          <div role="icon-background" id="bg-mail" class="icon-container">
             <span class="icon-light icon-large icon-unread"></span>
           </div>
           <h2 id="mails">Recent <strong>Mails</strong></h2>
           <p>+10</p>
         </article>
         <article aria-labelledby="album">
-          <div id="icon-container-album">
+          <div role="icon-background" id="bg-album" class="icon-container">
             <span class="icon-light icon-large icon-album"></span>
           </div>
           <h2 id="album">New <strong>Album</strong></h2>
@@ -232,19 +232,19 @@
 
       <div class="container">
         <!-- Events -->
-        <section role="region" class="events preview hidden">
+        <section role="region" class="events preview">
           <header>
             <h2>Your <strong>Events</strong></h2>
             <nav>
               <a href="#">View All</a>
-              <span class="icon-small icon-edit"></span>
-              <span class="icon-small icon-cog"></span>
+              <span class="icon-dark icon-small icon-edit"></span>
+              <span class="icon-dark icon-small icon-cog"></span>
             </nav>
           </header>
           <!-- Cards -->
           <section role="list">
             <h3>Today</h3>
-            <span class="icon-small icon-gift"></span>
+            <span class="icon-light icon-small icon-gift icon-bg"></span>
             <article role="listitem">
               <h4>Jonathan G</h4>
               <p>Going away party at 8:30pm. Bring a friend!</p>
@@ -253,7 +253,7 @@
           </section>
           <section role="list">
             <h3>Tuesday</h3>
-            <span class="icon-small icon-trip"></span>
+            <span class="icon-light icon-small icon-trip icon-bg-alt"></span>
             <article role="listitem">
               <h4>Matthew H</h4>
               <p>Flying to Bora Bora at 4:30pm</p>
@@ -262,7 +262,7 @@
           </section>
           <section role="list">
             <h3>Thursday</h3>
-            <span class="icon-small icon-book"></span>
+            <span class="icon-light icon-small icon-book icon-bg"></span>
             <article role="listitem">
               <h4>National Institute of Science</h4>
               <p>Join the institute for an in-depth look at Stephen Hawking</p>
@@ -271,7 +271,7 @@
           </section>
           <section role="list">
             <h3>Friday</h3>
-            <span class="icon-small icon-heart"></span>
+            <span class="icon-light icon-small icon-heart icon-bg-alt"></span>
             <article role="listitem">
               <h4>24th Annual Heart Ball</h4>
               <p>Join us and contribute to your favorite local charity</p>
@@ -280,7 +280,7 @@
           </section>
           <section role="list">
             <h3>Saturday</h3>
-            <span class="icon-small icon-heart"></span>
+            <span class="icon-light icon-small icon-heart icon-bg"></span>
             <article role="listitem">
               <h4>Little Rock Air Show</h4>
               <p>See the Blue Angels fly with roaring thunder</p>
@@ -290,29 +290,29 @@
         </section>
 
         <!-- Recent Documents -->
-        <section role="region" class="recent-documents preview hidden">
+        <section role="region" class="recent-documents preview">
           <header>
             <h2>Recent <strong>Documents</strong></h2>
             <nav>
               <a href="#">View All</a>
-              <span class="icon-small icon-edit"></span>
-              <span class="icon-small icon-cog"></span>
+              <span class="icon-dark icon-small icon-edit"></span>
+              <span class="icon-dark icon-small icon-cog"></span>
             </nav>
           </header>
           <div role="list">
             <!-- cards -->
             <article role="listitem">
-              <span class="icon-extra-large icon-document"></span>
+              <span class="icon-dark icon-extra-large icon-document"></span>
               <h3>tesla-patents</h3>
               <time datetime="2018-07-18">07/18/2018</time>
             </article>
             <article role="listitem">
-              <span class="icon-extra-large icon-document"></span>
+              <span class="icon-dark icon-extra-large icon-document"></span>
               <h3>yearly-budget</h3>
               <time datetime="2018-09-08">09/08/2018</time>
             </article>
             <article role="listitem">
-              <span class="icon-extra-large icon-document"></span>
+              <span class="icon-dark icon-extra-large icon-document"></span>
               <h3>top-movies</h3>
               <time datetime="2018-10-10">10/10/2018</time>
             </article>
@@ -320,13 +320,13 @@
         </section>
 
         <!-- Monthly Spending -->
-        <section class="spending preview hidden">
+        <section class="spending preview">
           <header>
             <h2>Monthly <strong>Income</strong></h2>
             <nav>
               <a href="#">View All</a>
-              <span class="icon-small icon-edit"></span>
-              <span class="icon-small icon-cog"></span>
+              <span class="icon-dark icon-small icon-edit"></span>
+              <span class="icon-dark icon-small icon-cog"></span>
             </nav>
           </header>
           <figure>
@@ -341,7 +341,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="hidden">
+    <footer>
       <p>&copy; 2024 ABYZ LLC</p>
       <p>Crafted with &hearts; by ABYZ LLC</p>
     </footer>

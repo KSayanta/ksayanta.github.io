@@ -2,8 +2,10 @@
   --color-primary: #046;
   --color-secondary: #0074ad;
   --color-background: #efefef;
+  --color-alternate: #c44a38;
   --color-text-description: #a0a0a0;
-  --color-icon-bg: tomato;
+  --color-titlebar: #384362;
+  --color-icon-bg: #ffffffb3;
   --color-icon-document: #ffa500;
   --color-icon-event: #2db160;
   --color-icon-mail: #db513d;
@@ -18,13 +20,72 @@
   font-family: Inter, sans-serif;
 }
 
-/* debug classes */
-.hidden {
-  display: none;
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-.select {
-  background-color: darkkhaki;
+/* utility classes */
+.icon-bg {
+  position: relative;
+  align-self: center;
+  margin: 10px 20px;
+}
+
+.icon-bg-alt {
+  position: relative;
+  align-self: center;
+  margin: 10px 20px;
+}
+
+.icon-bg::before {
+  content: "";
+  background-color: var(--color-alternate);
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.icon-bg-alt::before {
+  content: "";
+  background-color: var(--color-secondary);
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+
+.icon-bg::after {
+  content: "";
+  background-color: #ddd;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 2px;
+  height: 165px;
+  z-index: -2;
+}
+
+.icon-bg-alt::after {
+  content: "";
+  background-color: #ddd;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 2px;
+  height: 165px;
+  z-index: -2;
 }
 
 /* global styles */
@@ -46,6 +107,10 @@ body > aside h3 {
 
 ul {
   list-style: none;
+}
+
+a {
+  text-decoration: none;
 }
 
 /* layout styles */
@@ -165,7 +230,7 @@ main {
 }
 
 /* hero area */
-#hero-area {
+.hero-area {
   background-image: url("../img/cover.png");
   background-repeat: no-repeat;
   color: #fff;
@@ -176,46 +241,47 @@ main {
   padding: 30px;
 }
 
-#hero-area header {
+.hero-area header {
   flex-grow: 1;
 }
 
-#hero-area header h2 {
+.hero-area header h2 {
   font-size: 1.5rem;
   font-weight: normal;
   word-spacing: 0.5rem;
 }
 
-#hero-area header p {
+.hero-area header p {
   font-size: 1rem;
   line-height: 2;
 }
 
-#hero-area div {
+.hero-area div {
   text-align: center;
   padding: 20px 15px;
 }
 
-#hero-area div h2 {
+.hero-area div h2 {
   font-size: 2.25rem;
   font-weight: normal;
 }
 
-#hero-area div p {
+.hero-area div p {
   font-size: 1.25rem;
   vertical-align: top;
   display: inline-block;
 }
 
 /* cards area */
-#cards-area {
+.cards-area {
   display: flex;
   column-gap: 30px;
   padding: 20px 15px;
 }
 
-#cards-area article {
+.cards-area article {
   background-color: #fff;
+  flex-basis: 375px;
   flex-grow: 1;
   display: grid;
   grid-template:
@@ -226,42 +292,23 @@ main {
   z-index: 1;
 }
 
-.icon-bg {
-  grid-area: icon;
-  position: relative;
-  margin: 15px;
-}
-
-.icon-bg::before {
-  content: "";
-  background-color: var(--color-icon-bg);
-  border-radius: 50%;
-  width: 70px;
-  height: 70px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: -1;
-}
-
-#icon-container-document {
+#bg-document {
   background-color: var(--color-icon-document);
 }
 
-#icon-container-event {
+#bg-event {
   background-color: var(--color-icon-event);
 }
 
-#icon-container-mail {
+#bg-mail {
   background-color: var(--color-icon-mail);
 }
 
-#icon-container-album {
+#bg-album {
   background-color: var(--color-icon-album);
 }
 
-#cards-area article div {
+.icon-container {
   grid-area: icon;
   display: flex;
   justify-content: center;
@@ -271,7 +318,7 @@ main {
   height: 70px;
 }
 
-#cards-area article h2 {
+.cards-area article h2 {
   grid-area: title;
   color: var(--color-secondary);
   display: inline-block;
@@ -281,7 +328,7 @@ main {
   font-weight: normal;
 }
 
-#cards-area article p {
+.cards-area article p {
   grid-area: description;
   color: var(--color-text-description);
   font-size: 1rem;
@@ -289,28 +336,150 @@ main {
   text-align: center;
 }
 
-/* TODO: content cards */
+/* content cards */
 .container {
   display: grid;
+  max-height: 520px;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: repeat(12, 1fr);
+  padding: 0 15px;
+  gap: 20px 30px;
 }
 
-.event {
+.preview > header {
+  background-color: var(--color-titlebar);
+  height: 50px;
+  display: flex;
+  padding: 5px;
+}
+
+.preview > header h2 {
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: normal;
+  align-self: center;
+  padding: 0 10px;
+}
+
+.preview > header nav {
+  flex-grow: 1;
+  display: flex;
+  column-gap: 2px;
+  padding-right: 5px;
+}
+
+.preview > header nav a {
+  color: var(--color-secondary);
+  font-size: 0.75rem;
+  align-self: center;
+  flex-grow: 1;
+}
+
+.preview > header nav span {
+  background-color: var(--color-icon-bg);
+  padding-top: 2.5px;
+}
+
+.events {
   grid-row: span 8;
+}
+
+.events section {
+  background-color: #fff;
+  display: flex;
+  position: relative;
+  z-index: 1;
+  padding: 10px 20px;
+}
+
+.events section h3 {
+  flex-basis: 130px;
+  font-size: 0.75rem;
+  font-weight: normal;
+  text-align: right;
+  align-self: center;
+  padding: 0 10px;
+}
+
+.events section article {
+  flex-grow: 1;
+  padding: 0 30px;
+}
+
+.events section article h4 {
+  color: var(--color-secondary);
+  font-size: 0.875rem;
+  font-weight: normal;
+}
+
+.events section article p {
+  font-size: 0.625rem;
+}
+
+.events section article address {
+  color: var(--color-text-description);
+  font-size: 0.625rem;
+  line-height: 3;
 }
 
 .recent-documents {
   grid-row: span 6;
 }
 
+.recent-documents div {
+  background-color: #fff;
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.recent-documents div article {
+  padding: 10px;
+}
+
+.recent-documents div article span {
+  zoom: 300%;
+}
+
+.recent-documents div article h3 {
+  font-weight: normal;
+  font-size: 0.75rem;
+}
+
+.recent-documents div article time {
+  font-size: 0.625rem;
+}
+
 .spending {
   grid-row: span 6;
 }
 
-/* TODO: footer */
+.spending figure {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 10px;
+}
+
+.spending figcaption {
+  display: none;
+}
+
+.spending img {
+  background-size: contain;
+  width: 680px;
+}
+
+/* footer */
 footer {
   grid-area: footer;
-  background-color: var(--color-background);
+  background-color: var(--color-titlebar);
+  color: #fff;
   height: 30px;
+  font-size: 0.625rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
 }
