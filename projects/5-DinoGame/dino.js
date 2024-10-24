@@ -22,9 +22,9 @@ export default class Dino {
         this.y = this.canvas.height - this.height - 10;
         this.Y = this.y; // Store original y position
 
-        const dinoStanding = new Image();
-        dinoStanding.src = "sprite/dino.png";
-        this.sprite = dinoStanding;
+        this.dinoStanding = new Image();
+        this.dinoStanding.src = "sprite/dino.png";
+        this.sprite = this.dinoStanding;
 
         const dinoWalk1 = new Image();
         dinoWalk1.src = "sprite/dino-run1.png";
@@ -50,6 +50,10 @@ export default class Dino {
 
     update(gameSpeed) {
         this.walk(gameSpeed);
+
+        if(this.isJumping) {
+            this.sprite = this.dinoStanding;
+        }
         this.jump();
     }
 
@@ -72,7 +76,7 @@ export default class Dino {
         this.walkCycleTimer -= gameSpeed;
     }
 
-    jump(gameSpeed) {
+    jump() {
         if(this.isJumpPressed) {
             this.isJumping = true;
         }
