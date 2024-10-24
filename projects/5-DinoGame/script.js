@@ -39,7 +39,7 @@ function main() {
     ctx.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
 
     // Update game objects
-    ground.update();
+    ground.update(gameSpeed);
 
     // Draw game objects
     ground.draw();
