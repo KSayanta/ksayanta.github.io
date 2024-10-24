@@ -4,8 +4,8 @@ import Ground from "./ground.js";
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
-const GAME_SPEED_INIT = 0.75; // upto 1.0
-const GAME_SPEED_INCREMENT = 0.00005;
+const GAME_SPEED_INIT = 0.75; // NOTE: game speed should be set upto 1.0
+const GAME_SPEED_INCREMENT = 0.00005; // TODO: implement difficulty 
 
 const GAME_WIDTH = 1000;
 const GAME_HEIGHT = 400;
@@ -30,7 +30,6 @@ let gameSpeed = GAME_SPEED_INIT;
 
 function init() {
     dino = new Dino(ctx, DINO_WIDTH, DINO_HEIGHT, DINO_MIN_JUMP, DINO_MAX_JUMP);
-
     ground = new Ground(ctx, GROUND_WIDTH, GROUND_HEIGHT, GROUND_CACTUS_SPEED);
 }
 
@@ -40,6 +39,7 @@ function main() {
 
     // Update game objects
     ground.update(gameSpeed);
+    dino.update(gameSpeed);
 
     // Draw game objects
     ground.draw();
@@ -49,5 +49,5 @@ function main() {
     requestAnimationFrame(main);
 }
 
-init();
-requestAnimationFrame(main);
+init(); // Create game objects
+requestAnimationFrame(main); // Start game
