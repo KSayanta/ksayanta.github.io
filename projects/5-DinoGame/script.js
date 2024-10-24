@@ -23,23 +23,33 @@ const GROUND_CACTUS_SPEED = 0.5;
 canvas.width = GAME_WIDTH;
 canvas.height = GAME_HEIGHT;
 
+let previousTime = null;
+let frameTimeDelta = null;
+let gameSpeed = GAME_SPEED_INIT;
+
 // Game objects
 let dino = null;
 let ground = null;
-let gameSpeed = GAME_SPEED_INIT;
 
 function init() {
     dino = new Dino(ctx, DINO_WIDTH, DINO_HEIGHT, DINO_MIN_JUMP, DINO_MAX_JUMP);
     ground = new Ground(ctx, GROUND_WIDTH, GROUND_HEIGHT, GROUND_CACTUS_SPEED);
 }
 
-function main() {
+function main(currentTime) {
+    // Calculate frame time delta
+    if(previousTime !== null) {
+        frameTimeDelta = (currentTime - previousTime);
+        // gameSpeed += frameTimeDelta * GAME_SPEED_INCREMENT;
+    }
+    previousTime = currentTime;
+        
     // Clear canvas
     ctx.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
 
     // Update game objects
-    ground.update(gameSpeed);
-    dino.update(gameSpeed);
+    ground.update(gameSpeed, frameTimeDelta);
+    dino.update(gameSpeed, frameTimeDelta);
 
     // Draw game objects
     ground.draw();

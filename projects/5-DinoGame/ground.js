@@ -22,8 +22,8 @@ export default class Ground {
         this.ctx.drawImage(this.sprite, this.x + this.width, this.y, this.width, this.height);
     }
 
-    update(gameSpeed) {
-        this.x -= this.speed * gameSpeed;
+    update(gameSpeed, frameTimeDelta) {
+        this.x -= this.speed * gameSpeed * frameTimeDelta;
 
         // Wrap around
         if (this.x < -this.width) {

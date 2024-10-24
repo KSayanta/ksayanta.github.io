@@ -48,16 +48,17 @@ export default class Dino {
         this.ctx.drawImage(this.sprite, this.x, this.y, this.width, this.height);
     }
 
-    update(gameSpeed) {
-        this.walk(gameSpeed);
+    update(gameSpeed, frameTimeDelta) {
+        this.walk(gameSpeed, frameTimeDelta);
 
         if(this.isJumping) {
             this.sprite = this.dinoStanding;
         }
-        this.jump();
+
+        this.jump(frameTimeDelta);
     }
 
-    walk(gameSpeed) {
+    walk(gameSpeed, frameTimeDelta) {
         
         if (this.walkCycleTimer <= 0) {
             
@@ -73,10 +74,10 @@ export default class Dino {
         }
         
         // Decrement timer
-        this.walkCycleTimer -= gameSpeed;
+        this.walkCycleTimer -= gameSpeed * frameTimeDelta;
     }
 
-    jump() {
+    jump(frameTimeDelta) {
         if(this.isJumpPressed) {
             this.isJumping = true;
         }
@@ -87,13 +88,13 @@ export default class Dino {
                 this.y > this.canvas.height - this.minJump || (
                 this.y > this.canvas.height - this.maxJump && this.isJumpPressed)
             ) { // Keep jumping
-                this.y -= this.JUMP_SPEED;
+                this.y -= this.JUMP_SPEED * frameTimeDelta;
             } else { // Else falling
                 this.isFalling = true;
             }
         } else {
             if(this.y < this.Y) { // If not at original height
-                this.y += this.GRAVITY;
+                this.y += this.GRAVITY * frameTimeDelta;
                 if(this.y + this.height > this.canvas.height) {
                     this.y = this.Y;
                 }
