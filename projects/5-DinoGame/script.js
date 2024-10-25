@@ -12,15 +12,7 @@ const GAME_SPEED_INCREMENT = 0.00001; // NOTE: adjust this value to increase or 
 const GAME_WIDTH = 1000;
 const GAME_HEIGHT = 400;
 
-const DINO_WIDTH = 88;
-const DINO_HEIGHT = 94;
-
-const DINO_MAX_JUMP = GAME_HEIGHT - 100;
-const DINO_MIN_JUMP = GAME_HEIGHT - 200;
-
-const GROUND_WIDTH = 2400;
-const GROUND_HEIGHT = 24;
-const GROUND_CACTUS_SPEED = 0.5;
+const INIT_GROUND_OBJ_SPEED = 0.5;
 
 canvas.width = GAME_WIDTH;
 canvas.height = GAME_HEIGHT;
@@ -41,108 +33,118 @@ let ground = null;
 let score = null;
 
 function init() {
-    dino = new Dino(ctx, DINO_WIDTH, DINO_HEIGHT, DINO_MIN_JUMP, DINO_MAX_JUMP);
-    cactiController = new CactiController(ctx, GROUND_CACTUS_SPEED);
-    ground = new Ground(ctx, GROUND_WIDTH, GROUND_HEIGHT, GROUND_CACTUS_SPEED);
-    score = new Score(ctx);
+  dino = new Dino(ctx);
+  cactiController = new CactiController(ctx, INIT_GROUND_OBJ_SPEED);
+  ground = new Ground(ctx, INIT_GROUND_OBJ_SPEED);
+  score = new Score(ctx);
 }
 
 function reset() {
-    gameOver = false;
-    gameReset = false;
-    gameSpeed = GAME_SPEED_INIT;
+  gameOver = false;
+  gameReset = false;
+  gameSpeed = GAME_SPEED_INIT;
 
-    dino.reset();
-    ground.reset();
-    cactiController.reset();
-    score.reset();
+  dino.reset();
+  ground.reset();
+  cactiController.reset();
+  score.reset();
 }
 
 function initGameReset() {
-    if(!gameReset) {
-        gameReset = true;
+  if (!gameReset) {
+    gameReset = true;
 
-        setTimeout(() => {
-            window.addEventListener("keyup", (event) => {
-                if(event.code === "Space") {
-                    reset();
-                    gameReset = false;
-                }
-            }, { once: true });
-        }, 500);
-    }
+    setTimeout(() => {
+      window.addEventListener(
+        "keyup",
+        (event) => {
+          if (event.code === "Space") {
+            reset();
+            gameReset = false;
+          }
+        },
+        { once: true }
+      );
+    }, 500);
+  }
 }
 
 function displayStartScreen() {
-    // Display start screen
-    const x = GAME_WIDTH / 5;
-    const y = GAME_HEIGHT / 2.5;
-    ctx.font = "3rem monospace";
-    ctx.fillStyle = "grey";
-    ctx.fillText("Press SPACE to start", x, y);
+  // Display start screen
+  const x = GAME_WIDTH / 5;
+  const y = GAME_HEIGHT / 2.5;
+  ctx.font = "3rem monospace";
+  ctx.fillStyle = "grey";
+  ctx.fillText("Press SPACE to start", x, y);
 }
 
 function displayGameOver() {
-    // Display game over sprite
-    const x = GAME_WIDTH / 3.3;
-    const y = GAME_HEIGHT / 3;
-    const gameOverSprite = new Image();
-    gameOverSprite.src = "sprite/game-over.png";
-    ctx.drawImage(gameOverSprite, x, y);    
+  // Display game over sprite
+  const x = GAME_WIDTH / 3.3;
+  const y = GAME_HEIGHT / 3;
+  const gameOverSprite = new Image();
+  gameOverSprite.src = "sprite/game-over.png";
+  ctx.drawImage(gameOverSprite, x, y);
 }
 
 function main(currentTime) {
+  // Calculate frame time delta
+  if (previousTime !== null) {
+    frameTimeDelta = currentTime - previousTime;
+  }
 
-    // Calculate frame time delta
-    if(previousTime !== null) {
-        frameTimeDelta = (currentTime - previousTime);
-    }
+  previousTime = currentTime;
 
-    previousTime = currentTime;
-        
-    // Clear canvas
-    ctx.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
+  // Clear canvas
+  ctx.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
 
-    if(!gameOver && !gameWaiting) {// Update game objects
-        ground.update(gameSpeed, frameTimeDelta);
-        cactiController.update(gameSpeed, frameTimeDelta);
-        dino.update(gameSpeed, frameTimeDelta);
-        score.update(frameTimeDelta);
+  if (!gameOver && !gameWaiting) {
+    // Update game objects
+    ground.update(gameSpeed, frameTimeDelta);
+    cactiController.update(gameSpeed, frameTimeDelta);
+    dino.update(gameSpeed, frameTimeDelta);
+    score.update(frameTimeDelta);
 
-        // Update game speed
-        gameSpeed += frameTimeDelta * GAME_SPEED_INCREMENT;
-    }
+    // Update game speed
+    gameSpeed += frameTimeDelta * GAME_SPEED_INCREMENT;
+  }
 
-    if(!gameOver && cactiController.detectCollision(dino)) { // Detect collision
-        gameOver = true;
-    }
-    
-    if(gameOver) { // Game over
-        dino.dead();
-        score.setHighScore();
-        displayGameOver();
-        initGameReset();
-    }
+  if (!gameOver && cactiController.detectCollision(dino)) {
+    // Detect collision
+    gameOver = true;
+  }
 
-    if(gameWaiting) {
-        displayStartScreen();
-    }
+  if (gameOver) {
+    // Game over
+    dino.dead();
+    score.setHighScore();
+    displayGameOver();
+    initGameReset();
+  }
 
-    // Draw game objects
-    ground.draw();
-    cactiController.draw();
-    dino.draw();
-    score.draw();
-    
-    // Request new frame
-    requestAnimationFrame(main);
+  if (gameWaiting) {
+    displayStartScreen();
+  }
+
+  // Draw game objects
+  ground.draw();
+  cactiController.draw();
+  dino.draw();
+  score.draw();
+
+  // Request new frame
+  requestAnimationFrame(main);
 }
 
 init(); // Create game objects
 requestAnimationFrame(main); // Start game
 
-window.addEventListener("keyup", (event) => {
-    if(event.code === "Space") {
-        gameWaiting = false;
+window.addEventListener(
+  "keyup",
+  (event) => {
+    if (event.code === "Space") {
+      gameWaiting = false;
     }
-}, { once: true });
+  },
+  { once: true }
+);

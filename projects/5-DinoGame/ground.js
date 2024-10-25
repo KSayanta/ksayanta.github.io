@@ -1,9 +1,13 @@
 export default class Ground {
-    constructor(ctx, width, height, speed) {
+    
+    GROUND_WIDTH = 2400;
+    GROUND_HEIGHT = 24;
+
+    constructor(ctx, speed) {
        this.ctx = ctx;
        this.canvas = ctx.canvas;
-       this.width = width;
-       this.height = height;
+       this.width = this.GROUND_WIDTH;
+       this.height = this.GROUND_HEIGHT;
        this.speed = speed;
 
        this.x = 0;
