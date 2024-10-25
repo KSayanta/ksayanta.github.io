@@ -1,6 +1,7 @@
 import Dino from "./dino.js";
 import CactiController from "./cactiController.js";
 import Ground from "./ground.js";
+import Score from "./score.js";
 
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
@@ -37,11 +38,13 @@ let gameWaiting = true;
 let dino = null;
 let cactiController = null;
 let ground = null;
+let score = null;
 
 function init() {
     dino = new Dino(ctx, DINO_WIDTH, DINO_HEIGHT, DINO_MIN_JUMP, DINO_MAX_JUMP);
     cactiController = new CactiController(ctx, GROUND_CACTUS_SPEED);
     ground = new Ground(ctx, GROUND_WIDTH, GROUND_HEIGHT, GROUND_CACTUS_SPEED);
+    score = new Score(ctx);
 }
 
 function reset() {
@@ -52,6 +55,7 @@ function reset() {
     dino.reset();
     ground.reset();
     cactiController.reset();
+    score.reset();
 }
 
 function initGameReset() {
@@ -103,6 +107,7 @@ function main(currentTime) {
         ground.update(gameSpeed, frameTimeDelta);
         cactiController.update(gameSpeed, frameTimeDelta);
         dino.update(gameSpeed, frameTimeDelta);
+        score.update(frameTimeDelta);
 
         // Update game speed
         gameSpeed += frameTimeDelta * GAME_SPEED_INCREMENT;
@@ -112,8 +117,9 @@ function main(currentTime) {
         gameOver = true;
     }
     
-    if(gameOver) {
+    if(gameOver) { // Game over
         dino.dead();
+        score.setHighScore();
         displayGameOver();
         initGameReset();
     }
@@ -126,6 +132,7 @@ function main(currentTime) {
     ground.draw();
     cactiController.draw();
     dino.draw();
+    score.draw();
     
     // Request new frame
     requestAnimationFrame(main);
