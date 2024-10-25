@@ -22,10 +22,12 @@ export default class Dino {
         this.y = this.canvas.height - this.height - 10;
         this.Y = this.y; // Store original y position
 
+        // Standing sprite
         this.dinoStanding = new Image();
         this.dinoStanding.src = "sprite/dino.png";
         this.sprite = this.dinoStanding;
 
+        // Walking sprite
         const dinoWalk1 = new Image();
         dinoWalk1.src = "sprite/dino-run1.png";
         
@@ -34,6 +36,10 @@ export default class Dino {
         
         this.dinoWalkSprites.push(dinoWalk1);
         this.dinoWalkSprites.push(dinoWalk2);
+
+        // Dead sprite
+        this.dinoDead = new Image();
+        this.dinoDead.src = "sprite/dino-dead.png";
 
         // Event handlers remove first
         document.removeEventListener("keydown", this.onKeyDown);
@@ -56,6 +62,10 @@ export default class Dino {
         }
 
         this.jump(frameTimeDelta);
+    }
+
+    reset() {
+        this.sprite = this.dinoStanding;
     }
 
     walk(gameSpeed, frameTimeDelta) {
@@ -103,6 +113,10 @@ export default class Dino {
                 this.isJumping = false;
             }
         }
+    }
+
+    dead() {
+        this.sprite = this.dinoDead;
     }
 
     onKeyDown = (event) => {

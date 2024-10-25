@@ -30,6 +30,7 @@ let gameSpeed = GAME_SPEED_INIT;
 
 // Game objects
 let gameOver = false;
+let gameReset = false;
 let dino = null;
 let cactiController = null;
 let ground = null;
@@ -38,6 +39,40 @@ function init() {
     dino = new Dino(ctx, DINO_WIDTH, DINO_HEIGHT, DINO_MIN_JUMP, DINO_MAX_JUMP);
     cactiController = new CactiController(ctx, GROUND_CACTUS_SPEED);
     ground = new Ground(ctx, GROUND_WIDTH, GROUND_HEIGHT, GROUND_CACTUS_SPEED);
+}
+
+function reset() {
+    gameOver = false;
+    gameReset = false;
+    gameSpeed = GAME_SPEED_INIT;
+
+    dino.reset();
+    ground.reset();
+    cactiController.reset();
+}
+
+function initGameReset() {
+    if(!gameReset) {
+        gameReset = true;
+
+        setTimeout(() => {
+            window.addEventListener("keyup", (event) => {
+                if(event.code === "Space") {
+                    reset();
+                    gameReset = false;
+                }
+            }, { once: true });
+        }, 500);
+    }
+}
+
+function displayGameOver() {
+    // Display game over sprite
+    const x = GAME_WIDTH / 3.3;
+    const y = GAME_HEIGHT / 3;
+    const gameOverSprite = new Image();
+    gameOverSprite.src = "sprite/game-over.png";
+    ctx.drawImage(gameOverSprite, x, y);    
 }
 
 function main(currentTime) {
@@ -61,6 +96,11 @@ function main(currentTime) {
         gameOver = true;
     }
     
+    if(gameOver) {
+        dino.dead();
+        displayGameOver();
+        initGameReset();
+    }
 
     // Draw game objects
     ground.draw();

@@ -63,6 +63,11 @@ export default class CactiController {
         });     
     }
 
+    reset() {
+        this.cacti = [];
+        this.setNextCactusInterval();
+    }
+
     detectCollision(sprite) {
         return this.cacti.some((cactus) => {
             return cactus.detectCollision(sprite);
