@@ -1,7 +1,7 @@
-import Dino from "./dino.js";
-import CactiController from "./cactiController.js";
-import Ground from "./ground.js";
-import Score from "./score.js";
+import Dino from "./script/dino.js";
+import CactiController from "./script/cactiController.js";
+import Ground from "./script/ground.js";
+import Score from "./script/score.js";
 
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
