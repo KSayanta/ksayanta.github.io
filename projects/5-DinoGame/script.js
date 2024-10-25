@@ -6,7 +6,7 @@ const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
 const GAME_SPEED_INIT = 0.75; // NOTE: game speed should be set upto 1.0
-const GAME_SPEED_INCREMENT = 0.00005; // TODO: implement difficulty 
+const GAME_SPEED_INCREMENT = 0.00001; // NOTE: adjust this value to increase or decrease game speed
 
 const GAME_WIDTH = 1000;
 const GAME_HEIGHT = 400;
@@ -92,7 +92,6 @@ function main(currentTime) {
     // Calculate frame time delta
     if(previousTime !== null) {
         frameTimeDelta = (currentTime - previousTime);
-        // gameSpeed += frameTimeDelta * GAME_SPEED_INCREMENT;
     }
 
     previousTime = currentTime;
@@ -104,6 +103,9 @@ function main(currentTime) {
         ground.update(gameSpeed, frameTimeDelta);
         cactiController.update(gameSpeed, frameTimeDelta);
         dino.update(gameSpeed, frameTimeDelta);
+
+        // Update game speed
+        gameSpeed += frameTimeDelta * GAME_SPEED_INCREMENT;
     }
 
     if(!gameOver && cactiController.detectCollision(dino)) { // Detect collision
