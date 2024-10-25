@@ -28,9 +28,12 @@ let previousTime = null;
 let frameTimeDelta = null;
 let gameSpeed = GAME_SPEED_INIT;
 
-// Game objects
+// Game flags
 let gameOver = false;
 let gameReset = false;
+let gameWaiting = true;
+
+// Game objects
 let dino = null;
 let cactiController = null;
 let ground = null;
@@ -66,6 +69,15 @@ function initGameReset() {
     }
 }
 
+function displayStartScreen() {
+    // Display start screen
+    const x = GAME_WIDTH / 5;
+    const y = GAME_HEIGHT / 2.5;
+    ctx.font = "3rem monospace";
+    ctx.fillStyle = "grey";
+    ctx.fillText("Press SPACE to start", x, y);
+}
+
 function displayGameOver() {
     // Display game over sprite
     const x = GAME_WIDTH / 3.3;
@@ -76,17 +88,19 @@ function displayGameOver() {
 }
 
 function main(currentTime) {
+
     // Calculate frame time delta
     if(previousTime !== null) {
         frameTimeDelta = (currentTime - previousTime);
         // gameSpeed += frameTimeDelta * GAME_SPEED_INCREMENT;
     }
+
     previousTime = currentTime;
         
     // Clear canvas
     ctx.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
 
-    if(!gameOver) {// Update game objects        
+    if(!gameOver && !gameWaiting) {// Update game objects
         ground.update(gameSpeed, frameTimeDelta);
         cactiController.update(gameSpeed, frameTimeDelta);
         dino.update(gameSpeed, frameTimeDelta);
@@ -102,6 +116,10 @@ function main(currentTime) {
         initGameReset();
     }
 
+    if(gameWaiting) {
+        displayStartScreen();
+    }
+
     // Draw game objects
     ground.draw();
     cactiController.draw();
@@ -112,5 +130,10 @@ function main(currentTime) {
 }
 
 init(); // Create game objects
-
 requestAnimationFrame(main); // Start game
+
+window.addEventListener("keyup", (event) => {
+    if(event.code === "Space") {
+        gameWaiting = false;
+    }
+}, { once: true });
