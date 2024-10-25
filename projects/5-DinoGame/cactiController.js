@@ -63,6 +63,12 @@ export default class CactiController {
         });     
     }
 
+    detectCollision(sprite) {
+        return this.cacti.some((cactus) => {
+            return cactus.detectCollision(sprite);
+        });
+    }
+
     setNextCactusInterval() {
         // Set random interval between min and max
         this.nextCactusInterval = this.getRandomNumberBetween(this.CACTUS_INTERVAL_MIN, this.CACTUS_INTERVAL_MAX);

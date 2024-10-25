@@ -16,4 +16,18 @@ export default class Cactus {
     update(speed, gameSpeed, frameTimeDelta) {
         this.x -= speed * gameSpeed * frameTimeDelta;
     }
+
+    detectCollision(sprite) {
+        const adjustBy = 0.6;
+        if (
+            this.x < sprite.x + sprite.width * adjustBy &&
+            this.x + this.width * adjustBy > sprite.x &&
+            this.y < sprite.y + sprite.height * adjustBy &&
+            this.y + this.height * adjustBy > sprite.y
+        ) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

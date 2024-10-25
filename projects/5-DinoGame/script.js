@@ -29,6 +29,7 @@ let frameTimeDelta = null;
 let gameSpeed = GAME_SPEED_INIT;
 
 // Game objects
+let gameOver = false;
 let dino = null;
 let cactiController = null;
 let ground = null;
@@ -50,10 +51,16 @@ function main(currentTime) {
     // Clear canvas
     ctx.clearRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
 
-    // Update game objects
-    ground.update(gameSpeed, frameTimeDelta);
-    cactiController.update(gameSpeed, frameTimeDelta);
-    dino.update(gameSpeed, frameTimeDelta);
+    if(!gameOver) {// Update game objects        
+        ground.update(gameSpeed, frameTimeDelta);
+        cactiController.update(gameSpeed, frameTimeDelta);
+        dino.update(gameSpeed, frameTimeDelta);
+    }
+
+    if(!gameOver && cactiController.detectCollision(dino)) { // Detect collision
+        gameOver = true;
+    }
+    
 
     // Draw game objects
     ground.draw();
