@@ -1,4 +1,5 @@
 import Dino from "./dino.js";
+import CactiController from "./cactiController.js";
 import Ground from "./ground.js";
 
 const canvas = document.getElementById("canvas");
@@ -29,10 +30,12 @@ let gameSpeed = GAME_SPEED_INIT;
 
 // Game objects
 let dino = null;
+let cactiController = null;
 let ground = null;
 
 function init() {
     dino = new Dino(ctx, DINO_WIDTH, DINO_HEIGHT, DINO_MIN_JUMP, DINO_MAX_JUMP);
+    cactiController = new CactiController(ctx, GROUND_CACTUS_SPEED);
     ground = new Ground(ctx, GROUND_WIDTH, GROUND_HEIGHT, GROUND_CACTUS_SPEED);
 }
 
@@ -49,10 +52,12 @@ function main(currentTime) {
 
     // Update game objects
     ground.update(gameSpeed, frameTimeDelta);
+    cactiController.update(gameSpeed, frameTimeDelta);
     dino.update(gameSpeed, frameTimeDelta);
 
     // Draw game objects
     ground.draw();
+    cactiController.draw();
     dino.draw();
     
     // Request new frame
@@ -60,4 +65,5 @@ function main(currentTime) {
 }
 
 init(); // Create game objects
+
 requestAnimationFrame(main); // Start game
