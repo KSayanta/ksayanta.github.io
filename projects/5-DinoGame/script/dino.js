@@ -6,14 +6,19 @@ export default class Dino {
   DINO_WIDTH = 88;
   DINO_HEIGHT = 94;
 
+  DINO_DUCK_WIDTH = 118;
+  DINO_DUCK_HEIGHT = 60;
+
   JUMP_SPEED = 0.6;
   DINO_MIN_JUMP = 250;
   DINO_MAX_JUMP = 350;
-  GRAVITY = 0.3;
+  GRAVITY = 0.45;
 
   isJumpPressed = false;
   isJumping = false;
   isFalling = false;
+  isDuckPressed = false;
+  isDucking = false;
 
   constructor(ctx) {
     this.ctx = ctx;
@@ -24,8 +29,8 @@ export default class Dino {
     this.maxJump = this.DINO_MAX_JUMP;
 
     this.x = 20;
-    this.y = this.canvas.height - this.height - 10;
-    this.Y = this.y; // Store original y position
+    this.Y = this.canvas.height - this.DINO_HEIGHT - 10; // Store original y position
+    this.y = this.Y;
 
     // Standing sprite
     this.dinoStanding = new Image();
@@ -41,6 +46,16 @@ export default class Dino {
 
     this.dinoWalkSprites.push(dinoWalk1);
     this.dinoWalkSprites.push(dinoWalk2);
+
+    // Ducking sprite
+    const dinoDuck1 = new Image();
+    dinoDuck1.src = "sprite/dino-duck1.png";
+
+    const dinoDuck2 = new Image();
+    dinoDuck2.src = "sprite/dino-duck2.png";
+
+    this.dinoWalkSprites.push(dinoDuck1);
+    this.dinoWalkSprites.push(dinoDuck2);
 
     // Dead sprite
     this.dinoDead = new Image();
@@ -60,7 +75,9 @@ export default class Dino {
   }
 
   update(gameSpeed, frameTimeDelta) {
-    this.walk(gameSpeed, frameTimeDelta);
+    if (!this.isJumping) {
+      this.walk(gameSpeed, frameTimeDelta);
+    }
 
     if (this.isJumping) {
       this.sprite = this.dinoStanding;
@@ -71,18 +88,36 @@ export default class Dino {
 
   reset() {
     this.sprite = this.dinoStanding;
+    this.width = this.DINO_WIDTH;
+    this.height = this.DINO_HEIGHT;
+    this.y = this.Y;
   }
 
   walk(gameSpeed, frameTimeDelta) {
-    if (this.walkCycleTimer <= 0) {
-      // Switch sprite
-      if (this.sprite === this.dinoWalkSprites[0]) {
-        this.sprite = this.dinoWalkSprites[1];
-      } else {
-        this.sprite = this.dinoWalkSprites[0];
+    this.caclulateBoundingBox();
+
+    if (!this.isDuckPressed) {
+      if (this.walkCycleTimer <= 0) {
+        // Switch sprite
+        if (this.sprite === this.dinoWalkSprites[0]) {
+          this.sprite = this.dinoWalkSprites[1];
+        } else {
+          this.sprite = this.dinoWalkSprites[0];
+        }
+        // Reset timer
+        this.walkCycleTimer = this.WALK_CYCLE_TIMER;
       }
-      // Reset timer
-      this.walkCycleTimer = this.WALK_CYCLE_TIMER;
+    } else {
+      if (this.walkCycleTimer <= 0) {
+        // Switch sprite
+        if (this.sprite === this.dinoWalkSprites[2]) {
+          this.sprite = this.dinoWalkSprites[3];
+        } else {
+          this.sprite = this.dinoWalkSprites[2];
+        }
+        // Reset timer
+        this.walkCycleTimer = this.WALK_CYCLE_TIMER;
+      }
     }
 
     // Decrement timer
@@ -90,11 +125,17 @@ export default class Dino {
   }
 
   jump(frameTimeDelta) {
-    if (this.isJumpPressed) {
+    if (this.isJumpPressed && !this.isDucking) {
       this.isJumping = true;
     }
 
-    if (this.isJumping && !this.isFalling) {
+    if (this.isDuckPressed && !this.isJumping) {
+      this.isDucking = true;
+    } else {
+      this.isDucking = false;
+    }
+
+    if (this.isJumping && !this.isFalling && !this.isDucking) {
       // If jumping upwards
 
       if (
@@ -109,21 +150,36 @@ export default class Dino {
         this.isFalling = true;
       }
     } else {
-      if (this.y < this.Y) {
-        // If not at original height
+      if (this.isFalling) {
         this.y += this.GRAVITY * frameTimeDelta;
         if (this.y + this.height > this.canvas.height) {
           this.y = this.Y;
+          this.isFalling = false;
+          this.isJumping = false;
         }
-      } else {
-        this.isFalling = false;
-        this.isJumping = false;
       }
     }
   }
 
   dead() {
     this.sprite = this.dinoDead;
+    this.width = this.DINO_WIDTH;
+    this.height = this.DINO_HEIGHT;
+    if (this.isDucking) {
+      this.y = this.Y;
+    }
+  }
+
+  caclulateBoundingBox() {
+    if (this.isDucking) {
+      this.width = this.DINO_DUCK_WIDTH;
+      this.height = this.DINO_DUCK_HEIGHT;
+      this.y = this.canvas.height - this.DINO_DUCK_HEIGHT - 10;
+    } else {
+      this.width = this.DINO_WIDTH;
+      this.height = this.DINO_HEIGHT;
+      this.y = this.Y;
+    }
   }
 
   onKeyDown = (event) => {
@@ -134,6 +190,14 @@ export default class Dino {
     ) {
       this.isJumpPressed = true;
     }
+
+    if (
+      event.code === "ControlLeft" ||
+      event.code === "ArrowDown" ||
+      event.code === "KeyS"
+    ) {
+      this.isDuckPressed = true;
+    }
   };
 
   onKeyUp = (event) => {
@@ -143,6 +207,14 @@ export default class Dino {
       event.code === "KeyW"
     ) {
       this.isJumpPressed = false;
+    }
+
+    if (
+      event.code === "ControlLeft" ||
+      event.code === "ArrowDown" ||
+      event.code === "KeyS"
+    ) {
+      this.isDuckPressed = false;
     }
   };
 }
