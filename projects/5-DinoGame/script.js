@@ -63,7 +63,7 @@ function initGameReset() {
             gameReset = false;
           }
         },
-        { once: true }
+        { once: true },
       );
     }, 500);
   }
@@ -146,5 +146,5 @@ window.addEventListener(
       gameWaiting = false;
     }
   },
-  { once: true }
+  { once: true },
 );
