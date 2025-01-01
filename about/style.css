@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: #aaa;
+  background: #222;
+  min-block-size: 100vh;
+  box-sizing: border-box;
+  padding: 2rem;
+  font-size: 1.4rem;
+  line-height: 1.5;
+}
+
+.details-summary::marker {
+  content: none;
+}
+
+.details-summary::before {
+  content: ">";
+  margin-right: 0.5rem;
+}
+
+.details-summary::after {
+  content: "<";
+  margin-left: 0.5rem;
+}
