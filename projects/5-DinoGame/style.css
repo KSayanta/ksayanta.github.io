@@ -1,9 +1,10 @@
 * {
+  margin: 0;
+  padding: 0;
   font-family: "Courier New", Courier, monospace;
 }
 body {
   background-color: #777;
-  text-align: center;
 }
 
 h1 {
@@ -12,5 +13,4 @@ h1 {
 
 canvas {
   background-color: lightgray;
-  border-bottom: 2px solid black;
 }

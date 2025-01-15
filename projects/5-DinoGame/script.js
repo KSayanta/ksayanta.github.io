@@ -55,16 +55,12 @@ function initGameReset() {
     gameReset = true;
 
     setTimeout(() => {
-      window.addEventListener(
-        "keyup",
-        (event) => {
-          if (event.code === "Space") {
-            reset();
-            gameReset = false;
-          }
-        },
-        { once: true },
-      );
+      window.addEventListener("keyup", event => {
+        if (event.code === "Space") {
+          reset();
+          gameReset = false;
+        }
+      });
     }, 500);
   }
 }
@@ -139,12 +135,11 @@ function main(currentTime) {
 init(); // Create game objects
 requestAnimationFrame(main); // Start game
 
-window.addEventListener(
-  "keyup",
-  (event) => {
+// Hang the game on page load
+if (gameWaiting) {
+  window.addEventListener("keyup", event => {
     if (event.code === "Space") {
       gameWaiting = false;
     }
-  },
-  { once: true },
-);
+  });
+}
