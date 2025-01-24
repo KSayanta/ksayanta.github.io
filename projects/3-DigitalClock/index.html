@@ -1,32 +1,35 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projects | Digital Clock</title>
+    <link rel="stylesheet" href="../../global.css" />
+    <link rel="stylesheet" href="../../fonts.css" />
+    <link rel="stylesheet" href="../../utils.css" />
+    <link rel="stylesheet" href="../../navigation.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="../style.css">
-</head>
-
-<body style="background-color: #222; color: #fff">
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/projects/" aria-current="page">Projects</a></li>
-            <li><a href="#">About</a></li>
-        </ul>
+  <body style="background-color: #222; color: #fff">
+    <nav class="main-nav">
+      <ul class="main-nav__list">
+        <li><a href="/" class="main-nav__links">Home</a></li>
+        <li>
+          <a href="/projects/" class="main-nav__links">Projects</a>
+        </li>
+        <li><a href="/about/" class="main-nav__links">About</a></li>
+      </ul>
     </nav>
 
     <section class="hero-area">
-        <h1>Your Local Time</h1>
-        <hr>
-        <div id="clock"></div>
-        <div id="zone"><strong>GMT</strong></div>
+      <h1 class="title">Your Local Time</h1>
+      <hr />
+      <div id="clock"></div>
+      <div id="zone"><strong>GMT</strong></div>
     </section>
 
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>
+

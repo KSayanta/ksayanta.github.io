@@ -1,0 +1,41 @@
+/* Page main title */
+.title {
+  font-size: 3rem;
+  letter-spacing: 0.1rem;
+  padding-block: 4rem;
+  text-align: center;
+}
+
+/* To hide the arrows on number inputs */
+.arrow-hide[type="number"]::-webkit-inner-spin-button,
+.arrow-hide[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.arrow-hide[type="number"] {
+  appearance: textfield;
+}
+
+/* Call to Action Button */
+.cta-btn {
+  color: var(--highlight-color);
+  background-color: var(--primary-color);
+  cursor: pointer;
+  border: 2px solid #111;
+  border-radius: 10px;
+}
+
+.cta-btn:hover {
+  background-color: var(--highlight-color);
+  color: var(--primary-color);
+}
+
+.cta-btn:active {
+  transform: scale(0.9);
+}
+
+.cta-btn:focus {
+  outline: none;
+  box-shadow: 0 0 10px var(--highlight-color);
+}

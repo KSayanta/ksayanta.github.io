@@ -1,33 +1,40 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projects | Home</title>
-
+    <link rel="stylesheet" href="../global.css" />
+    <link rel="stylesheet" href="../fonts.css" />
+    <link rel="stylesheet" href="../utils.css" />
+    <link rel="stylesheet" href="../navigation.css" />
     <link rel="stylesheet" href="style.css" />
     <script type="module" src="script.js"></script>
-</head>
+  </head>
 
-<body style="background-color: #222; color: #fff">
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/projects/" aria-current="page">Projects</a></li>
-            <li><a href="#">About</a></li>
-        </ul>
+  <body style="background-color: #222; color: #fff">
+    <nav class="main-nav">
+      <ul class="main-nav__list">
+        <li><a href="/" class="main-nav__links">Home</a></li>
+        <li>
+          <a href="/projects/" class="main-nav__links" aria-current="page"
+            >Projects</a
+          >
+        </li>
+        <li><a href="/about/" class="main-nav__links">About</a></li>
+      </ul>
     </nav>
     <main>
-        <h1>Projects</h1>
-        <hr>
-        <div class="projects">
-            <a href="/projects/1-colorChanger/"> Color Changer </a>
-            <a href="/projects/2-BMICalculator/"> BMI Calculator </a>
-            <a href="/projects/3-DigitalClock/"> Digital Clock </a>
-            <a href="/projects/4-GuesstheNumber/"> Guess the Number </a>
-        </div>
+      <h1 class="title">Projects</h1>
+      <hr />
+      <div class="projects">
+        <a href="/projects/1-colorChanger/">Color Changer</a>
+        <a href="/projects/2-BMICalculator/">BMI Calculator</a>
+        <a href="/projects/3-DigitalClock/">Digital Clock</a>
+        <a href="/projects/4-GuesstheNumber/">Guess the Number</a>
+        <a href="/projects/5-DinoGame/">Dinosaur Game</a>
+      </div>
     </main>
-</body>
-
+  </body>
 </html>
+
