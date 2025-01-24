@@ -1,0 +1,28 @@
+:root {
+  --primary-color: #16325b;
+  --secondary-color: #78b7d0;
+  --highlight-color: #ffdc7f;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Comfortaa", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+hr {
+  border: 2px solid #fff;
+  width: 50%;
+  border-radius: 50%;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+ul {
+  list-style: none;
+}

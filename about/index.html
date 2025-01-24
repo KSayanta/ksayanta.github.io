@@ -4,14 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About</title>
+    <link rel="stylesheet" href="../global.css" />
+    <link rel="stylesheet" href="../fonts.css" />
+    <link rel="stylesheet" href="../utils.css" />
+    <link rel="stylesheet" href="../navigation.css" />
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/svg+xml" href="../img/favicon.ico" />
   </head>
   <body>
+    <nav class="main-nav">
+      <ul class="main-nav__list">
+        <li><a href="/" class="main-nav__links">Home</a></li>
+        <li><a href="/projects/" class="main-nav__links">Projects</a></li>
+        <li>
+          <a href="/about/" class="main-nav__links" aria-current="page"
+            >About</a
+          >
+        </li>
+      </ul>
+    </nav>
     <main>
-      <h1 class="page-heading">About Me</h1>
-
-      <details open="" class="details" name="About Me" style="--i: 1">
+      <h1 class="title page-heading">About Me</h1>
+      <hr />
+      <details open="" class="details" name="About Me">
         <summary class="details-summary">Motivation</summary>
         <div class="details-content">
           <p>
@@ -26,7 +41,7 @@
         </div>
       </details>
 
-      <details class="details" name="About Me" style="--i: 2">
+      <details class="details" name="About Me">
         <summary class="details-summary">Education</summary>
         <div class="details-content">
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
@@ -34,7 +49,7 @@
         </div>
       </details>
 
-      <details class="details" name="About Me" style="--i: 3">
+      <details class="details" name="About Me">
         <summary class="details-summary">Aspirations</summary>
         <div class="details-content">
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
@@ -42,7 +57,7 @@
         </div>
       </details>
 
-      <details class="details" name="About Me" style="--i: 4">
+      <details class="details" name="About Me">
         <summary class="details-summary">Experienxes</summary>
         <div class="details-content">
           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>

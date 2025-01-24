@@ -5,9 +5,8 @@
 }
 
 body {
-  background: #222;
+  background: linear-gradient(120deg, hsl(260deg 80% 50%), hsl(0deg 100% 50%));
   min-block-size: 100vh;
-  padding: 2rem;
   font-size: 1.4rem;
   line-height: 1.5;
 }
@@ -17,19 +16,13 @@ a {
   color: hsl(1deg 70% 50%);
 }
 
-main {
-  padding-bottom: 2rem;
-  background: linear-gradient(120deg, hsl(260deg 80% 50%), hsl(0deg 100% 50%));
-}
-
 .details {
   margin-block: 2rem;
+  margin-inline: 16rem;
 }
 
 .page-heading {
   color: white;
-  text-align: center;
-  padding-top: 1rem;
 }
 
 .details-summary {
@@ -42,7 +35,6 @@ main {
 
   padding-inline: 3rem;
   padding-block: 1rem;
-  margin-inline: 2rem;
 
   font-weight: 600;
 }
@@ -53,14 +45,18 @@ main {
 
 .details-summary::before {
   content: ">";
-  position: absolute;
   inset-inline-start: 1rem;
 }
 
 .details-summary::after {
   content: "<";
-  position: absolute;
   inset-inline-end: 1rem;
+}
+
+.details-summary::before,
+.details-summary::after {
+  position: absolute;
+  transition: rotate 0.2s;
 }
 
 .details[open] .details-summary::before {
@@ -72,7 +68,6 @@ main {
 }
 
 .details-content {
-  margin-inline: 2rem;
   background: rebeccapurple;
   padding: 1rem;
   font-size: 0.925rem;
