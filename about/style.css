@@ -1,16 +1,42 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  color: #aaa;
-  background: #222;
+  background: linear-gradient(120deg, hsl(260deg 80% 50%), hsl(0deg 100% 50%));
   min-block-size: 100vh;
-  box-sizing: border-box;
-  padding: 2rem;
   font-size: 1.4rem;
   line-height: 1.5;
+}
+
+a {
+  text-decoration: none;
+  color: hsl(1deg 70% 50%);
+}
+
+.details {
+  margin-block: 2rem;
+  margin-inline: 16rem;
+}
+
+.page-heading {
+  color: white;
+}
+
+.details-summary {
+  color: whitesmoke;
+  background-color: tomato;
+
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+
+  padding-inline: 3rem;
+  padding-block: 1rem;
+
+  font-weight: 600;
 }
 
 .details-summary::marker {
@@ -19,10 +45,35 @@ body {
 
 .details-summary::before {
   content: ">";
-  margin-right: 0.5rem;
+  inset-inline-start: 1rem;
 }
 
 .details-summary::after {
   content: "<";
-  margin-left: 0.5rem;
+  inset-inline-end: 1rem;
+}
+
+.details-summary::before,
+.details-summary::after {
+  position: absolute;
+  transition: rotate 0.2s;
+}
+
+.details[open] .details-summary::before {
+  rotate: 90deg;
+}
+
+.details[open] .details-summary::after {
+  rotate: -90deg;
+}
+
+.details-content {
+  background: rebeccapurple;
+  padding: 1rem;
+  font-size: 0.925rem;
+}
+
+.details-content p {
+  color: white;
+  margin-block-end: 1rem;
 }

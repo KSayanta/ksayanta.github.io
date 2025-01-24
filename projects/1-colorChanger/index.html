@@ -1,38 +1,42 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Project | Color Changer</title>
+    <link rel="stylesheet" href="../../global.css" />
+    <link rel="stylesheet" href="../../fonts.css" />
+    <link rel="stylesheet" href="../../utils.css" />
+    <link rel="stylesheet" href="../../navigation.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="../style.css">
-</head>
-
-<body style="background-color: #222; color: #fff">
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/projects/" aria-current="page">Projects</a></li>
-            <li><a href="#">About</a></li>
-        </ul>
+  <body style="background-color: #222; color: #fff">
+    <nav class="main-nav">
+      <ul class="main-nav__list">
+        <li><a href="/" class="main-nav__links">Home</a></li>
+        <li>
+          <a href="/projects/" class="main-nav__links">Projects</a>
+        </li>
+        <li><a href="/about/" class="main-nav__links">About</a></li>
+      </ul>
     </nav>
+
     <section class="hero-area">
-        <h1>Color Changer</h1>
-        <hr>
-        <span class="button" id="grey"></span>
-        <span class="button" id="cyan"></span>
-        <span class="button" id="purple"></span>
-        <span class="button" id="tomato"></span>
-        <br>
-        <span class="button" id="green"></span>
-        <span class="button" id="blue"></span>
-        <span class="button" id="orange"></span>
-        <span class="button" id="black"></span>
-        <h2>Try clicking the buttons<br>See what happens!</h2>
+      <h1 class="title">Color Changer</h1>
+      <hr />
+      <span class="button" id="grey"></span>
+      <span class="button" id="cyan"></span>
+      <span class="button" id="purple"></span>
+      <span class="button" id="tomato"></span>
+      <br />
+      <span class="button" id="green"></span>
+      <span class="button" id="blue"></span>
+      <span class="button" id="orange"></span>
+      <span class="button" id="black"></span>
+      <h2>Try clicking the buttons<br />See what happens!</h2>
     </section>
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>
+

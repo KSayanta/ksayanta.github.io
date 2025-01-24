@@ -1,56 +1,79 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projects | BMI Calculator</title>
+    <link rel="stylesheet" href="../../global.css" />
+    <link rel="stylesheet" href="../../fonts.css" />
+    <link rel="stylesheet" href="../../utils.css" />
+    <link rel="stylesheet" href="../../navigation.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="../style.css">
-</head>
-
-<body style="background-color: #222; color: #fff">
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/projects/" aria-current="page">Projects</a></li>
-            <li><a href="#">About</a></li>
-        </ul>
+  <body style="background-color: #222; color: #fff">
+    <nav class="main-nav">
+      <ul class="main-nav__list">
+        <li><a href="/" class="main-nav__links">Home</a></li>
+        <li>
+          <a href="/projects/" class="main-nav__links">Projects</a>
+        </li>
+        <li><a href="/about/" class="main-nav__links">About</a></li>
+      </ul>
     </nav>
+
     <section class="hero-area">
-        <h1>BMI Calculator</h1>
-        <hr>
-        <form id="bmi-form">
-            <label for="height">Height (cm)</label>
-            <input type="number" id="height" class="arrow-hide" name="height" placeholder="Enter height" min="149" required>
+      <h1 class="title">BMI Calculator</h1>
+      <hr />
+      <form id="bmi-form">
+        <label for="height">Height (cm)</label>
+        <input
+          type="number"
+          id="height"
+          class="arrow-hide"
+          name="height"
+          placeholder="Enter height"
+          min="149"
+          required
+        />
 
-            <label for="weight">Weight (kg)</label>
-            <input type="number" id="weight" class="arrow-hide" name="weight" placeholder="Enter weight" min="49" required>
-            <button type="submit" id="submit" class="cta-btn">Calculate Now !</button>
-            <button type="reset" id="reset" class="cta-btn" style="display: none;">Reset</button>
-        </form>
+        <label for="weight">Weight (kg)</label>
+        <input
+          type="number"
+          id="weight"
+          class="arrow-hide"
+          name="weight"
+          placeholder="Enter weight"
+          min="49"
+          required
+        />
+        <button type="submit" id="submit" class="cta-btn">
+          Calculate Now !
+        </button>
+        <button type="reset" id="reset" class="cta-btn" style="display: none">
+          Reset
+        </button>
+      </form>
 
-        <div id="bmi-output"></div>
-
+      <div id="bmi-output"></div>
     </section>
     <div id="bmi-category">
-        <p><strong>BMI Weight Guide</strong></p>
-        <dl>
-            <dt id="underweight">Under Weight</dt>
-            <dd>Less than 18.5</dd>
+      <p><strong>BMI Weight Guide</strong></p>
+      <dl>
+        <dt id="underweight">Under Weight</dt>
+        <dd>Less than 18.5</dd>
 
-            <dt id="normal">Normal</dt>
-            <dd>Between 18.5 and 24.9</dd>
+        <dt id="normal">Normal</dt>
+        <dd>Between 18.5 and 24.9</dd>
 
-            <dt id="overweight">Over Weight</dt>
-            <dd>Between 25 and 29.9</dd>
+        <dt id="overweight">Over Weight</dt>
+        <dd>Between 25 and 29.9</dd>
 
-            <dt id="obese">Obese</dt>
-            <dd>Above 30</dd>
-        </dl>
+        <dt id="obese">Obese</dt>
+        <dd>Above 30</dd>
+      </dl>
     </div>
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>
+
