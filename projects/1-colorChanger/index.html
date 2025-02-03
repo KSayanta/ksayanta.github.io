@@ -9,9 +9,11 @@
     <link rel="stylesheet" href="../../utils.css" />
     <link rel="stylesheet" href="../../navigation.css" />
     <link rel="stylesheet" href="style.css" />
+    <script type="module" src="script.js" defer></script>
+    <script type="module" src="../script.js" defer></script>
   </head>
 
-  <body style="background-color: #222; color: #fff">
+  <body>
     <nav class="main-nav">
       <ul class="main-nav__list">
         <li><a href="/" class="main-nav__links">Home</a></li>
@@ -25,18 +27,16 @@
     <section class="hero-area">
       <h1 class="title">Color Changer</h1>
       <hr />
-      <span class="button" id="grey"></span>
-      <span class="button" id="cyan"></span>
-      <span class="button" id="purple"></span>
-      <span class="button" id="tomato"></span>
+      <span class="button btn-grey" id="grey"></span>
+      <span class="button btn-cyan" id="cyan"></span>
+      <span class="button btn-purple" id="purple"></span>
+      <span class="button btn-tomato" id="tomato"></span>
       <br />
-      <span class="button" id="green"></span>
-      <span class="button" id="blue"></span>
-      <span class="button" id="orange"></span>
-      <span class="button" id="black"></span>
-      <h2>Try clicking the buttons<br />See what happens!</h2>
+      <span class="button btn-green" id="green"></span>
+      <span class="button btn-blue" id="blue"></span>
+      <span class="button btn-orange" id="orange"></span>
+      <span class="button btn-black" id="black"></span>
+      <p class="bottom-text">Try clicking the buttons<br />See what happens!</p>
     </section>
-    <script src="script.js"></script>
   </body>
 </html>
-

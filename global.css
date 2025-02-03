@@ -2,6 +2,7 @@
   --primary-color: #16325b;
   --secondary-color: #78b7d0;
   --highlight-color: #ffdc7f;
+  --clr-btn: #222;
 }
 
 * {
@@ -9,6 +10,11 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Comfortaa", sans-serif;
+}
+
+body {
+  background-color: var(--clr-btn);
+  color: #fff;
 }
 
 a {
@@ -25,4 +31,37 @@ hr {
 
 ul {
   list-style: none;
+}
+
+/* Theme Colors */
+.btn-grey {
+  --clr-btn: #ddd;
+}
+
+.btn-cyan {
+  --clr-btn: cyan;
+}
+
+.btn-purple {
+  --clr-btn: purple;
+}
+
+.btn-tomato {
+  --clr-btn: tomato;
+}
+
+.btn-green {
+  --clr-btn: greenyellow;
+}
+
+.btn-blue {
+  --clr-btn: blue;
+}
+
+.btn-orange {
+  --clr-btn: orange;
+}
+
+.btn-black {
+  --clr-btn: #222;
 }

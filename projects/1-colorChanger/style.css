@@ -12,46 +12,17 @@
 .button {
   width: 120px;
   aspect-ratio: 1/1;
+  margin: 10px;
+
   display: inline-block;
   cursor: pointer;
+  background-color: var(--clr-btn);
+
   border: 2px solid black;
   border-radius: 50%;
-  margin: 10px;
 }
 
-#grey {
-  background-color: #ddd;
-}
-
-#cyan {
-  background-color: cyan;
-}
-
-#purple {
-  background-color: purple;
-}
-
-#tomato {
-  background-color: tomato;
-}
-
-#green {
-  background-color: greenyellow;
-}
-
-#blue {
-  background-color: blue;
-}
-
-#orange {
-  background-color: orange;
-}
-
-#black {
-  background-color: black;
-}
-
-h2 {
+.bottom-text {
   text-align: center;
   font-weight: 400;
   line-height: 4rem;
