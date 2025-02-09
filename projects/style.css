@@ -15,7 +15,7 @@ main {
 }
 
 .projects a {
-  color: var(--highlight-color);
+  color: var(--clr-txt);
   font-size: 1.5rem;
 }
 

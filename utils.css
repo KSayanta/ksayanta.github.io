@@ -1,5 +1,11 @@
+/* Hero area */
+.hero-area {
+  text-align: center;
+}
+
 /* Page main title */
 .title {
+  color: var(--clr-title);
   font-size: 3rem;
   letter-spacing: 0.1rem;
   padding-block: 4rem;

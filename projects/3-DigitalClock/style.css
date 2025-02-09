@@ -1,12 +1,3 @@
-.hero-area {
-  text-align: center;
-}
-
-.hero-area h1 {
-  font-size: 3rem;
-  padding-block: 60px;
-}
-
 #clock {
   color: var(--secondary-color);
   font-size: 5rem;
@@ -16,7 +7,7 @@
 }
 
 #zone {
-  color: var(--highlight-color);
+  color: var(--clr-txt);
   font-size: 1.5rem;
   padding: 20px 50px;
 }

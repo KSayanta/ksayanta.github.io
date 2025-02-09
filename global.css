@@ -2,7 +2,9 @@
   --primary-color: #16325b;
   --secondary-color: #78b7d0;
   --highlight-color: #ffdc7f;
-  --clr-btn: #222;
+  --clr-bg: #222222;
+  --clr-title: #ffffff;
+  --clr-txt: #ffffff;
 }
 
 * {
@@ -13,8 +15,8 @@
 }
 
 body {
-  background-color: var(--clr-btn);
-  color: #fff;
+  background-color: var(--clr-bg);
+  color: var(--clr-txt);
 }
 
 a {
@@ -22,7 +24,7 @@ a {
 }
 
 hr {
-  border: 2px solid #fff;
+  border: 2px solid var(--clr-title);
   width: 50%;
   border-radius: 50%;
   margin: 0 auto;
@@ -34,34 +36,50 @@ ul {
 }
 
 /* Theme Colors */
-.btn-grey {
-  --clr-btn: #ddd;
+.theme-grey {
+  --clr-bg: #dddddd;
+  --clr-title: #000000;
+  --clr-txt: #000000;
 }
 
-.btn-cyan {
-  --clr-btn: cyan;
+.theme-cyan {
+  --clr-bg: cyan;
+  --clr-title: #000000;
+  --clr-txt: #000000;
 }
 
-.btn-purple {
-  --clr-btn: purple;
+.theme-purple {
+  --clr-bg: purple;
+  --clr-title: #ffffff;
+  --clr-txt: #ffffff;
 }
 
-.btn-tomato {
-  --clr-btn: tomato;
+.theme-tomato {
+  --clr-bg: tomato;
+  --clr-title: #000000;
+  --clr-txt: #000000;
 }
 
-.btn-green {
-  --clr-btn: greenyellow;
+.theme-green {
+  --clr-bg: greenyellow;
+  --clr-title: #000000;
+  --clr-txt: #000000;
 }
 
-.btn-blue {
-  --clr-btn: blue;
+.theme-blue {
+  --clr-bg: blue;
+  --clr-title: #ffffff;
+  --clr-txt: #ffffff;
 }
 
-.btn-orange {
-  --clr-btn: orange;
+.theme-orange {
+  --clr-bg: orange;
+  --clr-title: #000000;
+  --clr-txt: #000000;
 }
 
-.btn-black {
-  --clr-btn: #222;
+.theme-black {
+  --clr-bg: #222222;
+  --clr-title: #ffffff;
+  --clr-txt: #ffffff;
 }

@@ -7,35 +7,34 @@ buttons.forEach(button => {
 
     switch (event.target.id) {
       case "grey":
-        body.classList.add("btn-grey");
+        body.classList.add("theme-grey");
         break;
 
       case "cyan":
-        body.classList.add("btn-cyan");
+        body.classList.add("theme-cyan");
         break;
 
       case "purple":
-        body.classList.add("btn-purple");
+        body.classList.add("theme-purple");
         break;
 
       case "tomato":
-        body.classList.add("btn-tomato");
+        body.classList.add("theme-tomato");
         break;
 
       case "green":
-        body.classList.add("btn-green");
+        body.classList.add("theme-green");
         break;
 
       case "blue":
-        body.classList.add("btn-blue");
+        body.classList.add("theme-blue");
         break;
 
       case "orange":
-        body.classList.add("btn-orange");
+        body.classList.add("theme-orange");
         break;
 
       case "black":
-        body.classList.add("btn-black");
         localStorage.removeItem("theme");
         break;
 

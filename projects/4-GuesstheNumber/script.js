@@ -11,13 +11,13 @@ const guessFeedback = document.querySelector("#message");
 let gameOver = false;
 let attempts = 1;
 
-guessInput.addEventListener("keypress", (event) => {
+guessInput.addEventListener("keypress", event => {
   if (event.which === 13 || event.keyCode === 13) {
     guessSubmit.click();
   }
 });
 
-guessSubmit.addEventListener("click", (event) => {
+guessSubmit.addEventListener("click", event => {
   event.preventDefault();
   const guess = parseInt(guessInput.value);
   if (!gameOver) {
@@ -36,20 +36,23 @@ guessReset.addEventListener("click", () => {
 function generateRandom() {
   return parseInt(Math.random() * 100 + 1);
 }
+
 function validateGuess(guess) {
   if (isNaN(guess)) {
     alert("Please enter a valid number.");
+    clearGuess();
     return false;
   }
   if (guess < 1 || guess > 100) {
     alert("Please enter a number between 1 and 100");
+    clearGuess();
     return false;
   }
   return true;
 }
 
 function checkGuess(guess) {
-  clearGuess(guess);
+  clearGuess();
   displayChances(chances - attempts);
 
   if (guess === randomNumber) {
@@ -99,6 +102,7 @@ function clearGuess() {
   guessInput.value = "";
   guessInput.focus();
 }
+
 function endGame() {
   guessInput.setAttribute("disabled", "disabled");
   guessSubmit.style.display = "none";
