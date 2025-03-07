@@ -17,27 +17,24 @@ const getData = async function () {
 
 const handleJSON = function (json) {
   json.backgrounds.forEach(element => {
-    const imageCard = document.createElement("div");
-    const newImage = document.createElement("img");
-    const newAvatar = document.createElement("img");
-    const newUserArea = document.createElement("span");
-    const newUsername = document.createElement("p");
+    const imageCard = `
+      <div class="image-card">
+        <img
+          class="image-card--content"
+          src="${element.url}"
+          alt=""
+        />
+        <span class="image-card--name">
+          <img 
+            src="${element.user.avatar_url}"
+            alt=""
+          />
+          <p>${element.user.username}</p>
+        </span>
+      </div>
+    `;
 
-    newImage.src = element.url;
-    newAvatar.src = element.user.avatar_url;
-    newUsername.innerText = element.user.username;
-
-    imageCard.classList.add("image-card");
-    newImage.classList.add("image-card--content");
-    newUserArea.classList.add("image-card--name");
-
-    newUserArea.append(newAvatar);
-    newUserArea.append(newUsername);
-
-    imageCard.append(newImage);
-    imageCard.append(newUserArea);
-
-    imageContainer.append(imageCard);
+    imageContainer.insertAdjacentHTML("afterbegin", imageCard);
   });
 };
 
