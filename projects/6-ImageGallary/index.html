@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../../utils.css" />
     <link rel="stylesheet" href="../../navigation.css" />
     <link rel="stylesheet" href="style.css" />
-    <script src="script.js" defer crossorigin></script>
+    <script src="script.js" crossorigin defer></script>
   </head>
   <body>
     <nav class="main-nav">
@@ -25,6 +25,30 @@
       <h1 class="title">Image Gallary</h1>
       <hr />
     </section>
-    <div class="image-container"></div>
+    <section class="image-lightbox">
+      <button class="image-lightbox__close-btn">&times;</button>
+
+      <div class="image-lightbox__wrapper">
+        <!-- Image slides -->
+        <div class="image-lightbox__slide-area">
+          <!-- Next/previous controls -->
+          <button class="image-lightbox__prev">&#10094;</button>
+          <button class="image-lightbox__next">&#10095;</button>
+          <!-- Dynamically inserting slides -->
+        </div>
+
+        <!-- Thumbnail image controls -->
+        <div class="image-lightbox__thumbnails-wrapper">
+          <button class="image-lightbox__thumb-prev inactive">&#10094;</button>
+          <button class="image-lightbox__thumb-next">&#10095;</button>
+          <div class="image-lightbox__thumbnails">
+            <!-- Dynamically inserting thumbnails -->
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="image-container">
+      <!-- Dynamically inserting images -->
+    </div>
   </body>
 </html>
