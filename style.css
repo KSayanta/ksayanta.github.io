@@ -8,6 +8,7 @@
 nav {
   background-color: #000;
   border-right: 1px solid #ffe5cf;
+  fill: #ffe5cf;
 
   display: flex;
   flex-direction: column;
@@ -49,6 +50,7 @@ nav {
 .nav-location {
   color: #ffe5cf;
   display: flex;
+  align-items: center;
   gap: 5px;
   margin-bottom: 10px;
 }
@@ -112,6 +114,7 @@ body {
 .main-button-bio {
   height: 50px;
   width: 300px;
+  fill: #ffe5cf;
   border: 2px solid #ffe5cf;
   border-radius: 5px;
   display: flex;
@@ -126,6 +129,7 @@ body {
 
 .main-button-bio:hover {
   cursor: pointer;
+  fill: #33372c;
   color: #33372c;
   background-color: #ff885b;
   border-color: #a7593c;
@@ -148,6 +152,12 @@ footer p {
   font-size: 0.6rem;
 }
 
+footer strong {
+  &::before {
+    content: attr(data-start-year) "-" attr(data-current-year);
+  }
+}
+
 .footer-socials {
   display: flex;
   justify-content: center;
@@ -164,4 +174,3 @@ footer p {
 .footer-socials a:hover {
   color: #a7593c;
 }
-
