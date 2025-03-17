@@ -1,0 +1,49 @@
+body {
+  overflow: hidden;
+}
+
+.boared-wrapper {
+  padding-block: 2em;
+  display: grid;
+  place-items: center;
+  gap: 2em;
+}
+
+.boared-wrapper .activity {
+  font-size: 2rem;
+  padding-block: 2em;
+}
+
+.boared-wrapper .label {
+  font-size: 1.4rem;
+}
+
+#btn--new-activity {
+  width: 8rem;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  cursor: pointer;
+  background: tomato;
+  border: 2px solid brown;
+
+  &:active {
+    transform: scale(0.9);
+    background: lightsalmon;
+  }
+}
+
+.confetti {
+  position: absolute;
+  top: 0;
+  font-size: 1.6rem;
+  animation: confetti-fall linear 5s infinite;
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100%) rotate(0);
+  }
+  100% {
+    transform: translateY(100vh) rotate(180deg);
+  }
+}
