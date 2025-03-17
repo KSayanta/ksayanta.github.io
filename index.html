@@ -21,23 +21,21 @@
     <link rel="stylesheet" href="global.css" />
     <link rel="stylesheet" href="fonts.css" />
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="responsive.css" />
   </head>
 
   <body>
     <header>
       <!-- Navigation -->
       <nav>
-        <div class="nav-logo"></div>
+        <div class="nav-logo" aria-label="Profile image"></div>
         <h2 class="nav-logo-caption">Sayanta Karmakar</h2>
         <p class="nav-designation">FRONT-END DEVELOPER</p>
-
         <div class="nav-location">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            height="24px"
+            height="16px"
             viewBox="0 -960 960 960"
-            width="24px"
+            width="16px"
             fill="inherit"
           >
             <path
@@ -46,72 +44,110 @@
           </svg>
           <p>INDIA</p>
         </div>
-
-        <div class="nav-links">
-          <a>Home</a>
-          <a href="/about/">About</a>
-          <a href="#">Services</a>
-          <a href="#">Skills</a>
-          <a href="#">Education</a>
-          <a href="#">Experience</a>
-          <a href="/projects/">Projects</a>
-          <a href="#">Contact</a>
-        </div>
+        <ul class="nav-links-wrapper">
+          <li>
+            <a class="nav-links" href="#" aria-current="true">Home</a>
+          </li>
+          <li>
+            <a class="nav-links" href="/about/">About</a>
+          </li>
+          <li>
+            <a class="nav-links" href="#">Services</a>
+          </li>
+          <li>
+            <a class="nav-links" href="#">Skills</a>
+          </li>
+          <li>
+            <a class="nav-links" href="#">Education</a>
+          </li>
+          <li>
+            <a class="nav-links" href="#">Experience</a>
+          </li>
+          <li>
+            <a class="nav-links" href="/projects/">Projects</a>
+          </li>
+          <li>
+            <a class="nav-links" href="#">Contact</a>
+          </li>
+        </ul>
       </nav>
     </header>
 
     <main>
-      <div class="main-bg-img"></div>
-
-      <div class="main-content">
-        <div class="main-title">
-          <h2>I am a<br />Developer</h2>
-          <p>Simple, Elegant & Objective</p>
+      <section class="main--hero-area">
+        <div class="main--content-wrapper">
+          <p class="main--title">I am a<br />Developer</p>
+          <p class="main--text">Simple, Elegant & Objective</p>
+          <button class="main--cta">
+            View Portfolio
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewBox="0 -960 960 960"
+              width="24px"
+              fill="inherit"
+            >
+              <path
+                d="M160-120q-33 0-56.5-23.5T80-200v-440q0-33 23.5-56.5T160-720h160v-80q0-33 23.5-56.5T400-880h160q33 0 56.5 23.5T640-800v80h160q33 0 56.5 23.5T880-640v440q0 33-23.5 56.5T800-120H160Zm0-80h640v-440H160v440Zm240-520h160v-80H400v80ZM160-200v-440 440Z"
+              />
+            </svg>
+          </button>
         </div>
-
-        <div class="main-button-bio">
-          <p class="uppercase-text">View portfolio</p>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="24px"
-            viewBox="0 -960 960 960"
-            width="24px"
-            fill="inherit"
-          >
-            <path
-              d="M160-120q-33 0-56.5-23.5T80-200v-440q0-33 23.5-56.5T160-720h160v-80q0-33 23.5-56.5T400-880h160q33 0 56.5 23.5T640-800v80h160q33 0 56.5 23.5T880-640v440q0 33-23.5 56.5T800-120H160Zm0-80h640v-440H160v440Zm240-520h160v-80H400v80ZM160-200v-440 440Z"
-            />
-          </svg>
-        </div>
-      </div>
+      </section>
     </main>
 
     <footer>
-      <div class="footer-socials">
-        <a href="https://www.youtube.com/@sayanta.k" target="_blank"
-          ><i class="fa-brands fa-youtube"></i
-        ></a>
-        <a href="https://github.com/KSayanta" target="_blank"
-          ><i class="fa-brands fa-github"></i
-        ></a>
-        <a href="https://www.threads.net/@amisayonto" target="_blank"
-          ><i class="fa-brands fa-threads"></i
-        ></a>
-        <a href="https://www.instagram.com/amisayonto/" target="_blank"
-          ><i class="fa-brands fa-instagram"></i
-        ></a>
-        <a href="https://www.linkedin.com/in/sayantak/" target="_blank"
-          ><i class="fa-brands fa-linkedin"></i
-        ></a>
-      </div>
+      <ul class="footer-socials">
+        <li>
+          <a
+            aria-label="youtube channel"
+            href="https://www.youtube.com/@sayanta.k"
+            target="_blank"
+            ><i class="fa-brands fa-youtube"></i
+          ></a>
+        </li>
+        <li>
+          <a
+            aria-label="github profile"
+            href="https://github.com/KSayanta"
+            target="_blank"
+            ><i class="fa-brands fa-github"></i
+          ></a>
+        </li>
+        <li>
+          <a
+            aria-label="threads page"
+            href="https://www.threads.net/@amisayonto"
+            target="_blank"
+            ><i class="fa-brands fa-threads"></i
+          ></a>
+        </li>
+        <li>
+          <a
+            aria-label="instagram profile"
+            href="https://www.instagram.com/amisayonto/"
+            target="_blank"
+            ><i class="fa-brands fa-instagram"></i
+          ></a>
+        </li>
+        <li>
+          <a
+            aria-label="linked in profile"
+            href="https://www.linkedin.com/in/sayantak/"
+            target="_blank"
+            ><i class="fa-brands fa-linkedin"></i
+          ></a>
+        </li>
+      </ul>
       <p>
         &copy;<strong id="copyYear" data-start-year="2024"></strong>
         Sayanta K. All rights reserved.
       </p>
     </footer>
+
+    <script type="text/javascript">
+      window.document.querySelector("#copyYear").dataset.currentYear =
+        new Date().getFullYear();
+    </script>
   </body>
-  <script>
-    window.document.querySelector("#copyYear").dataset.currentYear =
-      new Date().getFullYear();
-  </script>
 </html>
