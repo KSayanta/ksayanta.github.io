@@ -58,6 +58,15 @@ footer {
   h2 {
     font-size: 2rem;
     margin-bottom: 3em;
+
+    span {
+      font-size: 1rem;
+      margin-left: 1em;
+      &:hover,
+      &:focus {
+        text-decoration: underline;
+      }
+    }
   }
 
   h3 {
@@ -123,6 +132,7 @@ nav {
 
 .nav-links {
   font-size: 1.1rem;
+  transition: 0.3s all;
 
   &:hover {
     text-decoration: underline;
