@@ -7,6 +7,12 @@
   --clr-title: #ffffff;
   --clr-txt: #ffffff;
 
+  --clr-gradient--rad: radial-gradient(
+    75% 100% at 50% 50%,
+    #272242 0%,
+    #121219 100%
+  );
+
   --clr-theme: #ff885b;
   --clr-accent: #ffe5cf;
   --clr-accent--alt: hsl(from var(--clr-accent) h calc(s - 20) calc(l - 10));
@@ -21,6 +27,12 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Comfortaa", sans-serif;
+}
+
+*::before,
+::after {
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -71,7 +83,8 @@ svg {
 
 .cta {
   cursor: pointer;
-  background: radial-gradient(75% 100% at 50% 50%, #272242 0%, #121219 100%);
+  background: var(--clr-gradient--rad);
+
   color: var(--clr-theme);
   fill: var(--clr-theme);
 
