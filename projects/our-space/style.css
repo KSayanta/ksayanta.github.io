@@ -1,0 +1,61 @@
+:root {
+  --content: "";
+}
+
+.blogs {
+  max-width: 90ch;
+  min-height: 60vh;
+  margin: 0 auto;
+}
+
+.post {
+  position: relative;
+  margin-bottom: 2em;
+
+  .postHeading {
+    margin-bottom: 0.6em;
+  }
+
+  .postBody {
+    line-height: 1.5;
+
+    &::after {
+      content: var(--content);
+      display: block;
+      position: absolute;
+      bottom: -4px;
+      width: 100%;
+      background-color: var(--clr-accent);
+      height: 1px;
+    }
+  }
+}
+
+.pagination {
+  padding-block: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4em;
+
+  button {
+    cursor: pointer;
+    padding: 0.6em 0.8em;
+    border-radius: 0.4em;
+    font-size: 1.2rem;
+    border: none;
+
+    &:hover {
+      outline: 3px solid var(--secondary-color);
+      outline-offset: 0.2em;
+    }
+
+    &:active {
+      background-color: #aeaeae;
+    }
+  }
+
+  span {
+    font-size: 1.4rem;
+  }
+}
