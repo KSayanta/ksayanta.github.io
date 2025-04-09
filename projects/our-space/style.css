@@ -55,6 +55,11 @@
     }
   }
 
+  button[aria-disabled="true"] {
+    visibility: hidden;
+    pointer-events: none;
+  }
+
   span {
     font-size: 1.4rem;
   }

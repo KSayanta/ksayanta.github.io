@@ -30,7 +30,7 @@ function handlePages(postsArr) {
         this.btnNext.addEventListener("click", this);
 
         // Init
-        this.updatePage(0);
+        this.updatePage();
       }
 
       // Event handlers
@@ -40,10 +40,29 @@ function handlePages(postsArr) {
       }
 
       // Utility functions
-      updatePage(N) {
-        if (N < 0 && this.currPage == 1) return;
-        if (N > 0 && this.currPage == this.totalPages) return;
+      updateBtn() {
+        if (this.btnPrev.hasAttribute("disabled")) {
+          this.btnPrev.removeAttribute("disabled");
+          this.btnPrev.setAttribute("aria-disabled", "false");
+        }
 
+        if (this.btnNext.hasAttribute("disabled")) {
+          this.btnNext.removeAttribute("disabled");
+          this.btnNext.setAttribute("aria-disabled", "false");
+        }
+
+        if (this.currPage == 1) {
+          this.btnPrev.setAttribute("disabled", "");
+          this.btnPrev.setAttribute("aria-disabled", "true");
+        }
+
+        if (this.currPage == this.totalPages) {
+          this.btnNext.setAttribute("disabled", "");
+          this.btnNext.setAttribute("aria-disabled", "true");
+        }
+      }
+
+      updatePage(N = 0) {
         this.currPage += N;
         this.pageNo.textContent = this.currPage;
 
@@ -66,6 +85,8 @@ function handlePages(postsArr) {
           postBody.textContent = post.body;
           postBody.style.setProperty("--content", "");
         });
+
+        this.updateBtn();
       }
     }
   );
