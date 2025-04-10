@@ -25,43 +25,37 @@
         <li><a href="/about/" class="main-nav__links">About</a></li>
       </ul>
     </nav>
-    <main>
+
+    <main id="main">
       <h1 class="title">Our Space</h1>
       <hr />
-      <blogs-post>
-        <section class="blogs" aria-live="polite">
-          <div class="post">
-            <h3 class="postHeading"></h3>
-            <p class="postBody"></p>
-          </div>
-          <div class="post">
-            <h3 class="postHeading"></h3>
-            <p class="postBody"></p>
-          </div>
-          <div class="post">
-            <h3 class="postHeading"></h3>
-            <p class="postBody"></p>
-          </div>
-          <div class="post">
-            <h3 class="postHeading"></h3>
-            <p class="postBody"></p>
-          </div>
-        </section>
-
-        <!-- Pagination -->
-        <div class="pagination">
-          <button
-            id="btnPrev"
-            aria-label="Previous page."
-            aria-disabled="true"
-            disabled
-          >
-            &#10094;
-          </button>
-          <span id="pageNo">1</span>
-          <button id="btnNext" aria-label="Next page.">&#10095;</button>
-        </div>
-      </blogs-post>
+      <blogs-post entries="10"> </blogs-post>
     </main>
+
+    <!-- Post Template -->
+    <template id="post-template">
+      <div class="post">
+        <h3 class="post-heading">Sample Heading</h3>
+        <p class="post-body">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quibusdam,
+          quaerat.
+        </p>
+      </div>
+    </template>
+
+    <!-- Blog template -->
+    <template id="blog-template">
+      <section class="blogs" aria-live="polite"></section>
+
+      <div class="pagination">
+        <a href="#main" id="btnPrev" class="button" aria-label="Previous page.">
+          &#10094;
+        </a>
+        <span id="pageNo">1</span>
+        <a href="#main" id="btnNext" class="button" aria-label="Next page.">
+          &#10095;
+        </a>
+      </div>
+    </template>
   </body>
 </html>

@@ -1,33 +1,32 @@
-:root {
-  --content: "";
-}
-
 .blogs {
   max-width: 90ch;
-  min-height: 60vh;
+  min-height: 70vh;
   margin: 0 auto;
 }
 
 .post {
   position: relative;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
+  background-color: #333333;
+  padding: 2em;
+  border-radius: 0.6em;
 
-  .postHeading {
-    margin-bottom: 0.6em;
+  .post-heading {
+    margin-bottom: 0.8em;
+    font-size: 1.2rem;
+    letter-spacing: 0.1em;
+    line-height: 1.5;
+    text-transform: uppercase;
+
+    &::before {
+      content: "# " attr(data-id);
+      margin-right: 1em;
+      color: #bbbbbb;
+    }
   }
 
-  .postBody {
+  .post-body {
     line-height: 1.5;
-
-    &::after {
-      content: var(--content);
-      display: block;
-      position: absolute;
-      bottom: -4px;
-      width: 100%;
-      background-color: var(--clr-accent);
-      height: 1px;
-    }
   }
 }
 
@@ -38,14 +37,15 @@
   align-items: center;
   gap: 4em;
 
-  button {
+  .button {
     cursor: pointer;
     padding: 0.6em 0.8em;
     border-radius: 0.4em;
     font-size: 1.2rem;
     border: none;
 
-    &:hover {
+    &:hover,
+    &:focus {
       outline: 3px solid var(--secondary-color);
       outline-offset: 0.2em;
     }
@@ -55,12 +55,12 @@
     }
   }
 
-  button[aria-disabled="true"] {
+  .button[aria-disabled="true"] {
     visibility: hidden;
     pointer-events: none;
   }
 
-  span {
+  #pageNo {
     font-size: 1.4rem;
   }
 }

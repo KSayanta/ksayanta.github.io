@@ -10,24 +10,34 @@ function handlePages(postsArr) {
   customElements.define(
     "blogs-post",
     class extends HTMLElement {
+      static observedAttributes = ["entries"];
+
       constructor() {
-        // Runs first
+        // Always runs first
         super();
+
+        // Attach copy of template to light DOM
+        const template = document.getElementById("blog-template").content;
+        this.appendChild(template.cloneNode(true));
+
+        // Variables
+        this.currPage = 1;
 
         // Elements
         this.pageNo = this.querySelector("#pageNo");
         this.btnPrev = this.querySelector("#btnPrev");
         this.btnNext = this.querySelector("#btnNext");
-        this.postsNL = this.querySelectorAll(".post");
-
-        // Variables
-        this.currPage = 1;
-        this.entriesPerPage = this.postsNL.length;
-        this.totalPages = Math.ceil(postsArr.length / this.entriesPerPage);
+        this.blogsWrapper = this.querySelector(".blogs");
+        this.postTemplate = document.getElementById("post-template").content;
 
         // Events
         this.btnPrev.addEventListener("click", this);
         this.btnNext.addEventListener("click", this);
+      }
+
+      attributeChangedCallback(_Name, _OldVal, newVal) {
+        this.entriesPerPage = newVal;
+        this.totalPages = Math.ceil(postsArr.length / this.entriesPerPage);
 
         // Init
         this.updatePage();
@@ -40,6 +50,32 @@ function handlePages(postsArr) {
       }
 
       // Utility functions
+      updatePage(N = 0) {
+        this.currPage += N;
+        this.pageNo.textContent = this.currPage;
+
+        const pages = this.currPage * this.entriesPerPage;
+        this.fromPage = pages - this.entriesPerPage;
+        this.toPage = Math.min(pages, postsArr.length);
+
+        while (this.blogsWrapper.firstElementChild)
+          this.blogsWrapper.removeChild(this.blogsWrapper.firstElementChild);
+
+        postsArr.slice(this.fromPage, this.toPage).forEach(post => {
+          const newBlogPost = this.postTemplate.cloneNode(true);
+          const postHeading = newBlogPost.querySelector(".post-heading");
+          const postBody = newBlogPost.querySelector(".post-body");
+
+          postHeading.setAttribute("data-id", post.id);
+          postHeading.textContent = post.title;
+          postBody.textContent = post.body;
+
+          this.blogsWrapper.appendChild(newBlogPost);
+        });
+
+        this.updateBtn();
+      }
+
       updateBtn() {
         if (this.btnPrev.hasAttribute("disabled")) {
           this.btnPrev.removeAttribute("disabled");
@@ -60,33 +96,6 @@ function handlePages(postsArr) {
           this.btnNext.setAttribute("disabled", "");
           this.btnNext.setAttribute("aria-disabled", "true");
         }
-      }
-
-      updatePage(N = 0) {
-        this.currPage += N;
-        this.pageNo.textContent = this.currPage;
-
-        const pages = this.currPage * this.entriesPerPage;
-        this.fromPage = pages - this.entriesPerPage;
-        this.toPage = Math.min(pages, postsArr.length);
-
-        this.postsNL.forEach(post => {
-          const heading = post.querySelector(".postHeading");
-          const body = post.querySelector(".postBody");
-          heading.textContent = "";
-          body.textContent = "";
-          body.style.setProperty("--content", "none");
-        });
-
-        postsArr.slice(this.fromPage, this.toPage).forEach((post, idx) => {
-          const postHeading = this.postsNL[idx].querySelector(".postHeading");
-          const postBody = this.postsNL[idx].querySelector(".postBody");
-          postHeading.textContent = post.title;
-          postBody.textContent = post.body;
-          postBody.style.setProperty("--content", "");
-        });
-
-        this.updateBtn();
       }
     }
   );
