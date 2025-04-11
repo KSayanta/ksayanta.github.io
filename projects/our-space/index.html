@@ -29,10 +29,34 @@
     <main id="main">
       <h1 class="title">Our Space</h1>
       <hr />
-      <blogs-post entries="10"> </blogs-post>
+
+      <blogs-post entries="3"> </blogs-post>
     </main>
 
-    <!-- Post Template -->
+    <!-- Templates -->
+    <template id="form-template">
+      <form action="" id="modal-form__post" class="utils--form">
+        <div class="form-wrapper">
+          <label for="post-title">Title</label>
+          <input id="post-title" type="text" placeholder="I am feeling..." />
+          <label for="post-body">Message</label>
+          <textarea
+            id="post-body"
+            placeholder="What's on your mind?"
+            rows="6"
+          ></textarea>
+          <div class="btn-wrapper">
+            <button id="post-btn" class="btn btn-cta" type="submit">
+              Create Post
+            </button>
+            <button id="post-btn-exit" class="btn btn-alt" type="submit">
+              Cancel
+            </button>
+          </div>
+        </div>
+      </form>
+    </template>
+
     <template id="post-template">
       <div class="post">
         <h3 class="post-heading">Sample Heading</h3>
@@ -43,7 +67,6 @@
       </div>
     </template>
 
-    <!-- Blog template -->
     <template id="blog-template">
       <section class="blogs" aria-live="polite"></section>
 

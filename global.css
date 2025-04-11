@@ -81,13 +81,36 @@ svg {
   gap: var(--wrapper-gap, 1em);
 }
 
-.cta {
+.utils--form {
+  label {
+    background-color: var(--clr-accent);
+    color: var(--primary-color);
+    padding: 0.5em;
+    margin-bottom: 0.2em;
+    border-top-left-radius: 0.4em;
+  }
+
+  input,
+  textarea {
+    background-color: var(--clr-accent);
+    color: var(--primary-color);
+    border: none;
+    padding: 0.5em;
+    margin-bottom: 3em;
+    border-bottom-right-radius: 0.4em;
+
+    &::placeholder {
+      opacity: 0.8;
+    }
+
+    &:focus {
+      outline: 2px solid var(--clr-theme);
+    }
+  }
+}
+/* Button classes */
+.btn {
   cursor: pointer;
-  background: var(--clr-gradient--rad);
-
-  color: var(--clr-theme);
-  fill: var(--clr-theme);
-
   border-radius: 8px;
   border: none;
 
@@ -105,6 +128,23 @@ svg {
   &:active {
     transform: scale(0.95);
   }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 10px var(--highlight-color);
+  }
+}
+
+.btn-cta {
+  background: var(--clr-gradient--rad);
+  color: var(--clr-theme);
+  fill: var(--clr-theme);
+}
+
+.btn-alt {
+  background: var(--clr-accent);
+  color: var(--primary-color);
+  fill: var(--primary-color);
 }
 
 /* Theme Colors */

@@ -345,34 +345,13 @@ nav {
   label {
     display: block;
     font-size: 1.6rem;
-    margin-bottom: 0.2em;
-
-    padding: 0.5em;
-    background-color: var(--clr-accent);
-    border-top-left-radius: 0.4em;
   }
 
   input,
   textarea {
     width: 100%;
-    background-color: var(--clr-accent);
-    color: var(--primary-color);
-
     font-size: 1.4rem;
-    padding: 0.5em;
-    margin-bottom: 3em;
-
-    border: none;
-    border-bottom-right-radius: 0.4em;
     resize: none;
-
-    &::placeholder {
-      opacity: 0.8;
-    }
-
-    &:focus {
-      outline: 2px solid var(--clr-theme);
-    }
   }
 }
 
