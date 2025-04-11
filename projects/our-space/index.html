@@ -29,7 +29,7 @@
     <main id="main">
       <h1 class="title">Our Space</h1>
       <hr />
-
+      <button class="btn btn-cta" id="btn-new-post">Create Post</button>
       <blogs-post entries="3"> </blogs-post>
     </main>
 
@@ -38,7 +38,12 @@
       <form action="" id="modal-form__post" class="utils--form">
         <div class="form-wrapper">
           <label for="post-title">Title</label>
-          <input id="post-title" type="text" placeholder="I am feeling..." />
+          <input
+            id="post-title"
+            type="text"
+            placeholder="I am feeling..."
+            required
+          />
           <label for="post-body">Message</label>
           <textarea
             id="post-body"
@@ -47,11 +52,9 @@
           ></textarea>
           <div class="btn-wrapper">
             <button id="post-btn" class="btn btn-cta" type="submit">
-              Create Post
+              Post
             </button>
-            <button id="post-btn-exit" class="btn btn-alt" type="submit">
-              Cancel
-            </button>
+            <button id="post-btn-exit" class="btn btn-alt">Cancel</button>
           </div>
         </div>
       </form>
