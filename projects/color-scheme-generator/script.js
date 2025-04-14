@@ -3,12 +3,13 @@ const url = "https://www.thecolorapi.com";
 // DOM elements
 const clrForm = document.getElementById("form-clr-input");
 const clrContainerNL = document.querySelectorAll(".color-container > *");
+const toolTip = document.getElementById("tooltip");
 
 // Event listners
 window.addEventListener("DOMContentLoaded", resetColor);
 clrForm.addEventListener("submit", handleSubmit);
 clrContainerNL.forEach(elm => {
-  elm.addEventListener("click", copyToClipboard);
+  elm.addEventListener("click", handleClick);
 });
 
 // Handler functions
@@ -19,6 +20,7 @@ function resetColor() {
 
 function handleSubmit(e) {
   e.preventDefault();
+
   const clrSeedVal = clrForm.querySelector("#color-input").value.slice(1);
   const clrScheme = clrForm.querySelector("#color-values").value;
   const endpoint = `/scheme?hex=${clrSeedVal}&mode=${clrScheme}`;
@@ -33,7 +35,14 @@ function handleSubmit(e) {
     });
 }
 
-function copyToClipboard(ctx) {
-  console.log(ctx.clientX, ctx.clientY);
-  navigator.clipboard.writeText(ctx.target.innerText);
+function handleClick(e) {
+  navigator.clipboard.writeText(e.target.innerText);
+
+  toolTip.style.left = e.clientX + "px";
+  toolTip.style.top = e.clientY + "px";
+  toolTip.removeAttribute("disabled");
+
+  setTimeout(() => {
+    toolTip.setAttribute("disabled", "");
+  }, 300);
 }

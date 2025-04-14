@@ -12,7 +12,7 @@
 .color-form {
   padding: 1.5em 1em;
   isolation: isolate;
-  box-shadow: 0 4px 11px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.15);
 
   display: flex;
   justify-content: center;
@@ -57,17 +57,25 @@
   .select-wrapper {
     flex: 1;
     position: relative;
-    transition: 0.2s all;
   }
 
   .select-wrapper::after {
     content: "\2304";
-    color: #9ca3af;
-    font-size: 2.5rem;
     position: absolute;
     top: -16px;
     right: 8px;
     pointer-events: none;
+
+    color: #9ca3af;
+    font-size: 2.5rem;
+    transform: rotate(0deg);
+    transition: 0.2s transform;
+  }
+
+  .select-wrapper:focus-within::after {
+    transform: rotate(180deg);
+    top: 0;
+    right: 8px;
   }
 }
 
@@ -118,4 +126,26 @@
   font-weight: 700;
   letter-spacing: 0.1em;
   color: var(--clt-txt);
+}
+
+#tooltip {
+  position: absolute;
+  pointer-events: none;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  background-color: #000;
+  color: #fff;
+  padding: 0.6em;
+  border-radius: 4px;
+
+  opacity: 1;
+  transform: translate(-50%, -100%);
+  transition-property: opacity, transform;
+  transition-duration: 0.4s;
+
+  &[disabled] {
+    opacity: 0;
+    transform: translate(-50%, -80%);
+  }
 }
