@@ -71,45 +71,51 @@
   }
 }
 
-.color-display {
+.color-container {
   display: flex;
+}
 
-  .color-rect {
-    flex: 1;
-    height: 400px;
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
+.color-container > * {
+  flex: 1;
+  height: 400px;
+  cursor: pointer;
 
-    span {
-      flex: 1;
-    }
+  display: grid;
+  place-items: end stretch;
 
-    p {
-      color: #2b283a;
-      text-align: center;
-      text-transform: uppercase;
+  p {
+    color: #2b283a;
+    background-color: #fff;
+    text-align: center;
+    text-transform: uppercase;
 
-      letter-spacing: 0.1em;
-      font-size: 0.75rem;
-      font-weight: 700;
-      padding-block: 0.8em;
-    }
+    letter-spacing: 0.1em;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding-block: 0.8em;
   }
 
-  .color-rect:nth-of-type(1) span {
+  &:nth-of-type(1) {
     background-color: #f55a5a;
   }
-  .color-rect:nth-of-type(2) span {
+  &:nth-of-type(2) {
     background-color: #2b283a;
   }
-  .color-rect:nth-of-type(3) span {
+  &:nth-of-type(3) {
     background-color: #fbf3ab;
   }
-  .color-rect:nth-of-type(4) span {
+  &:nth-of-type(4) {
     background-color: #aad1b6;
   }
-  .color-rect:nth-of-type(5) span {
+  &:nth-of-type(5) {
     background-color: #a626d3;
   }
+}
+
+.bottom-text {
+  margin-block: 1em;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--clt-txt);
 }

@@ -30,8 +30,8 @@
       <hr />
 
       <div class="color-form-wrapper">
-        <form class="color-form" action="">
-          <input type="color" id="color-input" value="#F55A5A" />
+        <form class="color-form" id="form-clr-input" action="#">
+          <input type="color" id="color-input" value="#f55a5a" />
 
           <div class="select-wrapper">
             <select id="color-values">
@@ -42,35 +42,33 @@
               <option value="complement">Complement</option>
               <option value="analogic-complement">Analogic-complement</option>
               <option value="triad">Triad</option>
+              <option value="quad">Quad</option>
             </select>
           </div>
 
           <button type="submit" id="color-btn">Get Color Scheme</button>
         </form>
 
-        <div class="color-display">
-          <div class="color-rect">
-            <span></span>
+        <div class="color-container">
+          <div>
             <p>#f55a5a</p>
           </div>
-          <div class="color-rect">
-            <span></span>
+          <div>
             <p>#2b283a</p>
           </div>
-          <div class="color-rect">
-            <span></span>
+          <div>
             <p>#fbf3ab</p>
           </div>
-          <div class="color-rect">
-            <span></span>
+          <div>
             <p>#aad1b6</p>
           </div>
-          <div class="color-rect">
-            <span></span>
+          <div>
             <p>#a626d3</p>
           </div>
         </div>
       </div>
+
+      <p class="bottom-text">Tip: Click on Color to Copy</p>
     </section>
   </body>
 </html>
