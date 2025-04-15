@@ -6,16 +6,15 @@ const clrContainerNL = document.querySelectorAll(".color-container > *");
 const toolTip = document.getElementById("tooltip");
 
 // Event listners
-window.addEventListener("DOMContentLoaded", resetColor);
+window.addEventListener("DOMContentLoaded", reset);
 clrForm.addEventListener("submit", handleSubmit);
 clrContainerNL.forEach(elm => {
   elm.addEventListener("click", handleClick);
 });
 
 // Handler functions
-function resetColor() {
-  const a = document.getElementById("color-input");
-  a.value = a.attributes.value.value;
+function reset() {
+  clrForm.reset();
 }
 
 function handleSubmit(e) {
