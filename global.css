@@ -67,6 +67,15 @@ svg {
 }
 
 /* Utility class */
+.hide {
+  display: none;
+}
+
+.conceal {
+  opacity: 0;
+  visibility: hidden;
+}
+
 .wrapper {
   width: 100%;
   max-width: 960px;

@@ -38,11 +38,13 @@ function handleSubmit(e) {
 function handleClick(e) {
   navigator.clipboard.writeText(e.target.innerText);
 
-  toolTip.style.left = e.clientX + "px";
+  toolTip.style.left = `${e.clientX - toolTip.clientWidth / 2}px`;
   toolTip.style.top = e.clientY + "px";
-  toolTip.removeAttribute("disabled");
+  toolTip.removeAttribute("aria-disabled");
+  toolTip.classList.add("animate");
 
   setTimeout(() => {
-    toolTip.setAttribute("disabled", "");
-  }, 300);
+    toolTip.setAttribute("aria-disabled", "true");
+    toolTip.classList.remove("animate");
+  }, 400);
 }

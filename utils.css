@@ -22,3 +22,25 @@
 .arrow-hide[type="number"] {
   appearance: textfield;
 }
+
+/**
+* Animation @keyframes
+*/
+
+@keyframes slideUpandFade {
+  0% {
+    transform: translateY(0%);
+    opacity: 0;
+  }
+
+  30%,
+  80% {
+    opacity: 1;
+    transform: translateY(-110%);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-110%);
+  }
+}
