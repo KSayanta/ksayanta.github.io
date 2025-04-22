@@ -1,0 +1,45 @@
+.viewport {
+  padding: 4em;
+  position: relative;
+}
+
+.content-wrapper {
+  margin: auto;
+  width: 100%;
+  max-width: 1000px;
+  aspect-ratio: 3/2;
+  background: url("./assets/bg-texture.jpg");
+  background-size: 600px;
+  background-position: center;
+  border-radius: 8px;
+}
+
+.title--feedback {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 2rem;
+  letter-spacing: 2px;
+}
+
+.btn__main {
+  background-color: tomato;
+  color: gold;
+}
+
+.btn__alt {
+  width: 100%;
+  bottom: 0;
+}
+
+.btn__alt[disabled] {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.image-wrapper {
+  width: 200px;
+  aspect-ratio: 5/7;
+  margin: 2em auto;
+  border-radius: 4px;
+  outline: 2px solid #ddd;
+}
