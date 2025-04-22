@@ -31,8 +31,30 @@ const getDatafromFile = async function () {
 };
 
 // Handler functions
+
+function weightedRandom(arg) {
+  const arr = [];
+
+  arg.forEach(elm => {
+    for (let i = 0; i < elm.weight; i++) {
+      arr.push(elm.value);
+    }
+  });
+
+  return function () {
+    return arr[Math.floor(Math.random() * arr.length)];
+  };
+}
+
 const handleJSON = function (json) {
+  const cards = [
+    { weight: 12, value: "normal" },
+    { weight: 0, value: "tall" },
+    { weight: 1, value: "wide" },
+  ];
+  const getRandomCard = weightedRandom(cards);
   const length = json.backgrounds.length;
+
   json.backgrounds.forEach((element, idx) => {
     const imageURL = element.url;
     const avatarURL = element.user.avatar_url;
@@ -41,12 +63,13 @@ const handleJSON = function (json) {
     const imageCard = `
       <div class="image-card">
         <img
+          ${getRandomCard()}=""
           class="image-card--content"
           src="${imageURL}"
           alt=""
         />
         <span class="image-card--name">
-          <img 
+          <img
             src="${avatarURL}"
             alt=""
           />
