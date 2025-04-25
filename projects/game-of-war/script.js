@@ -32,34 +32,9 @@ window.addEventListener("DOMContentLoaded", () => {
 btnNew.addEventListener("click", newDeck);
 btnDraw.addEventListener("click", drawCards);
 
+// Handler fuctions
 function initGame() {
   !deckId && btnDraw.setAttribute("disabled", "");
-}
-
-function endGame() {
-  btnDraw.setAttribute("disabled", "");
-
-  setTimeout(() => {
-    if (score[0] < score[1])
-      elmResultText.innerHTML = `
-    You Won the Game!<br>
-    <span class="orbitron-display">${score[0]} - ${score[1]}</span>
-    `;
-    else if (score[0] > score[1])
-      elmResultText.innerHTML = `
-    I Win the Game!<br>
-    <span class="orbitron-display">${score[0]} - ${score[1]}</span>
-    `;
-    else
-      elmResultText.innerHTML = `
-    It's a Draw!<br>
-    <span class="orbitron-display">${score[0]} - ${score[1]}</span>
-    `;
-
-    // show start screen
-    elmBotScore.parentElement.classList.add("vis-hidden");
-    btnNew.parentElement.classList.remove("vis-hidden");
-  }, 2000);
 }
 
 async function newDeck() {
@@ -98,6 +73,7 @@ async function drawCards() {
   }, 1000);
 }
 
+// Utility functions
 function display(cardsArr) {
   // renders cards in viewport
   // @param   {array} cards
@@ -137,6 +113,34 @@ function compareCards(card1, card2) {
   if (card1Score > card2Score) return { playerIdx: 0, text: "I Win!" };
   if (card1Score < card2Score) return { playerIdx: 1, text: "You Won!" };
   if (card1Score === card2Score) return { playerIdx: null, text: "War!" };
+}
+
+function endGame() {
+  // End game logic
+
+  btnDraw.setAttribute("disabled", "");
+
+  setTimeout(() => {
+    if (score[0] < score[1])
+      elmResultText.innerHTML = `
+    You Won the Game!<br />
+    <span class="orbitron-display">${score[0]} - ${score[1]}</span>
+    `;
+    else if (score[0] > score[1])
+      elmResultText.innerHTML = `
+    I Win the Game!<br />
+    <span class="orbitron-display">${score[0]} - ${score[1]}</span>
+    `;
+    else
+      elmResultText.innerHTML = `
+    It's a Draw!<br />
+    <span class="orbitron-display">${score[0]} - ${score[1]}</span>
+    `;
+
+    // show start screen
+    elmBotScore.parentElement.classList.add("vis-hidden");
+    btnNew.parentElement.classList.remove("vis-hidden");
+  }, 3000);
 }
 
 function clear(str) {

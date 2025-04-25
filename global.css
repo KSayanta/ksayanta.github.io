@@ -204,3 +204,11 @@ svg {
   --clr-title: #ffffff;
   --clr-txt: #ffffff;
 }
+
+/* Fonts classes */
+.orbitron-display {
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
