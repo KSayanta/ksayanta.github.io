@@ -2,7 +2,7 @@ const url = "https://apis.scrimba.com/deckofcards/api/deck/";
 
 const btnNew = document.getElementById("newDeck");
 const btnDraw = document.getElementById("draw");
-const imgWrapperNL = document.querySelectorAll(".image-wrapper");
+const imgWrapperNL = document.querySelectorAll(".imageHolder");
 const resultText = document.getElementById("feedbackText");
 const counterStat = document.getElementById("counterRem");
 const scoreBot = document.getElementById("scoreBot");

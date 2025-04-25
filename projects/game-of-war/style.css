@@ -1,20 +1,45 @@
-.viewport {
-  padding: 4em;
-  position: relative;
+.orbitron-display {
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
 }
 
-.content-wrapper {
-  margin: auto;
-  width: 100%;
-  max-width: 1000px;
-  /* aspect-ratio: 3/2; */
+.vis-hidden {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.viewport {
+  padding: 1em;
+  position: relative;
+  /* height: 90vh; */
+}
+
+.start-screen,
+.main-contents {
+  height: 60vh;
+}
+
+.table-bg {
   background: url("./assets/bg-texture.jpg");
   background-size: 600px;
   background-position: center;
   border-radius: 8px;
+  margin: auto;
+  width: 100%;
+  max-width: 1000px;
+  height: 100%;
 }
 
+.content-wrapper {
+  /* display: flex; */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .title--feedback {
+  padding-block: 2em;
   text-align: center;
   text-transform: uppercase;
   font-size: 2rem;
@@ -24,18 +49,55 @@
 /**
 * Main grid layout
 */
+.start-screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  /* display: none; */
+}
+
 .main-contents {
-  height: 100%;
+  padding-bottom: 0.5em;
   display: grid;
-  grid-template-columns: 20% auto 20%;
+  grid-template-rows: repeat(2, auto) 60px;
+  grid-template-columns: 25% auto 25%;
+  row-gap: 2em;
+  /* display: none; */
 }
 
 .score-disp {
   grid-column: 1;
-  place-self: center;
+  place-self: start center;
+  border: 2px solid white;
+  border-radius: 8px;
+  padding-top: 1em;
+  width: 120px;
+  aspect-ratio: 3/2;
+  position: relative;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-align: center;
+
+  &::before {
+    content: "Score";
+    display: block;
+    font-size: 1rem;
+    line-height: 1.5;
+    position: absolute;
+    top: -14px;
+    left: 4px;
+    background-color: #fff;
+    color: var(--primary-color);
+    padding: 0.2em 0.4em;
+    border-radius: 8px;
+  }
 }
 
-.image-wrapper {
+.imageHolder {
   grid-column: 2;
   &:first-of-type {
     grid-row: 1;
@@ -46,6 +108,23 @@
   grid-column-end: -1;
   grid-row: 1 / span 2;
   place-self: center;
+  position: relative;
+}
+
+.counter {
+  background-color: #fff;
+  color: #000;
+  outline: 2px solid #000;
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.5;
+  padding: 0.5em;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .btn__main {
@@ -54,8 +133,9 @@
 }
 
 .btn__alt {
-  width: 100%;
-  bottom: 0;
+  grid-column: 2;
+  /* width: 100%; */
+  /* bottom: 0; */
 }
 
 .btn__alt[disabled] {
@@ -64,10 +144,12 @@
 }
 
 .image-wrapper {
-  width: 100%;
+  /* width: 100%;
   max-width: 200px;
+  min-width: 170px; */
+  width: clamp(150px, 10vh, 200px);
   aspect-ratio: 5/7;
-  margin: 2em auto;
+  margin: 0 auto;
   border-radius: 4px;
   outline: 2px solid #ddd;
 }

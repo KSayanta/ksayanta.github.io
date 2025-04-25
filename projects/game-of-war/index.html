@@ -13,6 +13,7 @@
     <script type="module" src="script.js" defer></script>
     <script type="module" src="../script.js" defer></script>
   </head>
+
   <body>
     <nav class="main-nav">
       <ul class="main-nav__list">
@@ -25,23 +26,31 @@
     </nav>
 
     <section class="viewport">
-      <div class="content-wrapper">
-        <button id="newDeck" class="btn btn__main">Shuffle Deck</button>
+      <div class="content-wrapper table-bg">
         <h2 id="feedbackText" class="title--feedback">Game of War</h2>
-        <div class="main-contents">
-          <p class="score-disp">Me: <span id="scoreBot"></span></p>
-          <p class="score-disp">You: <span id="scorePlayer"></span></p>
-          <div class="image-wrapper">
-            <!-- Dynamically inserting image -->
-          </div>
-          <div class="image-wrapper">
-            <!-- Dynamically inserting image -->
-          </div>
-          <div class="stat-wrapper">
-            <p id="counterRem">Remaining Cards:</p>
-          </div>
+
+        <div class="start-screen">
+          <button id="newDeck" class="btn btn__main">New Game</button>
         </div>
-        <button id="draw" class="btn btn__alt">Draw</button>
+
+        <div class="main-contents vis-hidden">
+          <span id="scoreBot" class="score-disp orbitron-display">0</span>
+          <span id="scorePlayer" class="score-disp orbitron-display">0</span>
+
+          <div class="image-wrapper imageHolder">
+            <!-- Dynamically inserting image -->
+          </div>
+          <div class="image-wrapper imageHolder">
+            <!-- Dynamically inserting image -->
+          </div>
+
+          <div class="stat-wrapper image-wrapper">
+            <p id="counterRem" class="counter orbitron-display"></p>
+            <img src="https://deckofcardsapi.com/static/img/back.png" alt="" />
+          </div>
+
+          <button id="draw" class="btn btn__alt">Draw</button>
+        </div>
       </div>
     </section>
   </body>
