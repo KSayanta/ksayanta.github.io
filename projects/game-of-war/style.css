@@ -8,17 +8,13 @@
 .vis-hidden {
   visibility: hidden;
   pointer-events: none;
+  height: 200px;
 }
 
 .viewport {
   padding: 1em;
   position: relative;
   /* height: 90vh; */
-}
-
-.start-screen,
-.main-contents {
-  height: 60vh;
 }
 
 .table-bg {
@@ -38,8 +34,10 @@
   justify-content: center;
   align-items: center;
 }
+
 .title--feedback {
-  padding-block: 2em;
+  /* padding-block: 2em; */
+  padding-block: clamp(1em, -2rem + 8vw, 4em);
   text-align: center;
   text-transform: uppercase;
   font-size: 2rem;
@@ -64,13 +62,14 @@
   display: grid;
   grid-template-rows: repeat(2, auto) 60px;
   grid-template-columns: 25% auto 25%;
-  row-gap: 2em;
+  /* row-gap: 2em; */
+  row-gap: clamp(1em, -2rem + 8vw, 4em);
   /* display: none; */
 }
 
 .score-disp {
   grid-column: 1;
-  place-self: start center;
+  place-self: center;
   border: 2px solid white;
   border-radius: 8px;
   padding-top: 1em;
@@ -113,18 +112,29 @@
 
 .counter {
   background-color: #fff;
-  color: #000;
   outline: 2px solid #000;
-  font-size: 2rem;
-  font-weight: 800;
-  line-height: 1.5;
-  padding: 0.5em;
   border-radius: 50%;
-  aspect-ratio: 1/1;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  &::before {
+    content: "99";
+    font-size: 4rem;
+    pointer-events: none;
+  }
+
+  span {
+    color: #000;
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1.5;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
 
 .btn__main {

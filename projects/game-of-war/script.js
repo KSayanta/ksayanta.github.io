@@ -2,11 +2,11 @@ const url = "https://apis.scrimba.com/deckofcards/api/deck/";
 
 const btnNew = document.getElementById("newDeck");
 const btnDraw = document.getElementById("draw");
-const imgWrapperNL = document.querySelectorAll(".imageHolder");
-const resultText = document.getElementById("feedbackText");
-const counterStat = document.getElementById("counterRem");
-const scoreBot = document.getElementById("scoreBot");
-const scorePlayer = document.getElementById("scorePlayer");
+const elmImgWrapperNL = document.querySelectorAll(".imageHolder");
+const elmResultText = document.getElementById("feedbackText");
+const elmCounter = document.getElementById("counterRem");
+const elmBotScore = document.getElementById("scoreBot");
+const elmPlayerScore = document.getElementById("scorePlayer");
 
 const cardsArr = [
   "2",
@@ -39,18 +39,42 @@ function initGame() {
 function endGame() {
   btnDraw.setAttribute("disabled", "");
 
-  if (score[0] < score[1]) resultText.innerText = "You Won the Game!";
-  else if (score[0] > score[1]) resultText.innerText = "I Win the Game!";
-  else resultText.innerText = "It's a Draw!";
+  setTimeout(() => {
+    if (score[0] < score[1])
+      elmResultText.innerHTML = `
+    You Won the Game!<br>
+    <span class="orbitron-display">${score[0]} - ${score[1]}</span>
+    `;
+    else if (score[0] > score[1])
+      elmResultText.innerHTML = `
+    I Win the Game!<br>
+    <span class="orbitron-display">${score[0]} - ${score[1]}</span>
+    `;
+    else
+      elmResultText.innerHTML = `
+    It's a Draw!<br>
+    <span class="orbitron-display">${score[0]} - ${score[1]}</span>
+    `;
+
+    // show start screen
+    elmBotScore.parentElement.classList.add("vis-hidden");
+    btnNew.parentElement.classList.remove("vis-hidden");
+  }, 2000);
 }
 
 async function newDeck() {
   // init new deck from api
 
-  const data = await fetch(url + "new/shuffle/").then(res => res.json());
+  clear("Game of War");
+  btnNew.parentElement.classList.add("vis-hidden");
+  elmBotScore.parentElement.classList.remove("vis-hidden");
+  score = [0, 0];
+  elmBotScore.innerText = score[0];
+  elmPlayerScore.innerText = score[1];
 
+  const data = await fetch(url + "new/shuffle/").then(res => res.json());
   deckId = data.deck_id;
-  counterStat.innerText = `Remaining Cards: ${data.remaining}`;
+  elmCounter.innerText = data.remaining;
 
   // enable draw button
   btnDraw.removeAttribute("disabled");
@@ -62,8 +86,7 @@ async function drawCards() {
   const data = await fetch(url + deckId + "/draw/?count=2").then(res =>
     res.json()
   );
-
-  counterStat.innerText = `Remaining Cards: ${data.remaining}`;
+  elmCounter.innerText = data.remaining;
   display(data.cards);
 
   setTimeout(() => {
@@ -79,7 +102,7 @@ function display(cardsArr) {
   // renders cards in viewport
   // @param   {array} cards
 
-  clear(); // clear prev cards first
+  clear("..."); // clear prev cards first
 
   cardsArr.forEach((card, idx) => {
     const imgElm = document.createElement("img");
@@ -87,7 +110,7 @@ function display(cardsArr) {
     imgElm.alt = `${card.value} of ${card.suit}.`;
 
     imgElm.onload = () => {
-      imgWrapperNL[idx].appendChild(imgElm);
+      elmImgWrapperNL[idx].appendChild(imgElm);
     };
   });
 }
@@ -97,10 +120,10 @@ function updateScore(cardsArr) {
   // @param   {array} card objects
 
   const result = compareCards(cardsArr[0], cardsArr[1]);
-  resultText.innerHTML = result.text;
+  elmResultText.innerHTML = result.text;
   Number.isInteger(result.playerIdx) && (score[result.playerIdx] += 1);
-  scoreBot.innerText = score[0];
-  scorePlayer.innerText = score[1];
+  elmBotScore.innerText = score[0];
+  elmPlayerScore.innerText = score[1];
 }
 
 function compareCards(card1, card2) {
@@ -116,8 +139,10 @@ function compareCards(card1, card2) {
   if (card1Score === card2Score) return { playerIdx: null, text: "War!" };
 }
 
-function clear() {
+function clear(str) {
   // clears card images and feedback text
-  resultText.innerHTML = "...";
-  imgWrapperNL.forEach(elm => (elm.innerHTML = ""));
+  // @param   {string}  feedback text to display
+
+  elmResultText.innerHTML = str;
+  elmImgWrapperNL.forEach(elm => (elm.innerHTML = ""));
 }
