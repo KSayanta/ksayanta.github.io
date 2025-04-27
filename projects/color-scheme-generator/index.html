@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project | Color Scheme Generator</title>
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/global.css" />
+    <link rel="stylesheet" href="/fonts.css" />
+    <link rel="stylesheet" href="/utils.css" />
+    <link rel="stylesheet" href="/navigation.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script type="module" src="script.js" defer></script>
+    <script type="module" src="../script.js" defer></script>
+  </head>
+
+  <body>
+    <nav class="main-nav">
+      <ul class="main-nav__list">
+        <li><a href="/" class="main-nav__links">Home</a></li>
+        <li>
+          <a href="/projects/" class="main-nav__links">Projects</a>
+        </li>
+        <li><a href="/about/" class="main-nav__links">About</a></li>
+      </ul>
+    </nav>
+
+    <section class="hero-area">
+      <h1 class="title">Color Scheme Generator</h1>
+      <hr />
+
+      <div class="color-form-wrapper">
+        <form class="color-form" id="form-clr-input" action="#">
+          <input type="color" id="color-input" value="#f55a5a" />
+
+          <div class="select-wrapper">
+            <select id="color-values">
+              <option value="monochrome">Monochrome</option>
+              <option value="monochrome-dark">Monochrome-dark</option>
+              <option value="monochrome-light">Monochrome-light</option>
+              <option value="analogic">Analogic</option>
+              <option value="complement">Complement</option>
+              <option value="analogic-complement">Analogic-complement</option>
+              <option value="triad">Triad</option>
+              <option value="quad">Quad</option>
+            </select>
+          </div>
+
+          <button type="submit" id="color-btn">Get Color Scheme</button>
+        </form>
+
+        <div class="color-container">
+          <div>
+            <p>#f55a5a</p>
+          </div>
+          <div>
+            <p>#2b283a</p>
+          </div>
+          <div>
+            <p>#fbf3ab</p>
+          </div>
+          <div>
+            <p>#aad1b6</p>
+          </div>
+          <div>
+            <p>#a626d3</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="bottom-text">Tip: Click on Color to Copy</p>
+    </section>
+
+    <div id="tooltip" aria-disabled="true">Copied!</div>
+  </body>
+</html>

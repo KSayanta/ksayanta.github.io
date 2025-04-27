@@ -23,25 +23,24 @@
   appearance: textfield;
 }
 
-/* Call to Action Button */
-.cta-btn {
-  color: var(--highlight-color);
-  background-color: var(--primary-color);
-  cursor: pointer;
-  border: 2px solid #111;
-  border-radius: 10px;
-}
+/**
+* Animation @keyframes
+*/
 
-.cta-btn:hover {
-  background-color: var(--highlight-color);
-  color: var(--primary-color);
-}
+@keyframes slideUpandFade {
+  0% {
+    transform: translateY(0%);
+    opacity: 0;
+  }
 
-.cta-btn:active {
-  transform: scale(0.9);
-}
+  30%,
+  80% {
+    opacity: 1;
+    transform: translateY(-110%);
+  }
 
-.cta-btn:focus {
-  outline: none;
-  box-shadow: 0 0 10px var(--highlight-color);
+  100% {
+    opacity: 0;
+    transform: translateY(-110%);
+  }
 }

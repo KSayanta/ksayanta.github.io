@@ -1,0 +1,128 @@
+#btn-new-post {
+  display: block;
+  margin: 2em auto;
+}
+
+.blogs {
+  max-width: 90ch;
+  min-height: 70vh;
+  margin: 0 auto;
+}
+
+.post {
+  position: relative;
+  margin-bottom: 1em;
+  background-color: #333333;
+  color: #dfdfdf;
+  padding: 2em;
+  border-radius: 0.6em;
+
+  .post-heading {
+    margin-bottom: 0.8em;
+    font-size: 1.2rem;
+    letter-spacing: 0.1em;
+    line-height: 1.5;
+    text-transform: uppercase;
+
+    &::before {
+      content: "#" attr(data-id);
+      margin-right: 1em;
+      color: #bbbbbb;
+      letter-spacing: 0.2em;
+    }
+  }
+
+  .post-body {
+    line-height: 1.5;
+  }
+}
+
+.pagination {
+  padding-block: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4em;
+
+  .button {
+    cursor: pointer;
+    padding: 0.6em 0.8em;
+    border-radius: 0.4em;
+    font-size: 1.2rem;
+    border: none;
+
+    &:hover,
+    &:focus {
+      outline: 3px solid var(--secondary-color);
+      outline-offset: 0.2em;
+    }
+
+    &:active {
+      background-color: #aeaeae;
+    }
+  }
+
+  .button[aria-disabled="true"] {
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  #pageNo {
+    font-size: 1.4rem;
+  }
+}
+
+#modal-form__post {
+  background-color: hsl(from var(--primary-color) h s l / 0.85);
+  position: fixed;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+
+  .form-wrapper {
+    background-color: var(--clr-accent--alt);
+    color: var(--primary-color);
+    padding: 4em;
+    border-radius: 0.4em;
+    display: flex;
+    flex-direction: column;
+
+    label {
+      display: block;
+      font-size: 1.4rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      min-width: 420px;
+      max-width: 850px;
+      max-height: 420px;
+      font-size: 1.5rem;
+      margin-bottom: 0.8em;
+    }
+
+    button {
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      padding: 0.6em 1em;
+      text-transform: uppercase;
+    }
+
+    button.btn-cta {
+      margin-right: 2em;
+    }
+  }
+}
+
+#modal-form__post[disabled] {
+  display: none;
+}

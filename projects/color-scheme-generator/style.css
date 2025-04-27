@@ -1,0 +1,137 @@
+:root {
+  --clr-select-checked: #4f46e5;
+}
+
+.color-form-wrapper {
+  max-width: 550px;
+  margin: 0 auto;
+  border-radius: 0.4em;
+  background-color: #fff;
+}
+
+.color-form {
+  padding: 1.5em 1em;
+  isolation: isolate;
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.15);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+
+  input {
+    background-color: #e5e5e5;
+    border: 0.5px solid #313131;
+  }
+
+  select,
+  button {
+    cursor: pointer;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.05);
+    }
+  }
+
+  select {
+    appearance: none;
+    width: 100%;
+    padding: 0.5em 0.75em;
+    font-size: 1rem;
+    color: #111827;
+  }
+
+  button {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.75em;
+    color: #374151;
+  }
+
+  .select-wrapper {
+    flex: 1;
+    position: relative;
+  }
+
+  .select-wrapper::after {
+    content: url("data:image/svg+xml, %3Csvg width='20' height='20' fill='none' version='1.1' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg' %3E%3Cpath d='m17 7-7 7-7-7' stroke='%239CA3AF' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' /%3E%3C/svg%3E%0A");
+    position: absolute;
+    top: 0.5em;
+    right: 0.75em;
+    pointer-events: none;
+  }
+}
+
+.color-container {
+  display: flex;
+}
+
+.color-container > * {
+  flex: 1;
+  height: 400px;
+  cursor: pointer;
+
+  display: grid;
+  place-items: end stretch;
+
+  p {
+    color: #2b283a;
+    background-color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+
+    letter-spacing: 0.1em;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding-block: 0.8em;
+  }
+
+  &:nth-of-type(1) {
+    background-color: #f55a5a;
+  }
+  &:nth-of-type(2) {
+    background-color: #2b283a;
+  }
+  &:nth-of-type(3) {
+    background-color: #fbf3ab;
+  }
+  &:nth-of-type(4) {
+    background-color: #aad1b6;
+  }
+  &:nth-of-type(5) {
+    background-color: #a626d3;
+  }
+}
+
+.bottom-text {
+  margin-block: 1em;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--clt-txt);
+}
+
+#tooltip {
+  position: absolute;
+  pointer-events: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  background-color: #000;
+  color: #fff;
+  padding: 0.6em;
+  border-radius: 4px;
+
+  &[aria-disabled="true"] {
+    visibility: hidden;
+  }
+
+  &.animate {
+    animation-name: slideUpandFade;
+    animation-duration: 300ms;
+    animation-fill-mode: both;
+  }
+}
