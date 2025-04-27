@@ -16,7 +16,6 @@ img.active {
 }
 
 .image-container {
-  /* column-width: 300px; */
   max-width: 80%;
   margin: 0 auto;
   padding-bottom: 5em;
@@ -131,8 +130,6 @@ img.active {
 .image-lightbox__slide-area {
   position: relative;
   background: #fdf8ff;
-  /* margin: 2em auto; */
-  /* width: 90%; */
 }
 
 .image-lightbox__prev,
@@ -158,8 +155,6 @@ img.active {
   right: 0;
   border-radius: 3px 0 0 3px;
 }
-
-/* .image-lightbox__slides:not(:first-of-type) {} */
 
 .image-lightbox__slides {
   /* Display none by default */
