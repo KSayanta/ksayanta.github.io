@@ -1,7 +1,38 @@
+import { useState } from "react";
 import "./Main.css";
 import logo from "/claude.png"
 
 export default function Main() {
+
+  const [ingredients, setIngredients] = useState([])
+
+  function compList() {
+    return (
+      <div className="list inner-wrapper anim-slide">
+        <h2 className="title">Ingredients on hand:</h2>
+        <ul>{
+          ingredients.map(i => (
+            <li className="list-item">{i}</li>
+          ))
+        }
+        </ul>
+      </div>
+    )
+  }
+
+  function compFooter() {
+    return (
+      <div className="footer inner-wrapper anim-slide">
+        <h3>Ready for a recipe?</h3>
+        <p>Generate a recipe from your list of ingredients.</p>
+        <button className="btn btn-cta">Get a recipe</button>
+      </div>
+    )
+  }
+
+  function addIngredients(formData) {
+    setIngredients(prevVal => [...prevVal, formData.get("inpIngre")])
+  }
 
   return (
     <main className="wrapper">
@@ -10,33 +41,18 @@ export default function Main() {
         <span className="heading">Chef Claude</span>
       </header>
 
-      <form action="GET" className="main-form inner-wrapper">
+      <form action={addIngredients} className="main-form inner-wrapper">
         <input
           type="text"
-          id="inpIngre"
+          name="inpIngre"
           aria-label="Enter name of ingredient."
           placeholder="e.g. Oregano"
         />
         <button type="submit">Add Ingredient</button>
       </form>
 
-      <div className="list inner-wrapper">
-        <h2 className="title">Ingredients on hand:</h2>
-
-        <ul>
-          <li className="list-item">Chicken breasts</li>
-          <li className="list-item">Olive oil</li>
-          <li className="list-item">Heavy cream</li>
-          <li className="list-item">Spinach</li>
-          <li className="list-item">Most spices</li>
-        </ul>
-      </div>
-
-      <div className="footer inner-wrapper">
-        <h3>Ready for a recipe?</h3>
-        <p>Generate a recipe from your list of ingredients.</p>
-        <button className="btn btn-cta">Get a recipe</button>
-      </div>
-    </main>
+      {ingredients.length > 0 && compList()}
+      {ingredients.length > 4 && compFooter()}
+    </main >
   )
 }

@@ -79,6 +79,7 @@ main.wrapper {
     display: inline flex;
     flex-direction: column;
     flex-wrap: wrap;
+    gap: 0 2em;
   }
 
   .list-item {
@@ -105,5 +106,21 @@ div.footer {
 
   p {
     color: #444;
+  }
+}
+
+.anim-slide {
+  animation: slide-top 0.4s ease-in-out;
+}
+
+@keyframes slide-top {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 100;
   }
 }
