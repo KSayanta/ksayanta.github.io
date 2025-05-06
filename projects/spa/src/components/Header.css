@@ -1,0 +1,26 @@
+.main-nav {
+  background-color: var(--primary-color);
+}
+
+.main-nav__list {
+  min-height: 8vh;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.main-nav__links {
+  padding-inline: 2em;
+  display: inline-block;
+  color: var(--secondary-color);
+  font-size: 1.5rem;
+  line-height: 4;
+
+  &[aria-current="page"] {
+    background-color: hsl(from var(--primary-color) h s calc(l - 10));
+  }
+
+  &:hover {
+    color: var(--highlight-color);
+    text-decoration: underline;
+  }
+}

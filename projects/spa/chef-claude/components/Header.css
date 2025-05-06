@@ -1,0 +1,21 @@
+.main-header {
+  background-color: #fff;
+  color: var(--clr-txt);
+  padding: 2em;
+  box-shadow: var(--sdw-main);
+  border-radius: 8px 8px 0 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+
+  img {
+    max-width: 36px;
+  }
+
+  .heading {
+    font-size: 2rem;
+    font-weight: 800;
+  }
+}

@@ -1,0 +1,39 @@
+.user-entry {
+  overflow: scroll;
+}
+
+/* Component Styles*/
+.title {
+  margin-bottom: 1em;
+}
+
+/* List Style */
+.list {
+  list-style-type: none;
+}
+
+.list.list-inside {
+  list-style-position: inside;
+}
+
+.list.list-disc {
+  list-style-type: disc;
+}
+
+.list.list-wrap {
+  max-height: 10lh;
+  display: inline flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 0 2em;
+}
+
+/* List Item Style */
+.list-item {
+  color: #444;
+  padding: 0.4em 0.6em;
+}
+
+.list-item::marker {
+  font-weight: 700;
+}

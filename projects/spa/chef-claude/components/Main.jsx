@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { getDatafromAPI } from "../utils.js";
-import logo from "/claude.png"
-import "./Main.css";
+import { getDatafromAPI } from "/src/utils.js";
+import './Main.css'
 
 import UserInput from "./UserInput";
 import Ingredients from "./Ingredients";
@@ -25,16 +24,10 @@ export default function Main() {
 
   return (
     <main className="wrapper">
-      <section className="main-header">
-        <img src={logo} alt="chef logo" />
-        <h1 className="heading">Chef Claude</h1>
-      </section>
-
       <UserInput action={addIngredients} />
       {ingredients.length > 0 && <Ingredients ingredients={ingredients} />}
       {ingredients.length > 4 && <ActionModal ingredients={ingredients} onClick={getRecipe} />}
       {recipe && <Recipe recipe={recipe} />}
-
     </main >
   )
 }

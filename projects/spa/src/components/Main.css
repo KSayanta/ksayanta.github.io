@@ -1,0 +1,23 @@
+.title {
+  color: var(--clr-txt);
+  font-size: 3rem;
+  letter-spacing: 0.1rem;
+  padding-block: 4rem;
+  text-align: center;
+}
+
+.projects {
+  margin-top: 4em;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  text-align: center;
+
+  a {
+    font-size: 1.5rem;
+  }
+
+  a:hover {
+    font-weight: 800;
+  }
+}

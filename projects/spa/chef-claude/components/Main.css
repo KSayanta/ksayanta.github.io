@@ -1,0 +1,31 @@
+/* Main Layout */
+main.wrapper {
+  background-color: #fafaf8;
+  color: var(--clr-txt);
+  margin-block: 2em;
+  padding-bottom: 2em;
+  border-radius: 8px;
+}
+
+.inner-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding-block: 2em;
+}
+
+/* Animation */
+.anim-slide {
+  animation: slide-top 0.4s ease-in-out;
+}
+
+@keyframes slide-top {
+  0% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 100;
+  }
+}
