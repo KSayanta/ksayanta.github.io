@@ -1,6 +1,6 @@
 /* Main Layout */
 main.wrapper {
-  background-color: #fafaf8;
+  background-color: var(--clr-bg--mute);
   color: var(--clr-txt);
   margin-block: 2em;
   padding-bottom: 2em;

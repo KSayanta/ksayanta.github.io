@@ -30,7 +30,7 @@
 
 /* List Item Style */
 .list-item {
-  color: #444;
+  color: var(--clr-txt);
   padding: 0.4em 0.6em;
 }
 

@@ -1,5 +1,5 @@
 .modal {
-  background-color: #e3e3e3;
+  background-color: var(--clr-bg);
   border-radius: 8px;
   padding: 2em 3em;
   display: grid;
@@ -15,6 +15,6 @@
   }
 
   p {
-    color: #444;
+    color: var(--clr-txt);
   }
 }

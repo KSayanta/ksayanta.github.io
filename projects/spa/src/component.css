@@ -1,6 +1,6 @@
 /* Main Header */
 .main-header {
-  background-color: #fff;
+  background-color: var(--clr-bg--mute);
   color: var(--clr-txt);
   padding: 2em;
   box-shadow: var(--sdw-main);

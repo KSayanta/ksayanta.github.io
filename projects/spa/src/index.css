@@ -4,6 +4,7 @@
   --highlight-color: #ffdc7f;
 
   --clr-bg: #eaeaea;
+  --clr-bg--mute: hsl(from var(--clr-bg) h s calc(l + 5));
   --clr-txt: #222222;
 
   --clr-gradient--rad: radial-gradient(
@@ -22,6 +23,13 @@
 
   --sdw-main:
     0px 1px 3px 0px rgba(0, 0, 0, 0.1), 0px 1px 2px 0px rgba(0, 0, 0, 0.06);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --clr-bg: #222222;
+    --clr-txt: #ffffff;
+  }
 }
 
 * {

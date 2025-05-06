@@ -19,8 +19,8 @@
   button {
     padding: 0.8em 1.8em;
     cursor: pointer;
-    background-color: #222;
-    color: #fff;
+    background-color: var(--clr-txt);
+    color: var(--clr-bg--mute);
     border: none;
 
     &::before {

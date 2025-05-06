@@ -33,7 +33,7 @@
     margin-bottom: 1em;
     font-size: 1.1rem;
     line-height: 1.6;
-    color: #444;
+    color: var(--clr-txt);
   }
 
   li::marker {
