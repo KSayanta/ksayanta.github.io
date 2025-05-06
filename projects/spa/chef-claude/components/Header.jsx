@@ -1,5 +1,4 @@
 import logo from "/claude.png"
-import './Header.css'
 
 export default function Header() {
 

@@ -69,6 +69,14 @@ svg {
   fill: inherit;
 }
 
+/* Fonts classes */
+.orbitron-display {
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
 /* Utility class */
 .hide {
   display: none;
@@ -79,6 +87,7 @@ svg {
   visibility: hidden;
 }
 
+/* Layout */
 .wrapper {
   width: 100%;
   max-width: 960px;
@@ -91,78 +100,4 @@ svg {
   justify-content: var(--wrapper-justify, center);
   align-items: var(--wrapper-align, center);
   gap: var(--wrapper-gap, 1em);
-}
-
-.utils--form {
-  label {
-    background-color: var(--clr-accent);
-    color: var(--primary-color);
-    padding: 0.5em;
-    margin-bottom: 0.2em;
-    border-top-left-radius: 0.4em;
-  }
-
-  input,
-  textarea {
-    background-color: var(--clr-accent);
-    color: var(--primary-color);
-    border: none;
-    padding: 0.5em;
-    margin-bottom: 3em;
-    border-bottom-right-radius: 0.4em;
-
-    &::placeholder {
-      opacity: 0.8;
-    }
-
-    &:focus {
-      outline: 2px solid var(--clr-theme);
-    }
-  }
-}
-/* Button classes */
-.btn {
-  cursor: pointer;
-  border-radius: 8px;
-  border: none;
-
-  font-size: 1.4rem;
-  font-weight: 900;
-  letter-spacing: 0.1em;
-  padding: 0.7em 2.2em;
-
-  transition: 0.2s all;
-
-  &:hover {
-    transform: scale(1.05);
-  }
-
-  &:active {
-    transform: scale(0.95);
-  }
-
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 10px var(--highlight-color);
-  }
-}
-
-.btn-cta {
-  background: var(--clr-gradient--rad);
-  color: var(--clr-theme);
-  fill: var(--clr-theme);
-}
-
-.btn-alt {
-  background: var(--clr-accent);
-  color: var(--primary-color);
-  fill: var(--primary-color);
-}
-
-/* Fonts classes */
-.orbitron-display {
-  font-family: "Orbitron", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 600;
-  font-style: normal;
 }
