@@ -1,0 +1,30 @@
+.main-form {
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+
+  > * {
+    border-radius: 4px;
+  }
+
+  input {
+    flex: 1 1 auto;
+    padding: 0.4em 0.8em;
+    box-shadow: var(--sdw-main);
+    border: 1px solid #eaeaea;
+  }
+
+  button {
+    padding: 0.8em 1.8em;
+    cursor: pointer;
+    background-color: #222;
+    color: #fff;
+    border: none;
+
+    &::before {
+      content: "+";
+      margin-right: 0.8em;
+    }
+  }
+}

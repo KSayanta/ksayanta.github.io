@@ -7,7 +7,7 @@ export default function Ingredients({ ingredients }) {
       <h2 className="title">Ingredients on hand:</h2>
       <ul className="list list-inside list-disc list-wrap">{
         ingredients.map(i => (
-          <li className="list-item">{i}</li>
+          <li key={i} className="list-item">{i}</li>
         ))
       }
       </ul>

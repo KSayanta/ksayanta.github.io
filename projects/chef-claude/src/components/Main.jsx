@@ -3,6 +3,7 @@ import { getDatafromAPI } from "../utils.js";
 import logo from "/claude.png"
 import "./Main.css";
 
+import UserInput from "./UserInput";
 import Ingredients from "./Ingredients";
 import ActionModal from "./ActionModal";
 import Recipe from "./Recipe";
@@ -24,21 +25,12 @@ export default function Main() {
 
   return (
     <main className="wrapper">
-      <header className="main-header">
+      <section className="main-header">
         <img src={logo} alt="chef logo" />
         <h1 className="heading">Chef Claude</h1>
-      </header>
+      </section>
 
-      <form action={addIngredients} className="main-form inner-wrapper">
-        <input
-          type="text"
-          name="inpIngre"
-          aria-label="Enter name of ingredient."
-          placeholder="e.g. Oregano"
-        />
-        <button type="submit">Add Ingredient</button>
-      </form>
-
+      <UserInput action={addIngredients} />
       {ingredients.length > 0 && <Ingredients ingredients={ingredients} />}
       {ingredients.length > 4 && <ActionModal ingredients={ingredients} onClick={getRecipe} />}
       {recipe && <Recipe recipe={recipe} />}
