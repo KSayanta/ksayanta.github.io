@@ -1,5 +1,6 @@
 export async function getDatafromAPI(ingredients) {
   const url = import.meta.env.VITE_BACKEND_URL;
+  const endpoint = "/recipe";
   const jsonData = JSON.stringify({ ingredients });
 
   const opts = {
@@ -11,7 +12,9 @@ export async function getDatafromAPI(ingredients) {
   };
 
   try {
-    const { recipe } = await fetch(url, opts).then(res => res.json());
+    const { recipe } = await fetch(url + endpoint, opts).then(res =>
+      res.json()
+    );
 
     return recipe;
   } catch (error) {
