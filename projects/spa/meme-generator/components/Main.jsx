@@ -1,20 +1,13 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+import { getMemefromAPI } from '../../src/utils'
 import './Main.css'
-const url = "https://api.imgflip.com/get_memes"
 
 export default function Main() {
-  const [memeArr, setMemeArr] = useState([])
   const [meme, setMeme] = useState({
     imageUrl: "https://i.imgflip.com/1bij.jpg",
     topText: "One does not simply",
     bottomText: "Walk into Mordor",
   })
-
-  useEffect(() => {
-    fetch(url)
-      .then(res => res.json())
-      .then(data => setMemeArr(data.data.memes))
-  }, [])
 
   function handleChange(e) {
     const { value, name } = e.currentTarget
@@ -24,11 +17,11 @@ export default function Main() {
     }))
   }
 
-  function handleGetNewMeme() {
-    const newImgUrl = memeArr[Math.floor(memeArr.length * Math.random())].url
+  async function handleGetNewMeme() {
+    const newMeme = await getMemefromAPI()
     setMeme(prevMeme => ({
       ...prevMeme,
-      imageUrl: newImgUrl
+      imageUrl: newMeme.url
     }))
   }
 

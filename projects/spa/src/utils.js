@@ -24,7 +24,7 @@ export async function getDatafromAPI(ingredients) {
 }
 
 export async function getMemefromAPI() {
-  const endpoint = "/meme";
+  const endpoint = "/rand_meme";
 
   try {
     const meme = await fetch(url + endpoint).then(res => res.json());
