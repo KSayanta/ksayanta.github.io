@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { getDatafromAPI } from "/src/utils.js";
+import { getDatafromAPI } from "../../src/utils.js";
 import './Main.css'
 
 import UserInput from "./UserInput";

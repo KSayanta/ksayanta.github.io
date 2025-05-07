@@ -1,5 +1,6 @@
+const url = import.meta.env.VITE_BACKEND_URL;
+
 export async function getDatafromAPI(ingredients) {
-  const url = import.meta.env.VITE_BACKEND_URL;
   const endpoint = "/recipe";
   const jsonData = JSON.stringify({ ingredients });
 
@@ -17,6 +18,26 @@ export async function getDatafromAPI(ingredients) {
     );
 
     return recipe;
+  } catch (error) {
+    console.error(error.message);
+  }
+}
+
+export async function getMemefromAPI() {
+  const endpoint = "/meme";
+
+  try {
+    const meme = await fetch(url + endpoint).then(res => res.json());
+
+    return meme;
+  } catch (error) {
+    console.error(error.message);
+  }
+}
+
+export function pingHost() {
+  try {
+    fetch(url);
   } catch (error) {
     console.error(error.message);
   }
