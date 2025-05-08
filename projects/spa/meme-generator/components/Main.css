@@ -1,41 +1,41 @@
 .wrapper__main {
+  margin-top: 8em;
   display: grid;
-  grid-template-rows: 50px 1fr;
   grid-template-columns: repeat(12, 1fr);
 }
 
-.form,
-.meme {
-  grid-row: 2;
-}
-
 .form {
-  grid-column: 8 / -2;
+  grid-column: 8 / -1;
   place-self: start;
-  margin-block: 4em;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1em;
+  gap: 1.4em;
   width: 100%;
 
   label,
   input {
     color: var(--clt-txt);
-    background: var(--clr-bg--mute);
     font-size: 1rem;
-    padding: 1em;
-    border: 1px solid #aeaeae;
-    border-radius: 8px;
   }
 
   label {
-    grid-column: 1;
+    padding-left: 1em;
     font-weight: 600;
-    text-align: center;
-  }
+    white-space: nowrap;
+    display: grid;
+    gap: 0.8em;
+    box-shadow: -2px 0 0 0 #aeaeae;
 
-  input {
-    grid-column: 2 / -1;
+    &:focus-within {
+      box-shadow: -10px 0 0 0 #aeaeae;
+    }
+
+    input {
+      background: var(--clr-bg--mute);
+      flex: 1 1 auto;
+      padding: 1em;
+      border: 1px solid #aeaeae;
+      border-radius: 8px;
+    }
   }
 
   button {
@@ -45,26 +45,28 @@
 }
 
 .meme {
-  grid-column: 2 / span 5;
-  margin-bottom: 4em;
+  grid-column: 1 / span 5;
+  grid-row: 1;
   position: relative;
 
   img {
     margin: 0 auto;
     width: 100%;
     border: 1px solid #aeaeae;
+    object-fit: cover;
   }
 
-  span {
+  span.caption {
     position: absolute;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%) scale(1, 1.2);
-
+    transform: translate(-50%, 50%);
+    display: inline-block;
     color: #fff;
     filter: drop-shadow(0 0 2px #000);
     letter-spacing: 1px;
 
-    font-size: 2rem;
+    font-size: 1.4rem;
     font-weight: 800;
     font-family: Impact, sans-serif;
 
@@ -80,13 +82,13 @@
       0 -2px 0 #000,
       -2px 0 0 #000,
       2px 2px 5px #000;
+    cursor: grab;
   }
+}
 
-  span.top {
-    top: 20px;
-  }
-
-  span.bottom {
-    bottom: 20px;
-  }
+.overlay {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  bottom: 0;
 }
