@@ -4,27 +4,29 @@ import TextBox from "./TextBox";
 import CaptionText from './CaptionText';
 import './Main.css'
 
+let didInit = false
+
 export default function Main() {
   const [meme, setMeme] = useState({})
-
-  const [caption, setCaption] = useState({
-    text1: "",
-    text2: "",
-    text3: "",
-    text4: "",
-    text5: "",
-  })
+  const [caption, setCaption] = useState({})
 
   useEffect(() => {
-    (async () => {
-      await handleClick()
-    })() // IIFE
-
+    if (!didInit) {
+      didInit = true;
+      fetchMeme()
+    }
   }, [])
 
-  async function handleClick() {
-    const newMeme = await getMemefromAPI()
-    setMeme(newMeme)
+  function fetchMeme() {
+    getMemefromAPI()
+      .then(newMeme => {
+        let obj = {};
+        for (let i = 1; i <= newMeme.box_count; i++) {
+          obj[`text${i}`] = ""
+        }
+        setMeme(newMeme)
+        setCaption(obj)
+      })
   }
 
   return (
@@ -50,7 +52,7 @@ export default function Main() {
         <button
           className="btn btn-cta"
           aria-label="Get a new meme image"
-          onClick={handleClick}
+          onClick={fetchMeme}
         >New Meme 🖼</button>
       </section>
 
