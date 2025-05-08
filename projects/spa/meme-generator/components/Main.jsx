@@ -26,22 +26,22 @@ export default function Main() {
   }
 
   return (
-    <main className="wrapper">
+    <main className="wrapper__main">
       <section className="form">
-        <label htmlFor="topText">Top Text </label>
+        <label htmlFor="topText">Text 1</label>
         <input
           type="text"
-          placeholder="Enter top text"
+          maxLength={30}
           id="topText"
           name="topText"
           value={meme.topText}
           onChange={handleChange}
         />
 
-        <label htmlFor='bottomText'>Bottom Text</label>
+        <label htmlFor='bottomText'>Text 2</label>
         <input
           type="text"
-          placeholder="Enter bottom text"
+          maxLength={30}
           id="bottomText"
           name="bottomText"
           value={meme.bottomText}
@@ -50,10 +50,9 @@ export default function Main() {
 
         <button
           className="btn btn-cta"
+          aria-label="Get a new meme image"
           onClick={handleGetNewMeme}
-        >Get a new meme image 🖼
-        </button>
-
+        >New Meme 🖼</button>
       </section>
 
       <section className="meme">

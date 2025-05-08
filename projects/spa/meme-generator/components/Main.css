@@ -1,38 +1,58 @@
-.wrapper {
-  max-width: 800px;
+.wrapper__main {
+  display: grid;
+  grid-template-rows: 50px 1fr;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.form,
+.meme {
+  grid-row: 2;
 }
 
 .form {
+  grid-column: 8 / -2;
+  place-self: start;
   margin-block: 4em;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1em 4em;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1em;
+  width: 100%;
 
-  label {
-    grid-row: 1;
-    font-size: 1.2rem;
-    font-weight: 600;
-  }
-
+  label,
   input {
-    padding: 1em;
+    color: var(--clt-txt);
+    background: var(--clr-bg--mute);
     font-size: 1rem;
+    padding: 1em;
     border: 1px solid #aeaeae;
     border-radius: 8px;
   }
 
+  label {
+    grid-column: 1;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  input {
+    grid-column: 2 / -1;
+  }
+
   button {
-    grid-column: span 2;
+    order: -1;
+    grid-column: 1/-1;
   }
 }
 
 .meme {
+  grid-column: 2 / span 5;
   margin-bottom: 4em;
   position: relative;
 
   img {
     margin: 0 auto;
     width: 100%;
+    border: 1px solid #aeaeae;
   }
 
   span {
