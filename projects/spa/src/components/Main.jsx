@@ -1,9 +1,8 @@
-import './Main.css'
+import "./Main.css";
 
 export default function Main() {
-
   return (
-    <main className='wrapper'>
+    <main className="wrapper">
       <ul className="projects">
         <li>
           <a href="/chef-claude/">Chef Claude</a>
@@ -14,5 +13,5 @@ export default function Main() {
         </li>
       </ul>
     </main>
-  )
+  );
 }

@@ -1,7 +1,6 @@
-import './UserInput.css'
+import "./UserInput.css";
 
 export default function UserInput({ action }) {
-
   return (
     <form action={action} className="main-form inner-wrapper">
       <input
@@ -12,5 +11,5 @@ export default function UserInput({ action }) {
       />
       <button type="submit">Add Ingredient</button>
     </form>
-  )
+  );
 }

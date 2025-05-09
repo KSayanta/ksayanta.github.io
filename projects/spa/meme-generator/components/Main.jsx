@@ -22,7 +22,7 @@ export default function Main() {
     getMemefromAPI().then(newMeme => {
       let obj = {};
       for (let i = 1; i <= newMeme.box_count; i++) {
-        obj[`text${i}`] = "Sample";
+        obj[`text${i}`] = "";
       }
       setMeme(newMeme);
       setCaption(obj);
@@ -32,21 +32,11 @@ export default function Main() {
   return (
     <main className="wrapper wrapper__main">
       <section className="form">
-        {meme.box_count > 0 && (
-          <TextBox caption={caption} count={1} onChange={setCaption} />
-        )}
-        {meme.box_count > 1 && (
-          <TextBox caption={caption} count={2} onChange={setCaption} />
-        )}
-        {meme.box_count > 2 && (
-          <TextBox caption={caption} count={3} onChange={setCaption} />
-        )}
-        {meme.box_count > 3 && (
-          <TextBox caption={caption} count={4} onChange={setCaption} />
-        )}
-        {meme.box_count > 4 && (
-          <TextBox caption={caption} count={5} onChange={setCaption} />
-        )}
+        <TextBox
+          caption={caption}
+          count={meme.box_count}
+          onChange={setCaption}
+        />
 
         <button
           className="btn btn-cta"
