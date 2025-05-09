@@ -1,11 +1,16 @@
+.wrapper {
+  max-width: 1000px;
+}
+
 .wrapper__main {
   margin-top: 8em;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
+  gap: 0 4em;
 }
 
 .form {
-  grid-column: 8 / -1;
+  grid-column: 7 / -1;
   place-self: start;
   display: grid;
   gap: 1.4em;
@@ -45,7 +50,7 @@
 }
 
 .meme {
-  grid-column: 1 / span 5;
+  grid-column: 1 / span 6;
   grid-row: 1;
   position: relative;
 
@@ -57,10 +62,6 @@
   }
 
   span.caption {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, 50%);
     display: inline-block;
     color: #fff;
     filter: drop-shadow(0 0 2px #000);
@@ -87,8 +88,9 @@
 }
 
 .overlay {
+  user-select: none;
   position: absolute;
-  width: 100%;
   top: 0;
-  bottom: 0;
+  width: 100%;
+  height: 100%;
 }

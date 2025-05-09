@@ -1,9 +1,13 @@
-export default function CaptionText({ caption, count }) {
-  const arr = []
+import DragAndDrop from "./DND";
+
+export default function CaptionText({ caption, count, parentRef }) {
+  const arr = [];
   for (let i = 1; i <= count; i++) {
     arr.push(
-      <span key={i + 300} className="caption">{caption[`text${i}`]}</span>
-    )
+      <DragAndDrop key={i + 300} parentRef={parentRef}>
+        <span className="caption">{caption[`text${i}`]}</span>
+      </DragAndDrop>
+    );
   }
-  return arr
+  return arr;
 }

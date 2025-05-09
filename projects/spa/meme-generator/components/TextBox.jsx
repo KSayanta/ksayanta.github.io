@@ -1,15 +1,14 @@
 export default function TextBox({ caption, count, onChange }) {
-
   function handleChange(e) {
-    const { value, name } = e.currentTarget
+    const { value, name } = e.currentTarget;
     onChange(prevCaption => ({
       ...prevCaption,
-      [name]: value
-    }))
+      [name]: value,
+    }));
   }
 
   return (
-    <label key={`label${count}`} >
+    <label key={`label${count}`}>
       <span> Text {count} </span>
       <input
         type="text"
@@ -20,5 +19,5 @@ export default function TextBox({ caption, count, onChange }) {
         onChange={handleChange}
       />
     </label>
-  )
+  );
 }
