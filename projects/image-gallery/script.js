@@ -46,21 +46,26 @@ function weightedRandom(arg) {
   };
 }
 
-const handleJSON = function (json) {
+const handleJSON = function (jsonArr) {
   const cards = [
     { weight: 12, value: "normal" },
     { weight: 0, value: "tall" },
     { weight: 1, value: "wide" },
   ];
   const getRandomCard = weightedRandom(cards);
-  const length = json.backgrounds.length;
+  const length = jsonArr.reduce(
+    (previous, current) => previous + current.backgrounds.length,
+    0
+  );
+  let count = 0;
 
-  json.backgrounds.forEach((element, idx) => {
-    const imageURL = element.url;
-    const avatarURL = element.user.avatar_url;
-    const username = element.user.username;
+  jsonArr.forEach(json => {
+    json.backgrounds.forEach((element, idx) => {
+      const imageURL = element.url;
+      const avatarURL = element.user.avatar_url;
+      const username = element.user.username;
 
-    const imageCard = `
+      const imageCard = `
       <div class="image-card">
         <img
           ${getRandomCard()}=""
@@ -78,24 +83,25 @@ const handleJSON = function (json) {
       </div>
     `;
 
-    const imageLightBoxSlide = `
+      const imageLightBoxSlide = `
       <div class="image-lightbox__slides">
         <div class="image-lightbox__caption-wrapper">
           <p class="image-lightbox__caption">Image by ${username}</p>
           <a href="${imageURL}" target="_blank">See full image</a>
-          <p class="image-lightbox__slide-number">${idx + 1}/${length}</p>
+          <p class="image-lightbox__slide-number">${++count}/${length}</p>
         </div>
         <img src="${imageURL}" alt="" />
       </div>
     `;
 
-    const imageThumbnail = `
+      const imageThumbnail = `
       <img class="demo" src="${imageURL}" alt="" />
     `;
 
-    imageContainer.insertAdjacentHTML("beforeend", imageCard);
-    imageSlidesContainer.insertAdjacentHTML("beforeend", imageLightBoxSlide);
-    imageThumbnailsContainer.insertAdjacentHTML("beforeend", imageThumbnail);
+      imageContainer.insertAdjacentHTML("beforeend", imageCard);
+      imageSlidesContainer.insertAdjacentHTML("beforeend", imageLightBoxSlide);
+      imageThumbnailsContainer.insertAdjacentHTML("beforeend", imageThumbnail);
+    });
   });
 
   // Adding event listners in image cards
