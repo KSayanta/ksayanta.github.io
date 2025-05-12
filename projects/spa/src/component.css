@@ -35,7 +35,7 @@
   transition: 0.2s all;
 
   &:hover {
-    transform: scale(1.05);
+    box-shadow: 0 0 10px var(--highlight-color);
   }
 
   &:active {
@@ -43,8 +43,7 @@
   }
 
   &:focus {
-    outline: none;
-    box-shadow: 0 0 10px var(--highlight-color);
+    outline: 4px solid var(--highlight-color);
   }
 }
 

@@ -1,0 +1,5 @@
+.die-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(80px, 100%), 1fr));
+  gap: 2em;
+}

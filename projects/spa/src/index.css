@@ -48,6 +48,7 @@
 body {
   background-color: var(--clr-bg);
   color: var(--clr-txt);
+  height: 100vh;
   min-height: 100vh;
 }
 
@@ -108,4 +109,8 @@ svg {
   justify-content: var(--wrapper-justify, center);
   align-items: var(--wrapper-align, center);
   gap: var(--wrapper-gap, 1em);
+}
+
+div#root {
+  all: inherit;
 }
