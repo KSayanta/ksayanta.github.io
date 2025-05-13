@@ -1,5 +1,6 @@
 .die-wrapper {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(80px, 100%), 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 2em;
+  justify-content: center;
 }
