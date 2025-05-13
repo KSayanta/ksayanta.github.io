@@ -1,18 +1,18 @@
 .main {
-  min-height: 100%;
+  margin-top: 6em;
 }
 
 .canvas {
-  background-color: #aeaeae;
+  background-color: var(--clr-bg--mute);
   padding: 4em;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
-  gap: 2em;
+  gap: 4em;
 }
 
 .instructions {
-  color: var(--primary-color);
+  color: var(--clr-txt);
   text-align: center;
   font-size: 1.3rem;
   line-height: 1.5;
