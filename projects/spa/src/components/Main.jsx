@@ -5,15 +5,15 @@ export default function Main() {
     <main className="wrapper">
       <ul className="projects">
         <li>
-          <a href="../../chef-claude/">Chef Claude</a>
+          <a href="../../app/chef-claude/">Chef Claude</a>
         </li>
 
         <li>
-          <a href="../../meme-generator/">Meme Generator</a>
+          <a href="../../app/meme-generator/">Meme Generator</a>
         </li>
 
         <li>
-          <a href="../../tenzies/">Tenzies</a>
+          <a href="../../app/tenzies/">Tenzies</a>
         </li>
       </ul>
     </main>
