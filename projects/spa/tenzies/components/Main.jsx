@@ -50,7 +50,6 @@ export default function Main() {
 
   function handleNewGame() {
     setDiceArr(generateAllNewDice());
-    setGameInProgress(true);
     setTimer(0);
     setRolled(0);
   }
