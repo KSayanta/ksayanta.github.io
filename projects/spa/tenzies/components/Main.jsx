@@ -6,6 +6,9 @@ import "./Main.css";
 
 export default function Main() {
   const btnNewGameRef = useRef(null);
+  const [gameInProgress, setGameInProgress] = useState(false);
+  const [rolled, setRolled] = useState(0);
+  const [timer, setTimer] = useState(0);
   const [diceArr, setDiceArr] = useState(() => generateAllNewDice()); // Lazy State Init
 
   const gameWon =
@@ -18,11 +21,12 @@ export default function Main() {
       isHeld: false,
       value: Math.ceil(Math.random() * 6),
     });
-
     return new Array(10).fill(0).map(randDice);
   }
 
   function handleReroll() {
+    if (!gameInProgress) setGameInProgress(true);
+    setRolled(prevVal => prevVal + 1);
     setDiceArr(prevDiceArr =>
       prevDiceArr.map(dice =>
         !dice.isHeld
@@ -35,28 +39,74 @@ export default function Main() {
     );
   }
 
-  function handleReset() {
+  function handleHeld(id) {
+    if (!gameInProgress) setGameInProgress(true);
+    setDiceArr(prevDiceArr =>
+      prevDiceArr.map(dice =>
+        dice.id === id ? { ...dice, isHeld: !dice.isHeld } : dice
+      )
+    );
+  }
+
+  function handleNewGame() {
     setDiceArr(generateAllNewDice());
+    setGameInProgress(true);
+    setTimer(0);
+    setRolled(0);
   }
 
   useEffect(() => {
-    btnNewGameRef.current && btnNewGameRef.current.focus();
+    if (gameWon) {
+      btnNewGameRef.current && btnNewGameRef.current.focus();
+      setGameInProgress(false);
+    }
   }, [gameWon]);
+
+  useEffect(() => {
+    if (gameInProgress) {
+      const counter = setInterval(() => {
+        setTimer(prevTimer => prevTimer + 1);
+      }, 1000);
+
+      return () => clearInterval(counter);
+    }
+  }, [gameInProgress, timer]);
 
   return (
     <main className="main wrapper wrapper--flex">
       <section className="canvas">
-        <p className="instructions">
-          Roll until all dice are the same.<br></br> Click each die to freeze it
-          at its current value between rolls.
-        </p>
+        <div className="instructions" aria-live="polite">
+          {gameWon ? (
+            <p>
+              Congratulations! You won!<br></br> Press "New Game" to start
+              again.
+            </p>
+          ) : (
+            <p>
+              Roll until all dice are the same.<br></br> Click each die to
+              freeze it at its current value between rolls.
+            </p>
+          )}
+        </div>
 
-        <Dice diceArr={diceArr} setDiceArr={setDiceArr} />
+        {gameWon && (
+          <div aria-live="polite" className="score">
+            <p>You took </p>
+            <span className="time">{timer}s</span>
+            <p>
+              Rolled
+              <span className="roll"> {rolled} </span>
+              times!
+            </p>
+          </div>
+        )}
+
+        <Dice diceArr={diceArr} handleHeld={handleHeld} />
 
         {gameWon ? (
           <button
             className="btn btn-cta"
-            onClick={handleReset}
+            onClick={handleNewGame}
             ref={btnNewGameRef}
           >
             New Game
@@ -69,12 +119,6 @@ export default function Main() {
       </section>
 
       {gameWon && <Confetti />}
-
-      <div aria-live="polite" className="sr-only">
-        {gameWon && (
-          <p>Congratulations! You won! Press "New Game" to start again.</p>
-        )}
-      </div>
     </main>
   );
 }

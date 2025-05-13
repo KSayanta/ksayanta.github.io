@@ -1,15 +1,7 @@
 import Die from "./Die";
 import "./Dice.css";
 
-export default function Dice({ diceArr, setDiceArr }) {
-  function handleHeld(id) {
-    setDiceArr(prevDiceArr =>
-      prevDiceArr.map(dice =>
-        dice.id === id ? { ...dice, isHeld: !dice.isHeld } : dice
-      )
-    );
-  }
-
+export default function Dice({ diceArr, handleHeld }) {
   return (
     <div className="die-wrapper">
       {diceArr.map(die => (

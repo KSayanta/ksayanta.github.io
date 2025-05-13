@@ -7,11 +7,11 @@ import Ingredients from "./Ingredients";
 import ActionModal from "./ActionModal";
 import Recipe from "./Recipe";
 
-const testArr = ["noodles", "eggs", "pasta", "tomato paste", "butter"];
+// const testArr = ["noodles", "eggs", "pasta", "tomato paste", "butter"];
 
 export default function Main() {
   const recipeRef = useRef(null);
-  const [ingredients, setIngredients] = useState(testArr);
+  const [ingredients, setIngredients] = useState([]);
   const [recipe, setRecipe] = useState("");
 
   useEffect(() => {

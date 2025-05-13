@@ -3,12 +3,17 @@
 }
 
 .canvas {
+  position: relative;
   background-color: var(--clr-bg--mute);
   padding: 4em;
   border-radius: 8px;
   display: flex;
   flex-direction: column;
   gap: 4em;
+
+  .btn-cta {
+    align-self: center;
+  }
 }
 
 .instructions {
@@ -18,14 +23,22 @@
   line-height: 1.5;
 }
 
-.sr-only {
+.score {
   position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
+  top: 180px;
+  bottom: 150px;
+  left: 0;
+  right: 0;
+
+  background-color: var(--clr-bg--mute);
+  text-align: center;
+  font-size: 2rem;
+  line-height: 1.4;
+  padding-top: 2em;
+}
+
+.time,
+.roll {
+  color: limegreen;
+  font-weight: 800;
 }
